@@ -1,0 +1,17 @@
+#######################################
+# Syntax Coloring Map For rcTrigger
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+PWMTrigger	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+Pos	KEYWORD2
+momentaryPos	KEYWORD2
+update	KEYWORD2	
