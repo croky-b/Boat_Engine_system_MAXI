@@ -8,7 +8,7 @@ CHOIX DU MODE DE COMMUNICATION dans l'onglet General Config
 // Choose the receiver communication mode (never uncomment more than one! If all commented out = classic PWM RC signal communication)--
 // SBUS communication --------
 
-#define SBUS_COMMUNICATION // control signals are coming in via the SBUS interface (comment it out for classic RC signals)
+//#define SBUS_COMMUNICATION // control signals are coming in via the SBUS interface (comment it out for classic RC signals)
 boolean sbusInverted = false; // false = wired to NPN transistor signal inverter or uninverted SBUS signal (for example from "Micro RC" receiver)
 
 // PPM communication --------
