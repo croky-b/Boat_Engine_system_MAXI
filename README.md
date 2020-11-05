@@ -2,7 +2,7 @@
 
 Based on https://github.com/TheDIYGuy999/Rc_Engine_Sound_ESP32
 
-CHOIX DU MODE DE COMMUNICATION 
+CHOIX DU MODE DE COMMUNICATION dans l'onglet General Config 
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Choose the receiver communication mode (never uncomment more than one! If all commented out = classic PWM RC signal communication)--
