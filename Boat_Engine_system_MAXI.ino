@@ -20,8 +20,8 @@ const float codeVersion = 5.0; // Software revision.
 
 // All the required vehicle specific settings are done in Adjustments.h!
 #include "1-General_config.h"
-#include "2-Channel_config.h"
-#include "3-Sound_config.h"
+#include "2-Sound_config.h"
+#include "Setup.h"
 #include "driver/rmt.h"
 
 
@@ -971,7 +971,7 @@ void setup()
 
   // CH 2
   if (CH2_ENABLE)
-    pulseZero[ChTwo - 1] = pulseWidth[ChTwo - 1];
+    pulseZero[ElCh - 1] = pulseWidth[ElCh - 1];
   else
     pulseZero[1] = 1500;
 
@@ -985,7 +985,7 @@ void setup()
 
   // CH4
   if (CH4_ENABLE)
-    pulseZero[ChFour - 1] = pulseWidth[ChFour - 1];
+    pulseZero[AilCh - 1] = pulseWidth[AilCh - 1];
   else
     pulseZero[3] = 1500;
 
@@ -1120,10 +1120,10 @@ void readRcSignals()
 
   // CH2
   if (!CH2_ENABLE)
-    pulseWidth[ChTwo - 1] = 1500;
+    pulseWidth[ElCh - 1] = 1500;
 
   if (!CH4_ENABLE)
-    pulseWidth[ChFour - 1] = 1500;
+    pulseWidth[AilCh - 1] = 1500;
 
   // CH5
   if (!CH5_ENABLE)
@@ -1192,8 +1192,7 @@ void readSbusCommands()
     pulseWidth[9] = map(SBUSchannels[9], 172, 1811, 1000, 2000);
     pulseWidth[10] = map(SBUSchannels[10], 172, 1811, 1000, 2000);
     pulseWidth[11] = map(SBUSchannels[11], 172, 1811, 1000, 2000);
-    pulseWidth[12] = map(SBUSchannels[12], 172, 1811, 1000, 2000);
-    pulseWidth[13] = map(SBUSchannels[13], 172, 1811, 1000, 2000);
+    const boolean CH8_ENABLE = true;
 
   }
 
@@ -1230,6 +1229,69 @@ void readSbusCommands()
 
   // Falisafe for RC signals
   failsafeRcSignals();
+
+   // CH1 Steering
+  if (!CH1_ENABLE)
+    pulseWidth[steeringCh - 1] = 1500;
+
+  // CH2
+  if (!CH2_ENABLE)
+    pulseWidth[ElCh - 1] = 1500;
+
+  if (!CH4_ENABLE)
+    pulseWidth[AilCh - 1] = 1500;
+
+  // CH5
+  if (!CH5_ENABLE)
+
+    pulseWidth[4] = 1500;
+
+  // CH6
+  if (!CH6_ENABLE)
+
+    pulseWidth[5] = 1500;
+
+
+  if (!CH7_ENABLE)
+
+    pulseWidth[6] = 1500;
+
+  if (!CH8_ENABLE)
+
+    pulseWidth[7] = 1500;
+
+   if (!CH9_ENABLE)
+    pulseWidth[8] = 1500;  
+
+ 
+  if (!CH10_ENABLE)
+    pulseWidth[9] = 1500;
+
+
+  if (!CH11_ENABLE)
+    pulseWidth[10] = 1500;
+
+  if (!CH12_ENABLE)
+    pulseWidth[11] = 1500;
+
+
+  if (!CH13_ENABLE)
+
+    pulseWidth[12] = 1500;
+
+  
+  if (!CH14_ENABLE)
+
+    pulseWidth[13] = 1500;
+
+
+  if (!CH15_ENABLE)
+
+    pulseWidth[14] = 1500;
+
+  if (!CH16_ENABLE)
+
+    pulseWidth[15] = 1500;  
 }
 
 
@@ -1286,9 +1348,9 @@ void failsafeRcSignals()
 void trigger()
 {
   CH1.update(pulseWidth[steeringCh - 1]);
-  CH2.update(pulseWidth[ChTwo - 1]);
+  CH2.update(pulseWidth[ElCh - 1]);
   CH3.update(pulseWidth[thrustCh - 1]);
-  CH4.update(pulseWidth[ChFour - 1]);
+  CH4.update(pulseWidth[AilCh - 1]);
   CH5.update(pulseWidth[4]);
   CH6.update(pulseWidth[5]);
   CH7.update(pulseWidth[6]);
@@ -1551,9 +1613,9 @@ void engineMassSimulation()
     printMillis = millis();
 
     Serial.println(pulseWidth[steeringCh - 1]);
-    Serial.println(pulseWidth[ChTwo - 1]);
+    Serial.println(pulseWidth[ElCh - 1]);
     Serial.println(pulseWidth[thrustCh - 1]);
-    Serial.println(pulseWidth[ChFour - 1]);
+    Serial.println(pulseWidth[AilCh - 1]);
     Serial.println(pulseWidth[4]);
     Serial.println(pulseWidth[5]);
     Serial.println(pulseWidth[6]);
@@ -1900,11 +1962,11 @@ void volumeControl()
 
   if ( CH8.Pos() == 1) {
     masterVolume = MIN_VOLUME;
-    DacAudio.DacVolume = 50;
+    DacAudio.DacVolume = MIN_VOLUME;
   }
   if (CH8.Pos() == 2) {
     masterVolume = INTER_VOLUME;
-    DacAudio.DacVolume = 80;
+    DacAudio.DacVolume = (INTER_VOLUME-20);
   }
   if (CH8.Pos() == 3) {
     masterVolume = MAX_VOLUME;
