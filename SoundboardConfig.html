@@ -1,0 +1,643 @@
+
+
+<style>
+	body {
+	 background-color: gray;
+	}
+	#main{
+	width:550px;
+	margin:0 auto;
+	margin-top:0%
+	}
+	/*Bordered form*/
+	form{
+	background-color: lightblue;
+	margin:5 auto;
+	width 100%
+	padding: 10px;
+	border : 3px solid #f1f1f1;}
+	
+	}
+	
+	
+	</style>
+
+</head>
+</head>
+
+
+<div id="main">
+<body style="font-family: arial"
+
+>
+
+ 
+
+<form name="Soundata" action="">
+		
+		<h1>Croky_b Config Editor</h1>
+		Type de Communication: <br><br>
+		<select name="Communication" id="Communication" >
+
+		<option value="1">SBUS</option>
+		<option value="2">PWM</option>
+		<option value="3">PPM</option>
+		
+		</select>
+		 <br><br>
+		 
+		<class="element-separator"><hr><h3 class="section-break-title"></h3>
+		
+		Son Moteur:
+		<br>
+		<br>
+		<select name="Motor" id="Motor">
+
+		<option value="1">Small Diesel</option>
+		<option value="2">Large Diesel</option>
+		<option value="3">Turbo Diesel</option>
+		<option value="4">PT Boat</option>
+		<option value="5">Vosper Boat</option>
+		<option value="6">Diesel 120HP</option>
+		<option value="7">Diesel 180HP</option>
+		<option value="8">Diesel </option>
+		
+		</select>
+		 <br><br>
+		 
+		
+	 <input id="AirStarter" type="checkbox"  > AIR STARTER
+	<br><br>
+	
+	Air starter Sound:
+		<br>
+		<br>
+		<select name="AirStart" id="AirStart">
+
+		<option value="1">Air starter 1</option>
+		<option value="2">Air starter 2</option>
+		
+		
+		</select>
+		
+		<select name="AirStop" id="AirStop">
+
+		<option value="1">Air stop 1</option>
+		<option value="2">Air stop 2</option>
+		<option value="3">NON</option>
+		
+		
+		</select>
+		</p>	
+		 <input id="RPM" type="text" size="1" value="250" >RPM range
+		 <input id="RevRPM" type="text" size="1" value="200" >RevRPM range
+		 <input id="Acc" type="text" size="1" value="5" >Acceleration
+		 <input id="Dec" type="text" size="1" value="4" >Deceleration
+		 
+		<class="element-separator"><hr><h3 class="section-break-title"></h3>
+
+		<input id="Linear" type="checkbox"  > Mixage Lineaire
+	<br><br>
+		<input id="Mixage" type="checkbox"  > Mixage
+	<br><br>
+		<input id="InvESC" type="checkbox" checked > Inv ESC
+	<br><br>
+		
+	
+	Mixage(direction/gaz) Av/Arr:
+		<br>
+		<br>
+		<select name="Avant" id="Avant"> 
+
+		<option value="1">Mode1</option>
+		<option value="2">Mode2</option>
+		<option value="3">Mode3</option>
+		<option value="4">Mode4</option>
+		
+		
+		</select>
+		
+		<select name="Arriere" id="Arriere">
+
+		<option value="1">Mode1</option>
+		<option value="2">Mode2</option>
+		<option value="3">Mode3</option>
+		
+		
+		</select>
+		
+		</p>
+		
+		 
+		<class="element-separator"><hr><h3 class="section-break-title"></h3>	
+		 
+		<select name="GAZ" id="GAZ" >
+		<option value="1">Channel 1</option>
+		<option value="2">Channel 2</option>
+		<option selected value="3">Channel 3</option>
+		<option value="4">Channel 4</option>
+		 </select>
+		 
+		 Gaz: </p>
+		 <select name="PROFONDEUR" id="PROFONDEUR">
+
+		<option value="1">Channel 1</option>
+		<option selected value="2">Channel 2</option>
+		<option value="3">Channel 3</option>
+		<option value="4">Channel 4</option>
+		 </select>
+		 
+		 
+		 Profondeur: </p>
+		 <select name="AILLERONS" id="AILLERONS">
+
+		<option selected value="1">Channel 1</option>
+		<option value="2">Channel 2</option>
+		<option value="3">Channel 3</option>
+		<option  value="4">Channel 4</option>
+		 </select>
+		 
+		 
+		 Aillerons : </p>
+		 <select name="DERIVE" id="DERIVE">
+
+		<option value="1">Channel 1</option>
+		<option value="2">Channel 2</option>
+		<option value="3">Channel 3</option>
+		<option selected value="4">Channel 4</option>
+		 </select>
+		 
+		 Derive (Direction): </p>
+		 </p>
+		 
+		<input id="INV" type="checkbox"  > Inversion Ch derive
+	<br><br>
+	<class="element-separator"><hr><h3 class="section-break-title"></h3>			 
+	
+		 <input type="checkbox" id="Channel1" Checked > Channel 1<input type="checkbox" id="Channel5" > Channel 5<input type="checkbox" id="Channel9" > Channel 9  <input type="checkbox" id="Channel13"> Channel 13<br>
+		 <input type="checkbox" id="Channel2" Checked> Channel 2<input type="checkbox" id="Channel6" > Channel 6<input type="checkbox" id="Channel10"> Channel 10<input type="checkbox" id="Channel14"> Channel 14<br>
+		 <input type="checkbox" id="Channel3" Checked> Channel 3<input type="checkbox" id="Channel7" > Channel 7<input type="checkbox" id="Channel11"> Channel 11<input type="checkbox" id="Channel15"> Channel 15<br>
+		 <input type="checkbox" id="Channel4" Checked> Channel 4<input type="checkbox" id="Channel8"> Channel 8<input type="checkbox" id="Channel12"> Channel 12<input type="checkbox" id="Channel16"> Channel 16<br>
+		 </p>
+		 </p>
+		   
+	<class="element-separator"><hr><h3 class="section-break-title"></h3>		
+		Engine ON/OFF</p>
+		 </p>
+	    <select name="EngineOn/Off" id="EngineOn/Off" >
+		<option selected value="1">Manuel</option>
+		<option value="2">Auto</option>
+		
+		 </select>
+		 <input id="EngineOn/OffCh" type="text" size="1" value="2" >CH
+		 </p>
+		    </p>
+		<input id="MotorTime" type="text" size="2" value="15" >Motor Off Time
+		<input id="LightTime" type="text" size="2" value="10" >Light Off Time
+		<input id="RadarTime" type="text" size="2" value="15" >Radar Off Time		
+	<class="element-separator"><hr><h3 class="section-break-title"></h3>		
+		Volume Control (CH8) </p>
+		 </p>
+	    <select name="Volume" id="Volume" >
+		<option selected value="1">ON</option>
+		<option value="2">OFF</option>
+		
+		 </select>	 
+		<input id="VolMIN" type="text" size="3" value="50" > MIN
+		<input id="VolINT" type="text" size="3" value="100" >INT
+		<input id="VolMAX" type="text" size="3" value="150" >MAX	
+		 
+	<class="element-separator"><hr><h3 class="section-break-title"></h3>
+	
+	
+
+  
+		<p>Output:</p>
+	
+			
+				<textarea name="Link_output" rows="5" cols="60" style="width: 450px;"></textarea>	
+				</p>		
+                <button type="button" name="Create" onclick="Convert()">Create Setup File</button>
+		        <button type="button" onclick="download()">Save</button>
+				</p>			    
+			</form>
+      <p>
+       
+      </p>   
+</div>
+
+<script type="text/javascript">
+<!--
+ 
+	
+    function Convert() {	
+			var Communication = document.getElementById("Communication").value;
+			var Sound = document.getElementById("Motor").value;
+			var AirStarter = document.getElementById("AirStarter").checked;
+			var AirStartSound = document.getElementById("AirStart").value;
+			var AirStopSound = document.getElementById("AirStop").value;
+			var Gaz = document.getElementById("GAZ").value;
+			var Prof = document.getElementById("PROFONDEUR").value;
+			var Ail = document.getElementById("AILLERONS").value;
+			var Der = document.getElementById("DERIVE").value;
+			var Channel1 = document.getElementById("Channel1").checked;
+			var Channel2 = document.getElementById("Channel2").checked;
+			var Channel3 = document.getElementById("Channel3").checked;
+			var Channel4 = document.getElementById("Channel4").checked;
+			var Channel5 = document.getElementById("Channel5").checked;
+			var Channel6 = document.getElementById("Channel6").checked;
+			var Channel7 = document.getElementById("Channel7").checked;
+			var Channel8 = document.getElementById("Channel8").checked;
+			var Channel9 = document.getElementById("Channel9").checked;
+			var Channel9 = document.getElementById("Channel9").checked;
+			var Channel10 = document.getElementById("Channel10").checked;
+			var Channel11 = document.getElementById("Channel11").checked;
+			var Channel12 = document.getElementById("Channel12").checked;
+			var Channel13 = document.getElementById("Channel13").checked;
+			var Channel14 = document.getElementById("Channel14").checked;
+			var Channel15 = document.getElementById("Channel15").checked;
+			var Channel16 = document.getElementById("Channel16").checked;
+			var EngineOnOff = document.getElementById("EngineOn/Off").value;
+			var EngineOnOffCh = document.getElementById("EngineOn/OffCh").value;
+			var Volume= document.getElementById("Volume").value;
+			var VolINT= document.getElementById("VolINT").value;
+			var VolMIN= document.getElementById("VolMIN").value;
+			var VolMAX= document.getElementById("VolMAX").value;
+			var Av= document.getElementById("Avant").value;
+			var Arr= document.getElementById("Arriere").value;
+			var Linear= document.getElementById("Linear").checked;
+			var InvESC= document.getElementById("InvESC").checked;
+			var Mixage= document.getElementById("Mixage").checked;
+			var INV= document.getElementById("INV").checked;
+			var RPM= document.getElementById("RPM").value;
+			var RevRPM= document.getElementById("RevRPM").value;
+			var Acc= document.getElementById("Acc").value;
+			var Dec= document.getElementById("Dec").value;
+			var LightTime= document.getElementById("LightTime").value;
+			var MotorTime= document.getElementById("MotorTime").value;
+			var RadarTime= document.getElementById("RadarTime").value;
+			
+			
+			
+			
+			
+			
+		
+
+
+			var Text = "";
+			
+			if( Mixage==true){
+			Text += "const boolean STERRING_MOD = true;\r\n";
+			}
+			else{Text += "const boolean STERRING_MOD = false;\r\n";}
+			
+			if( INV==true){
+			Text += "const boolean STERRING_DIR = true;\r\n";
+			}
+			else{Text += "const boolean STERRING_DIR = false;\r\n";}
+			
+			Text += "#define NUM_OF_CHL 8 \r\n";
+			Text += "#define NUM_OF_AVG 1  \r\n";
+					
+			if(Communication == "1"){
+			Text += "#define SBUS_COMMUNICATION\r\n";
+			Text += "boolean sbusInverted = false;\r\n";}
+			
+			if(Communication == "3"){
+			Text += "#define PPM_COMMUNICATION\r\n";
+			
+			}
+			
+			Text += "uint32_t MAX_RPM_PERCENTAGE ="+ RPM +";\r\n";
+			Text += "uint32_t MAX_REV_RPM_PERCENTAGE ="+ RevRPM +";\r\n";
+			Text += "const int8_t acc ="+ Acc +";\r\n";
+			Text += "const int8_t dec ="+ Dec +";\r\n";
+			Text += "volatile int startVolumePercentage = 100;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;;\r\n";
+			Text += "volatile int engineIdleVolumePercentage = 40;\r\n";
+			Text += "volatile int fullThrottleVolumePercentage = 100;\r\n";
+			Text += "volatile int stopVolumePercentage = 100;\r\n";
+			Text += "volatile int revVolumePercentage = 100;\r\n";
+			Text += "volatile int engineRevVolumePercentage = 50;\r\n";
+			Text += "volatile const uint16_t revSwitchPoint = 150;\r\n";
+			Text += "volatile const uint16_t idleEndPoint = 400;\r\n";
+			Text += "volatile const uint16_t idleVolumeProportionPercentage = 80;\r\n";
+			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
+			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			
+			
+			if(Sound == "1"){
+			Text += "#include \"sounds/boat/smal diesel start.h\"\r\n";
+			Text += "#include \"sounds/boat/smal diesel idle.h\"\r\n";
+			Text += "#define ENGINE_STOP\r\n";
+			Text += "#include \"sounds/boat/Small_diesel_stop.h\"\r\n";
+			
+			}
+			
+			if(Sound == "2"){
+			Text += "#include \"sounds/boat/large diesel start.h\"\r\n";
+			Text += "#include \"sounds/boat/large diesel idle.h\"\r\n";
+			Text += "#define ENGINE_STOP\r\n";
+			Text += "#include \"sounds/boat/Large_diesel_stop.h\"\r\n";
+			}
+			
+			if(Sound == "3"){
+			Text += "#include \"sounds/boat/turbo diesel start.h\"\r\n";
+			Text += "#include \"sounds/boat/turbo diesel idle.h\"\r\n";
+			Text += "#define ENGINE_STOP\r\n";
+			Text += "#include \"sounds/boat/turbo_diesel_stop.h\"\r\n";
+			}
+			
+			if(Sound == "4"){
+			Text += "#include \"sounds/boat/PT_BOAT_START.h\"\r\n";
+			Text += "#include \"sounds/boat/PT_BOAT_IDLE.h\"\r\n";
+			Text += "#define ENGINE_STOP\r\n";
+			Text += "#include \"sounds/boat/PT_BOAT_STOP.h\"\r\n";
+			Text += "#define SLOW\r\n";
+			Text += "#include \"sounds/boat/PT_BOAT_SLOW.h\"\r\n";
+			}
+			
+			if(Sound == "5"){
+			Text += "#include \"sounds/boat/PT_BOAT_START.h\"\r\n";
+			Text += "#include \"sounds/boat/PT_BOAT_IDLE.h\"\r\n";
+			Text += "#define ENGINE_STOP\r\n";
+			Text += "#include \"sounds/boat/PT_BOAT_STOP.h\"\r\n";
+			Text += "#define SLOW\r\n";
+			Text += "#include \"sounds/boat/PT_BOAT_SLOW.h\"\r\n";
+			Text += "#define REV_SOUND\r\n";
+			Text += "#include \"sounds/boat/vosper turbine idleRev.h\"\r\n";
+			}
+			
+			if(Sound == "6"){
+			Text += "#include \"sounds/boat/diesel 120HP Start.h\"\r\n";
+			Text += "#include \"sounds/boat/sounds/boat/diesel 120HP Idle.h\"\r\n";
+						
+			}
+			
+			if(Sound == "7"){
+			Text += "#include \"sounds/boat/diesel 180HP Start.h\"\r\n";
+			Text += "#include \"sounds/boat/sounds/boat/diesel 180HP Idle.h\"\r\n";
+						
+			}
+			
+			if(Sound == "8"){
+			Text += "#include \"sounds/boat/Diesel_start.h\"\r\n";
+			Text += "#include \"sounds/boat/Diesel_idle.h\"\r\n";
+			Text += "#define ENGINE_STOP\r\n";
+			Text += "#include \"sounds/boat/Diesel_stop.h\"\r\n";
+			}
+			
+			
+			if(AirStarter == true){
+			Text += "#define AIR_STARTER \r\n";
+			
+			
+				if (AirStartSound==1){
+				Text += "#include \"sounds/boat/AIR_STARTER.h\"\r\n";
+				
+				}
+				if (AirStartSound==2){
+				Text += "#include \"sounds/boat/AIR_STARTER2.h\"\r\n";
+				}
+				
+				if (AirStopSound==1){
+				Text += "#include \"sounds/boat/AIR_STOP.h\"\r\n";
+				
+				}
+				if (AirStopSound==2){
+				Text += "#include \"sounds/boat/AIR_STOP2.h\"\r\n";
+				
+				}
+				if (AirStopSound==3){
+				Text += "#include \"sounds/boat/AIR_STOP_DUMMY.h\"\r\n";
+				
+				}
+                           				
+			}
+			
+			
+			if(Av == "1"){
+			Text += "#define MODE_FORWARD_1\r\n";
+			}
+			if(Av == "2"){
+			Text += "#define MODE_FORWARD_2\r\n";
+			}
+			if(Av == "3"){
+			Text += "#define MODE_FORWARD_3\r\n";
+			}
+			if(Av == "4"){
+			Text += "#define MODE_FORWARD_4\r\n";
+			}
+			
+			if(Arr == "1"){
+			Text += "#define MODE_BACKWARD_1\r\n";
+			}
+			if(Arr == "2"){
+			Text += "#define MODE_BACKWARD_2\r\n";
+			}
+			if(Arr == "3"){
+			Text += "#define MODE_BACKWARD_3\r\n";
+			}
+			
+						
+			if( Linear==true){
+			Text += "const boolean LINEAR = true;\r\n";
+			Text += "const boolean LINEAR_REV = true;\r\n";
+			}
+			else{Text += "const boolean LINEAR = false;\r\n";
+			Text += "const boolean LINEAR_REV = false;\r\n";}
+			
+			if( InvESC==true){
+			Text += "const boolean ESC_INV = true;\r\n";
+			}
+			else{Text += "const boolean ESC_INV = false;\r\n";}
+			
+					
+			
+			
+			if(Gaz=="1"){
+			Text += "const uint8_t thrustCh = 1;\r\n";
+			
+			}
+			if(Gaz=="2"){
+			Text += "const uint8_t thrustCh = 2;\r\n";
+			
+			}
+			if(Gaz=="3"){
+			Text += "const uint8_t thrustCh = 3;\r\n";
+			
+			}
+			if(Gaz=="4"){
+			Text += "const uint8_t thrustCh = 4;\r\n";
+			
+			}
+			
+			if(Prof=="1"){
+			Text += "const uint8_t ElCh= 1;\r\n";
+			
+			}
+			if(Prof=="2"){
+			Text += "const uint8_t ElCh= 2;\r\n";
+			
+			}
+			if(Prof=="3"){
+			Text += "const uint8_t ElCh= 3;\r\n";
+			
+			}
+			if(Prof=="4"){
+			Text += "const uint8_t ElCh= 4;\r\n";
+			
+			}
+			
+			if(Ail=="1"){
+			Text += "const uint8_t AilCh = 1; \r\n";
+			
+			}
+			if(Ail=="2"){
+			Text += "const uint8_t AilCh = 2; \r\n";
+			
+			}
+			if(Ail=="3"){
+			Text += "const uint8_t AilCh = 3; \r\n";
+			
+			}
+			if(Ail=="4"){
+			Text += "const uint8_t AilCh = 4; \r\n";
+			
+			}
+			
+			if(Der=="1"){
+			Text += "const uint8_t steeringCh = 1; \r\n";
+			
+			}
+			if(Der=="2"){
+			Text += "const uint8_t steeringCh = 2; \r\n";
+			
+			}
+			if(Der=="3"){
+			Text += "const uint8_t steeringCh = 3; \r\n";
+			
+			}
+			if(Der=="4"){
+			Text += "const uint8_t steeringCh = 4; \r\n";
+			
+			}
+			
+			
+			
+			if(Channel1 == true){
+			Text += "const boolean CH1_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH1_ENABLE = false;   \r\n";}
+			
+			if(Channel2 == true){
+			Text += "const boolean CH2_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH2_ENABLE = false;   \r\n";}
+
+			if(Channel3 == true){
+			Text += "const boolean CH3_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH3_ENABLE = false;   \r\n";}
+			
+			if(Channel4 == true){
+			Text += "const boolean CH4_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH4_ENABLE = false;   \r\n";}
+			
+			if(Channel5 == true){
+			Text += "const boolean CH5_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH5_ENABLE = false;   \r\n";}
+			
+			if(Channel6 == true){
+			Text += "const boolean CH6_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH6_ENABLE = false;   \r\n";}
+			
+			if(Channel7 == true){
+			Text += "const boolean CH7_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH7_ENABLE = false;   \r\n";}
+			
+			if(Channel8 == true){
+			Text += "const boolean CH8_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH8_ENABLE = false;   \r\n";}
+			
+			
+			if(Channel9 == true){
+			Text += "const boolean CH9_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH9_ENABLE = false;   \r\n";}
+			
+			if(Channel10 == true){
+			Text += "const boolean CH10_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH10_ENABLE = false;   \r\n";}
+			
+			if(Channel11 == true){
+			Text += "const boolean CH11_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH11_ENABLE = false;   \r\n";}
+			
+			if(Channel12 == true){
+			Text += "const boolean CH12_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH12_ENABLE = false;   \r\n";}
+			
+			if(Channel13 == true){
+			Text += "const boolean CH13_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH13_ENABLE = false;   \r\n";}
+			
+			if(Channel14 == true){
+			Text += "const boolean CH14_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH14_ENABLE = false;   \r\n";}
+			
+			if(Channel15 == true){
+			Text += "const boolean CH15_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH15_ENABLE = false;   \r\n";}
+			
+			if(Channel16 == true){
+			Text += "const boolean CH16_ENABLE = true;   \r\n";}
+			else{Text += "const boolean CH16_ENABLE = false;   \r\n";}
+			
+			if(EngineOnOff=="1"){
+			Text += "const boolean engineManualOnOff = true;\r\n";
+			Text += "const uint8_t chManualOnOff = "+ EngineOnOffCh +";\r\n";
+			}
+			if(EngineOnOff=="2"){
+			Text += "const boolean engineManualOnOff = false;\r\n";
+			Text += "const uint8_t chManualOnOff = "+ EngineOnOffCh +";\r\n";
+			}
+			Text += "const uint32_t enginetimeoff = "+ MotorTime +"000;\r\n";
+			Text += "const uint32_t lightstimeoff = "+ LightTime +"000;\r\n";
+			Text += "const uint32_t motortimeoff = "+ RadarTime +"000;\r\n";
+			
+			
+			if(Volume=="1"){
+			Text += "#define VOLUME_CONTROLE\r\n";
+			Text += "const uint16_t MIN_VOLUME ="+ VolMIN +";\r\n";
+			Text += "const uint16_t INTER_VOLUME ="+ VolINT +";\r\n";
+			Text += "const uint16_t MAX_VOLUME ="+ VolMAX +";\r\n";
+			}
+			if(Volume=="2"){
+			Text += "const uint16_t MIN_VOLUME ="+ VolMIN +";\r\n";
+			Text += "const uint16_t INTER_VOLUME ="+ VolINT +";\r\n";
+			Text += "const uint16_t MAX_VOLUME ="+ VolMAX +";\r\n";}
+			
+			
+			
+			document.Soundata.Link_output.value = Text ;		  	
+    }
+
+   
+                   
+function download(){
+    var text = document.Soundata.Link_output.value;
+    text = text.replace(/\n/g, "\r\n"); // To retain the Line breaks.
+    var blob = new Blob([text], { type: "text/plain"});
+    var anchor = document.createElement("a");
+    anchor.download = "Setup.h";
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.target ="_blank";
+    anchor.style.display = "none"; // just to be safe!
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+ }     
+
+//-->
+</script>
+</body>
+</html>
+
