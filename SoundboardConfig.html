@@ -39,9 +39,9 @@
 		Type de Communication: <br><br>
 		<select name="Communication" id="Communication" >
 
-		<option value="1">SBUS</option>
-		<option value="2">PWM</option>
-		<option value="3">PPM</option>
+		<option  title="SBUS jusqu'a 16 canaux" value="1">SBUS</option>
+		<option  title="PWM 8 cannaux MAX" value="2">PWM</option>
+		<option  title="PPM 8 cannaux Max" value="3">PPM</option>
 		
 		</select>
 		 <br><br>
@@ -66,7 +66,7 @@
 		 <br><br>
 		 
 		
-	 <input id="AirStarter" type="checkbox"  > AIR STARTER
+	 <input id="AirStarter" type="checkbox"   title="Ajoute le bruit d'air comprimée avant le démarrage et a l'arret du moteur"> AIR STARTER
 	<br><br>
 	
 	Air starter Sound:
@@ -84,23 +84,23 @@
 
 		<option value="1">Air stop 1</option>
 		<option value="2">Air stop 2</option>
-		<option value="3">NON</option>
+		<option title="Pas de bruit a l'arret " value="3">NON</option>
 		
 		
 		</select>
 		</p>	
-		 <input id="RPM" type="text" size="1" value="250" >RPM range
-		 <input id="RevRPM" type="text" size="1" value="200" >RevRPM range
-		 <input id="Acc" type="text" size="1" value="5" >Acceleration
-		 <input id="Dec" type="text" size="1" value="4" >Deceleration
+		 <input title="200 vehicule lent 400 pour un vehicule rapide, MAX 400" id="RPM" type="text" size="1" value="250" >RPM range
+		 <input title="200 vehicule lent 400 pour un vehicule rapide MAX 400"id="RevRPM" type="text" size="1" value="200" >RevRPM range
+		 <input title="1 vehicule lent 9 pour un vehicule rapide MAX 9"id="Acc" type="text" size="1" value="5" >Acceleration
+		 <input title="1 vehicule lent 9 pour un vehicule rapide MAX 9"id="Dec" type="text" size="1" value="4" >Deceleration
 		 
 		<class="element-separator"><hr><h3 class="section-break-title"></h3>
 
-		<input id="Linear" type="checkbox"  > Mixage Lineaire
+		<input title="Active le Mixage Gaz/Direction" id="Mixage" type="checkbox"  > Mixage 
 	<br><br>
-		<input id="Mixage" type="checkbox"  > Mixage
+		<input title=" active= Mixage lineaire / sinon mixage proportionel ( plus la vitesse est importante moins le mixage est fort) "id="Linear" type="checkbox"  > Mixage Lineaire
 	<br><br>
-		<input id="InvESC" type="checkbox" checked > Inv ESC
+		<input title="Inverse la sortie de l'ESC" id="InvESC" type="checkbox" checked > Inv ESC
 	<br><br>
 		
 	
@@ -109,19 +109,19 @@
 		<br>
 		<select name="Avant" id="Avant"> 
 
-		<option value="1">Mode1</option>
-		<option value="2">Mode2</option>
-		<option value="3">Mode3</option>
-		<option value="4">Mode4</option>
+		<option title="Pas d'inversion des moteurs "value="1">Mode1</option>
+		<option title="Inversion des moteurs possible"value="2">Mode2</option>
+		<option title="Mode grande manoevrabilité ( TUG MODE)"value="3">Mode3</option>
+		<option title="Mode Special VOSPER, basse vitesse 1 moteur , haute vitesse 3 moteurs "value="4">Mode4</option>
 		
 		
 		</select>
 		
 		<select name="Arriere" id="Arriere">
 
-		<option value="1">Mode1</option>
-		<option value="2">Mode2</option>
-		<option value="3">Mode3</option>
+		<option title=" Mixage avec vitesse limité " value="1">Mode1</option>
+		<option title=" Mixage sans limitation de vitesse " value="2">Mode2</option>
+		<option title="Mode vosper 1 ESC en marche arriere " value="3">Mode3</option>
 		
 		
 		</select>
@@ -132,52 +132,52 @@
 		<class="element-separator"><hr><h3 class="section-break-title"></h3>	
 		 
 		<select name="GAZ" id="GAZ" >
-		<option value="1">Channel 1</option>
-		<option value="2">Channel 2</option>
-		<option selected value="3">Channel 3</option>
-		<option value="4">Channel 4</option>
+		<option title="Canal 1 pour les gaz"value="1">Channel 1</option>
+		<option title="Canal 2 pour les gaz"value="2">Channel 2</option>
+		<option title="Canal 3 pour les gaz"selected value="3">Channel 3</option>
+		<option title="Canal 4 pour les gaz"value="4">Channel 4</option>
 		 </select>
 		 
 		 Gaz: </p>
 		 <select name="PROFONDEUR" id="PROFONDEUR">
 
-		<option value="1">Channel 1</option>
-		<option selected value="2">Channel 2</option>
-		<option value="3">Channel 3</option>
-		<option value="4">Channel 4</option>
+		<option title="Canal 1 pour la profondeur "value="1">Channel 1</option>
+		<option title="Canal 2 pour la profondeur "selected value="2">Channel 2</option>
+		<option title="Canal 3 pour la profondeur "value="3">Channel 3</option>
+		<option title="Canal 4 pour la profondeur "value="4">Channel 4</option>
 		 </select>
 		 
 		 
 		 Profondeur: </p>
 		 <select name="AILLERONS" id="AILLERONS">
 
-		<option selected value="1">Channel 1</option>
-		<option value="2">Channel 2</option>
-		<option value="3">Channel 3</option>
-		<option  value="4">Channel 4</option>
+		<option title="Canal 1 pour les Aillerons "selected value="1">Channel 1</option>
+		<option title="Canal 2 pour les Aillerons "value="2">Channel 2</option>
+		<option title="Canal 3 pour les Aillerons "value="3">Channel 3</option>
+		<option title="Canal 4 pour les Aillerons "value="4">Channel 4</option>
 		 </select>
 		 
 		 
 		 Aillerons : </p>
 		 <select name="DERIVE" id="DERIVE">
 
-		<option value="1">Channel 1</option>
-		<option value="2">Channel 2</option>
-		<option value="3">Channel 3</option>
-		<option selected value="4">Channel 4</option>
+		<option title="Canal 1 pour la direction "value="1">Channel 1</option>
+		<option title="Canal 2 pour la direction "value="2">Channel 2</option>
+		<option title="Canal 3 pour la direction "value="3">Channel 3</option>
+		<option title="Canal 4 pour la direction "selected value="4">Channel 4</option>
 		 </select>
 		 
 		 Derive (Direction): </p>
 		 </p>
-		 
-		<input id="INV" type="checkbox"  > Inversion Ch derive
+		  
+		<input title="Inversion de la direction" id="INV" type="checkbox"  > Inversion Ch derive
 	<br><br>
 	<class="element-separator"><hr><h3 class="section-break-title"></h3>			 
 	
-		 <input type="checkbox" id="Channel1" Checked > Channel 1<input type="checkbox" id="Channel5" > Channel 5<input type="checkbox" id="Channel9" > Channel 9  <input type="checkbox" id="Channel13"> Channel 13<br>
-		 <input type="checkbox" id="Channel2" Checked> Channel 2<input type="checkbox" id="Channel6" > Channel 6<input type="checkbox" id="Channel10"> Channel 10<input type="checkbox" id="Channel14"> Channel 14<br>
-		 <input type="checkbox" id="Channel3" Checked> Channel 3<input type="checkbox" id="Channel7" > Channel 7<input type="checkbox" id="Channel11"> Channel 11<input type="checkbox" id="Channel15"> Channel 15<br>
-		 <input type="checkbox" id="Channel4" Checked> Channel 4<input type="checkbox" id="Channel8"> Channel 8<input type="checkbox" id="Channel12"> Channel 12<input type="checkbox" id="Channel16"> Channel 16<br>
+		 <input type="checkbox" id="Channel1" Checked title="Si cochée voie active, sinon désactivée " > Channel 1<input type="checkbox" id="Channel5"title="Si cochée voie active, sinon désactivée " > Channel 5<input type="checkbox" id="Channel9" title="Si cochée voie active, sinon désactivée "> Channel 9  <input type="checkbox" id="Channel13"title="Si cochée voie active, sinon désactivée "> Channel 13<br>
+		 <input type="checkbox" id="Channel2" Checked title="Si cochée voie active, sinon désactivée "> Channel 2<input type="checkbox" id="Channel6"title="Si cochée voie active, sinon désactivée "  > Channel 6<input type="checkbox" id="Channel10"title="Si cochée voie active, sinon désactivée "> Channel 10<input type="checkbox" id="Channel14"title="Si cochée voie active, sinon désactivée "> Channel 14<br>
+		 <input type="checkbox" id="Channel3" Checked title="Si cochée voie active, sinon désactivée "> Channel 3<input type="checkbox" id="Channel7" title="Si cochée voie active, sinon désactivée "> Channel 7<input type="checkbox" id="Channel11"title="Si cochée voie active, sinon désactivée "> Channel 11<input type="checkbox" id="Channel15"title="Si cochée voie active, sinon désactivée "> Channel 15<br>
+		 <input type="checkbox" id="Channel4" Checked title="Si cochée voie active, sinon désactivée " > Channel 4<input type="checkbox" id="Channel8"title="Si cochée voie active, sinon désactivée "> Channel 8<input type="checkbox" id="Channel12"title="Si cochée voie active, sinon désactivée "> Channel 12<input type="checkbox" id="Channel16"title="Si cochée voie active, sinon désactivée "> Channel 16<br>
 		 </p>
 		 </p>
 		   
@@ -185,16 +185,16 @@
 		Engine ON/OFF</p>
 		 </p>
 	    <select name="EngineOn/Off" id="EngineOn/Off" >
-		<option selected value="1">Manuel</option>
-		<option value="2">Auto</option>
+		<option title="demarge et extinction commander par une voie de l'emeteur" selected value="1">Manuel</option>
+		<option title="demarge automatique des que le gaz sont actionné et extinction après qq secondes en neutre" value="2">Auto</option>
 		
 		 </select>
 		 <input id="EngineOn/OffCh" type="text" size="1" value="2" >CH
 		 </p>
 		    </p>
-		<input id="MotorTime" type="text" size="2" value="15" >Motor Off Time
-		<input id="LightTime" type="text" size="2" value="10" >Light Off Time
-		<input id="RadarTime" type="text" size="2" value="15" >Radar Off Time		
+		<input title="Temps en seconde avant extinction du moteur ( en zone neutre)" id="MotorTime" type="text" size="2" value="15" >Motor Off Time
+		<input title="Temps en seconde après l'extinction du moteur pour que les lampes s'eteignent " id="LightTime" type="text" size="2" value="10" >Light Off Time
+		<input title="Temps en seconde après l'extinction du moteur pour que le radar  s'eteigne " id="RadarTime" type="text" size="2" value="15" >Radar Off Time		
 	<class="element-separator"><hr><h3 class="section-break-title"></h3>		
 		Volume Control (CH8) </p>
 		 </p>
@@ -314,7 +314,7 @@
 			Text += "const int8_t acc ="+ Acc +";\r\n";
 			Text += "const int8_t dec ="+ Dec +";\r\n";
 			Text += "volatile int startVolumePercentage = 100;\r\n";
-			Text += "volatile int idleVolumePercentage = 100;;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;\r\n";
 			Text += "volatile int engineIdleVolumePercentage = 40;\r\n";
 			Text += "volatile int fullThrottleVolumePercentage = 100;\r\n";
 			Text += "volatile int stopVolumePercentage = 100;\r\n";
