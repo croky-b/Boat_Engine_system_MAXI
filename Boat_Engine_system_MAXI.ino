@@ -1,16 +1,14 @@
 
 /* RC engine sound & LED controller for Arduino ESP32. Written by TheDIYGuy999
     Based on the code for ATmega 328: https://github.com/TheDIYGuy999/Rc_Engine_Sound
-    modified for boat by croky_b ( more sounds, 3 esc control )
+    modified for boat by croky_b for boat
 
  *  ***** ESP32 CPU frequency must be set to 240MHz! *****
 
-   Sound files converted with: https://bitluni.net/wp-content/uploads/2018/01/Audio2Header.html
-   converter code by bitluni (send him a high five, if you like the code)
-
+   
 */
 
-const float codeVersion = 5.0; // Software revision.
+const float codeVersion = 5.2; // Software revision.
 
 //
 // =======================================================================================================
@@ -18,10 +16,10 @@ const float codeVersion = 5.0; // Software revision.
 // =======================================================================================================
 //
 
-// All the required vehicle specific settings are done in Adjustments.h!
+
 #include "1-General_config.h"
 #include "2-Sound_config.h"
-#include "Setup.h"
+#include "3-Setup.h"
 #include "driver/rmt.h"
 
 
@@ -44,8 +42,8 @@ const float codeVersion = 5.0; // Software revision.
 // Libraries (you have to install all of them)
 #include <statusLED.h> // https://github.com/TheDIYGuy999/statusLED <<------- Install the newest version!
 #include <SBUS.h>     // https://github.com/TheDIYGuy999/SBUS you need to install my fork of this library!
-#include <SparkFunSX1509.h>
-#include <SlowMotionServo.h>
+#include <SparkFunSX1509.h> //use my fork of this library (modified version)
+#include <SlowMotionServo.h>//use my fork of this library (modified version)
 #include <Servo_MCPWM.h>
 #include <PWMTrigger.h>
 #include "XT_DAC_Audio.h"
@@ -99,6 +97,18 @@ Servo ESC1;
 Servo ESC2;
 Servo ESC3;
 
+PWMTrigger Action1;
+PWMTrigger Action2;
+PWMTrigger Action3;
+PWMTrigger Action4;
+PWMTrigger Action5;
+PWMTrigger Action6;
+PWMTrigger Action7;
+PWMTrigger Action8;
+PWMTrigger Action9;
+PWMTrigger Action10;
+PWMTrigger VolumeCh;
+
 PWMTrigger CH1;
 PWMTrigger CH2;
 PWMTrigger CH3;
@@ -139,7 +149,7 @@ statusLED Led_builtin(false);
 
 
 // Define global variables
-
+static uint32_t curEngineSample2; 
 volatile int16_t masterVolume = 100;
 volatile boolean   Init = false;
 volatile boolean   one = false;
@@ -161,6 +171,24 @@ volatile boolean engineRevving    = false;      // Active, if engine is revving
 volatile boolean engineSlow    = false;      // Active, if engine is revving
 volatile boolean Limited = false;               // active if limited reverse is required
 
+volatile boolean Maneuvre = false;
+volatile boolean Avertissement = false;
+volatile boolean Fog = false;
+volatile boolean Fishing = false;
+volatile boolean Mouillage = false;
+static unsigned long SoundMillis;
+static unsigned long BellMillis;
+static unsigned long GunMillis;
+
+volatile boolean Fog_Led = false;
+volatile boolean Fishing_Led = false;
+volatile boolean Action10_Led = false;
+volatile boolean Alarm_Led = false;
+volatile boolean Alarm_Sound = false;
+volatile boolean LightManualOn = false;
+
+
+volatile boolean Manoeuvre_Led = false;
 volatile boolean machinGunFlash = false;
 volatile boolean cannonFlash = false;
 volatile boolean GunServo = false;
@@ -276,7 +304,7 @@ volatile uint32_t variableTimerTicks = maxSampleInterval;
 
 void IRAM_ATTR variablePlaybackTimer()
 {
-
+ 
   static uint32_t curStarterStopSample;
   static uint32_t curStopSample;
   static uint32_t curStarterSample;
@@ -293,7 +321,6 @@ void IRAM_ATTR variablePlaybackTimer()
   static uint16_t speedPercentage;              // slows the engine down during shutdown
   static int32_t  a, a1, a2, a3, b, b1, c, d;               // Input signals for mixer: a = engine, b = additional sound, c = turbo sound, d = fan sound
   uint8_t a1Multi;
-
   // portENTER_CRITICAL_ISR(&variableTimerMux);
 
   switch (engineState)
@@ -655,6 +682,7 @@ void IRAM_ATTR variablePlaybackTimer()
 
 
   //portEXIT_CRITICAL_ISR(&variableTimerMux);
+
 }
 
 //
@@ -769,6 +797,7 @@ void setup()
 
   Led.begin(SX1509_ADDRESS);
   Led.clock(INTERNAL_CLOCK_2MHZ, 4);
+  
   Led.pinMode(0, OUTPUT);
   Led.digitalWrite(0, LOW);
 
@@ -1143,6 +1172,38 @@ void readRcSignals()
   if (!CH8_ENABLE)
 
     pulseWidth[7] = 1500;
+    
+if (!CH9_ENABLE)
+    pulseWidth[8] = 1500;
+    
+ if (!CH10_ENABLE)
+    pulseWidth[9] = 1500;
+
+  // CH2
+  if (!CH11_ENABLE)
+    pulseWidth[10] = 1500;
+
+  if (!CH12_ENABLE)
+    pulseWidth[11] = 1500;
+
+  // CH5
+  if (!CH13_ENABLE)
+
+    pulseWidth[12] = 1500;
+
+  // CH6
+  if (!CH14_ENABLE)
+
+    pulseWidth[13] = 1500;
+
+
+  if (!CH15_ENABLE)
+
+    pulseWidth[14] = 1500;
+
+  if (!CH16_ENABLE)
+
+    pulseWidth[15] = 1500;   
 
 
   if (pulseWidth[thrustCh - 1] == 0) failSafe = true; // 0, if timeout (signal loss)
@@ -1180,20 +1241,71 @@ void readSbusCommands()
     // Proportional channels
 
 
-    pulseWidth[0] = map(SBUSchannels[0], 172, 1811, 1000, 2000);
-    pulseWidth[1] = map(SBUSchannels[1], 172, 1811, 1000, 2000);
-    pulseWidth[2] = map(SBUSchannels[2], 172, 1811, 1000, 2000);
-    pulseWidth[3] = map(SBUSchannels[3], 172, 1811, 1000, 2000) ;
-    pulseWidth[4] = map(SBUSchannels[4], 172, 1811, 1000, 2000);
-    pulseWidth[5] = map(SBUSchannels[5], 172, 1811, 1000, 2000);
-    pulseWidth[6] = map(SBUSchannels[6], 172, 1811, 1000, 2000);
-    pulseWidth[7] = map(SBUSchannels[7], 172, 1811, 1000, 2000);
-    pulseWidth[8] = map(SBUSchannels[8], 172, 1811, 1000, 2000);
-    pulseWidth[9] = map(SBUSchannels[9], 172, 1811, 1000, 2000);
-    pulseWidth[10] = map(SBUSchannels[10], 172, 1811, 1000, 2000);
-    pulseWidth[11] = map(SBUSchannels[11], 172, 1811, 1000, 2000);
-    const boolean CH8_ENABLE = true;
+    if (CH1_ENABLE){
+    pulseWidth[0] = map(SBUSchannels[0], 172, 1811, 1000, 2000);}
+    else pulseWidth[0] =1500;
 
+    if (CH2_ENABLE){
+    pulseWidth[1] = map(SBUSchannels[1], 172, 1811, 1000, 2000);}
+    else pulseWidth[1] =1500;
+
+    if (CH3_ENABLE){
+    pulseWidth[2] = map(SBUSchannels[2], 172, 1811, 1000, 2000);}
+    else pulseWidth[2] =1500;
+
+    if (CH4_ENABLE){
+    pulseWidth[3] = map(SBUSchannels[3], 172, 1811, 1000, 2000);}
+    else pulseWidth[3] =1500;
+
+    if (CH5_ENABLE){
+    pulseWidth[4] = map(SBUSchannels[4], 172, 1811, 1000, 2000);}
+    else pulseWidth[4] =1500;
+
+    if (CH6_ENABLE){
+    pulseWidth[5] = map(SBUSchannels[5], 172, 1811, 1000, 2000);}
+    else pulseWidth[5] =1500;
+
+    if (CH7_ENABLE){
+    pulseWidth[6] = map(SBUSchannels[6], 172, 1811, 1000, 2000);}
+    else pulseWidth[6] =1500;
+
+    if (CH8_ENABLE){
+    pulseWidth[7] = map(SBUSchannels[7], 172, 1811, 1000, 2000);}
+    else pulseWidth[7] =1500;
+
+    if (CH9_ENABLE){
+    pulseWidth[8] = map(SBUSchannels[8], 172, 1811, 1000, 2000);}
+    else pulseWidth[8] =1500;
+
+    if (CH10_ENABLE){
+    pulseWidth[9] = map(SBUSchannels[9], 172, 1811, 1000, 2000);}
+    else pulseWidth[9] =1500;
+
+    if (CH11_ENABLE){
+    pulseWidth[10] = map(SBUSchannels[10], 172, 1811, 1000, 2000);}
+    else pulseWidth[10] =1500;
+
+    if (CH12_ENABLE){
+    pulseWidth[11] = map(SBUSchannels[11], 172, 1811, 1000, 2000);}
+    else pulseWidth[11] =1500;
+
+    if (CH13_ENABLE){
+    pulseWidth[12] = map(SBUSchannels[12], 172, 1811, 1000, 2000);}
+    else pulseWidth[12] =1500;
+
+    if (CH14_ENABLE){
+    pulseWidth[13] = map(SBUSchannels[13], 172, 1811, 1000, 2000);}
+    else pulseWidth[13] =1500;
+
+    if (CH15_ENABLE){
+    pulseWidth[14] = map(SBUSchannels[14], 172, 1811, 1000, 2000);}
+    else pulseWidth[14] =1500;
+
+    if (CH16_ENABLE){
+    pulseWidth[15] = map(SBUSchannels[15], 172, 1811, 1000, 2000);}
+    else pulseWidth[15] =1500;
+    
+   
   }
 
   // Failsafe triggering (works, if SBUS wire is unplugged, but SBUSfailSafe signal from the receiver is untested!)
@@ -1230,68 +1342,7 @@ void readSbusCommands()
   // Falisafe for RC signals
   failsafeRcSignals();
 
-   // CH1 Steering
-  if (!CH1_ENABLE)
-    pulseWidth[steeringCh - 1] = 1500;
-
-  // CH2
-  if (!CH2_ENABLE)
-    pulseWidth[ElCh - 1] = 1500;
-
-  if (!CH4_ENABLE)
-    pulseWidth[AilCh - 1] = 1500;
-
-  // CH5
-  if (!CH5_ENABLE)
-
-    pulseWidth[4] = 1500;
-
-  // CH6
-  if (!CH6_ENABLE)
-
-    pulseWidth[5] = 1500;
-
-
-  if (!CH7_ENABLE)
-
-    pulseWidth[6] = 1500;
-
-  if (!CH8_ENABLE)
-
-    pulseWidth[7] = 1500;
-
-   if (!CH9_ENABLE)
-    pulseWidth[8] = 1500;  
-
- 
-  if (!CH10_ENABLE)
-    pulseWidth[9] = 1500;
-
-
-  if (!CH11_ENABLE)
-    pulseWidth[10] = 1500;
-
-  if (!CH12_ENABLE)
-    pulseWidth[11] = 1500;
-
-
-  if (!CH13_ENABLE)
-
-    pulseWidth[12] = 1500;
-
   
-  if (!CH14_ENABLE)
-
-    pulseWidth[13] = 1500;
-
-
-  if (!CH15_ENABLE)
-
-    pulseWidth[14] = 1500;
-
-  if (!CH16_ENABLE)
-
-    pulseWidth[15] = 1500;  
 }
 
 
@@ -1361,6 +1412,17 @@ void trigger()
   CH12.update(pulseWidth[11]);
   CH13.update(pulseWidth[12]);
   CH14.update(pulseWidth[13]);
+  Action1.update(pulseWidth[ACTION1CH-1]);
+  Action2.update(pulseWidth[ACTION2CH-1]);
+  Action3.update(pulseWidth[ACTION3CH-1]);
+  Action4.update(pulseWidth[ACTION4CH-1]);
+  Action5.update(pulseWidth[ACTION5CH-1]); 
+  Action6.update(pulseWidth[ACTION6CH-1]);
+  Action7.update(pulseWidth[ACTION7CH-1]);
+  Action8.update(pulseWidth[ACTION8CH-1]);  
+  Action9.update(pulseWidth[ACTION9CH-1]); 
+  Action10.update(pulseWidth[ACTION10CH-1]);   
+  VolumeCh.update(pulseWidth[VOLUMECH-1]);
 
 
 
@@ -1605,31 +1667,60 @@ void engineMassSimulation()
     Serial.println(mappedThrottle);
   }
 #endif
-
-
 #ifdef PULSWIDTH_DEBUG
   if (millis() - printMillis > 300)     // Print the data every 300ms
   {
     printMillis = millis();
-
-    Serial.println(pulseWidth[steeringCh - 1]);
-    Serial.println(pulseWidth[ElCh - 1]);
-    Serial.println(pulseWidth[thrustCh - 1]);
-    Serial.println(pulseWidth[AilCh - 1]);
-    Serial.println(pulseWidth[4]);
-    Serial.println(pulseWidth[5]);
-    Serial.println(pulseWidth[6]);
-    Serial.println(pulseWidth[7]);
-    Serial.println(pulseWidth[8]);
-    Serial.println(pulseWidth[9]);
-    Serial.println(pulseZero[2]);
-    Serial.println( pulseMaxNeutral[2]);
-    Serial.println(currentRpm);
-    Serial.println( Long_blast.TimeElapsed  );
-
+  if (Init){
+  Serial.print("SOUNDBOARD START = OK");}
+  else{Serial.print("SOUNDBOARD START = WAIT!!");}
+  Serial.println(" ");  
+  if(engineState==0){Serial.print("Motor = OFF");}
+  
+  else if (engineState==1){Serial.print("Motor = AIRSTART");}
+  else if (engineState==2){Serial.print("Motor = START");}
+  else if (engineState==3){Serial.print("Motor = ON");}
+  else if (engineState==4){Serial.print("Motor = SHUTDOWN");}
+  Serial.println(" ");
+  
+  Serial.print("DERIVE :");
+  Serial.println(pulseWidth[steeringCh - 1]);
+    
+  Serial.print("PROFONDEUR :");
+  Serial.println(pulseWidth[ElCh - 1]);
+    
+  Serial.print("GAZ :");
+  Serial.println(pulseWidth[thrustCh - 1]);
+    
+  Serial.print("AILLERONS :");
+  Serial.println(pulseWidth[AilCh - 1]);
+  Serial.print("CH5 :");
+  Serial.println(pulseWidth[4]);
+  Serial.print("CH6 :");
+  Serial.println(pulseWidth[5]);
+  Serial.print("CH7 :");
+  Serial.println(pulseWidth[6]);
+  Serial.print("CH8 :");
+  Serial.println(pulseWidth[7]);
+  Serial.print("CH9 :");
+  Serial.println(pulseWidth[8]);
+  Serial.print("CH10 :");
+  Serial.println(pulseWidth[9]);
+  Serial.print("CH11 :");
+  Serial.println(pulseWidth[10]);
+  Serial.print("CH12 :");
+  Serial.println(pulseWidth[11]);
+  Serial.print("");
+  Serial.println(Short_blast.TimeElapsed );
+  Serial.println(Long_blast.TimeElapsed );
+  Serial.println(Manoeuvre_Led);
+  
+  
+    
     Serial.println("");
   }
-#endif
+#endif  
+
 }
 
 //
@@ -1648,10 +1739,11 @@ void engineOnOff()
     // detect Engine switch on/off  trigger CH 2
     if (pulseWidth[chManualOnOff - 1] > (pulseMaxNeutral[chManualOnOff - 1] + 180) && pulseWidth[chManualOnOff - 1] < pulseMaxLimit[chManualOnOff - 1])
     {
+      if (! Avertissement){
       engineOn = true;
       MotorOn  = true;
       TimerOn  = false;
-      lightsOn = true;
+      lightsOn = true;}
     }
 
     else if (pulseWidth[chManualOnOff - 1] < (pulseMinNeutral[chManualOnOff - 1] - 180) && pulseWidth[chManualOnOff - 1] > pulseMinLimit[chManualOnOff - 1])
@@ -1943,9 +2035,25 @@ void Initialisation() {
     Init = true;
     one = true;
     //Led_builtin.on();
-    DacAudio.Play(&Short_blast, false);
-  }
 
+    switch (StartSound) {
+    case 0:
+    
+    break;
+
+    case 1:
+    DacAudio.Play(&Short_blast, false);
+    break;
+
+    case 2:
+    DacAudio.Play(&Bell, false);
+    break;
+
+    case 3:
+    DacAudio.Play(&Start, false);
+    break;
+  }
+  }
 
 }
 
@@ -1960,15 +2068,15 @@ void volumeControl()
 
 #ifdef VOLUME_CONTROLE
 
-  if ( CH8.Pos() == 1) {
+  if ( VolumeCh.Pos() == 1) {
     masterVolume = MIN_VOLUME;
     DacAudio.DacVolume = MIN_VOLUME;
   }
-  if (CH8.Pos() == 2) {
+  if (VolumeCh.Pos() == 2) {
     masterVolume = INTER_VOLUME;
     DacAudio.DacVolume = (INTER_VOLUME-20);
   }
-  if (CH8.Pos() == 3) {
+  if (VolumeCh.Pos() == 3) {
     masterVolume = MAX_VOLUME;
     DacAudio.DacVolume = 100;
   }
@@ -2010,17 +2118,17 @@ void loop()
   readRcSignals();
 
 #endif
-  // sound triggering
-  triggerSound();
-
-  // stering modificator
+ 
   steering();
   trigger();
+  Action();
+
 
   Initialisation();
 
   volumeControl();
 
+  DacAudio.FillBuffer();
 
 }
 
@@ -2063,8 +2171,11 @@ void Task1code(void *pvParameters)
 
     Servos();
 
+    triggerSound();
 
-    DacAudio.FillBuffer();
+   
+
+   
 
 
 

@@ -9,19 +9,18 @@
 // =======================================================================================================
 //
 
-#include "sounds/boat/AuxSound/Short_blast.h"
-#include "sounds/boat/AuxSound/Long_blast.h"
-#include "sounds/boat/AuxSound/bell.h"
-#include "sounds/boat/AuxSound/Gun.h"
-#include "sounds/boat/AuxSound/AA_Gun_L.h"
-#include "sounds/boat/AuxSound/Alarm.h"
+#include "sounds/boat/AuxSound/Start.h"
+XT_Wav_Class Start(Start_Data);
+//#include "sounds/boat/AuxSound/Alarm2.h"
+//XT_Wav_Class Alarm2(Alarm2_Data);
 
-XT_Wav_Class Short_blast(Short_b);
-XT_Wav_Class Long_blast(Long_b);
-XT_Wav_Class Bell(Bell_);
-XT_Wav_Class Gun(Gun_);
-XT_Wav_Class  AA_Gun_L(AA_Gun_L_Data);
-XT_Wav_Class Alarm(Alarm_Data);
+#include "sounds/boat/AuxSound/ancre.h"
+XT_Wav_Class Ancre(Ancre_Data);
+//DacAudio.Play(&Ancre);
+
+#include "sounds/boat/AuxSound/Alarm3.h"
+XT_Wav_Class Alarm3(Alarm3_Data);
+
 XT_Sequence_Class Sequence1;
 XT_Sequence_Class Sequence2;
 XT_Sequence_Class Sequence3;
@@ -33,6 +32,11 @@ XT_Sequence_Class Sequence8;
 XT_Sequence_Class Sequence10;
 XT_Sequence_Class Sequence11;
 XT_Sequence_Class Sequence12;
+XT_Sequence_Class Sequence13;
+XT_Sequence_Class Sequence14;
+XT_Sequence_Class Sequence15;
+XT_Sequence_Class Sequence16;
+
 
 
 

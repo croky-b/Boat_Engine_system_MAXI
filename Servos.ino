@@ -10,12 +10,9 @@ void Servos()
 
 { if ( Init) {
 
-    if (CH9.Pos() == 2) {
+    
 
-
-    }
-
-    if (monServo1.isStopped() && CH9.Pos() == 3) {
+    if (monServo1.isStopped() && Action7.Pos() == ACTION7ON) {
       monServo1.goTo(1.0);
 
       if (monServo1.isStopped() && monServo2.isStopped() ) {
@@ -31,7 +28,7 @@ void Servos()
 
 
 
-    else if (monServo2.isStopped() && monServo3.isStopped() && CH9.Pos() == 2)
+    else if (monServo2.isStopped() && monServo3.isStopped() && Action7.Pos() == ACTION7OFF)
     { GunServo = false;
       monServo3.goTo(0.5);
 
@@ -48,7 +45,7 @@ void Servos()
 
     }
 
-    else if (monServo3.isStopped() && CH9.Pos() == 1) {
+    else if (monServo3.isStopped() && Action6.Pos() == ACTION6ON) {
       monServo3.goTo(1.0);
       if (monServo3.isStopped()) {
         monServo3.goTo(0.0);
