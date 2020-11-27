@@ -1,8 +1,3 @@
-
-volatile boolean AncreBas = false;
-volatile boolean AncreStop = false;
-
-
 void Action() {
   // ACTION1= PECHE
   if (Action1.Pos() == ACTION1ON) {
@@ -26,31 +21,6 @@ void Action() {
   if (Action2.Pos() == ACTION2ON) {
     Mouillage = true;
   }
-
-   if (Action2.momentaryPos() == ACTION2NA) {
-  }
-  if (Action2.Pos() == ACTION2OFF) {
-    if (AncreBas &&  AncreStop){
-       DacAudio.Play(&Ancre);
-       if(Ancre.Playing==false){
-        AncreBas=false;
-        AncreStop=true;
-       }
-    }
-  }
-  if (Action2.momentaryPos() == ACTION2ON) {
-
-  if (!AncreBas &&  AncreStop){
-             DacAudio.Play(&Ancre);
-              if(Ancre.Playing==false){
-               AncreStop= true;
-               AncreBas = true;    
-               }
-   }
-  }
-
-
-  
   ////////////////////////////////////
   //ACTION3= FOG
   if (Action3.Pos() == ACTION3NA) {
@@ -120,10 +90,12 @@ void Action() {
 
  if (Action8.momentaryPos() == ACTION8ON) {
       Alarm_Sound = true;
-	  
+	  #ifdef ALARMSOUND1
 	  Alarm.RepeatForever = true;
       DacAudio.Play(&Alarm, true);
-	  
+	  #elif ALARMSOUND2
+	  #elif ALARMSOUND3
+	  #endif
     }
  if (Action8.momentaryPos() == ACTION8NA) {
 

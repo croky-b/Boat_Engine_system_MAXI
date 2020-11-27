@@ -108,7 +108,6 @@ PWMTrigger Action8;
 PWMTrigger Action9;
 PWMTrigger Action10;
 PWMTrigger VolumeCh;
-
 PWMTrigger CH1;
 PWMTrigger CH2;
 PWMTrigger CH3;
@@ -1412,6 +1411,7 @@ void trigger()
   CH12.update(pulseWidth[11]);
   CH13.update(pulseWidth[12]);
   CH14.update(pulseWidth[13]);
+  
   Action1.update(pulseWidth[ACTION1CH-1]);
   Action2.update(pulseWidth[ACTION2CH-1]);
   Action3.update(pulseWidth[ACTION3CH-1]);
