@@ -3,101 +3,365 @@
 // =======================================================================================================
 
 void led() {
+
+
+  if (Fishing_Led && lightsOn ) {
+                
+                #ifdef ACTION1_1
+                Led.On(0);
+                #endif
+                #ifdef ACTION1_2
+                Led.On(1);
+                #endif
+                #ifdef ACTION1_3
+                Led.On(2);
+                #endif
+                #ifdef ACTION1_4
+                Led.On(3);
+                #endif
+                #ifdef ACTION1_5
+                Led.On(4);
+                #endif
+                #ifdef ACTION1_6
+                Led.On(5);
+                #endif
+                #ifdef ACTION1_7
+                Led.On(6);
+                #endif
+                #ifdef ACTION1_8
+                Led.On(7);
+                #endif
+                #ifdef ACTION1_9
+                Led.On(8);
+                #endif
+                #ifdef ACTION1_10
+                Led.On(9);
+                #endif
+                #ifdef ACTION1_11
+                Led.On(12);
+                #endif
+                #ifdef ACTION1_12
+                Led.On(13);
+                #endif
+                #ifdef ACTION1_13
+                Led.On(14);
+                #endif
+                #ifdef ACTION1_14
+                Led.On(15);
+                #endif
+                #ifdef ACTION1_FLASH_1
+                Led.blink(0, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_2
+                Led.blink(1, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_3
+                Led.blink(2, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_4
+                Led.blink(3, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_5
+                Led.blink(4, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_6
+                Led.blink(5, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_7
+                Led.blink(6, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_8
+                Led.blink(7, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_9
+                Led.blink(8, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_10
+                Led.blink(9, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_11
+                Led.blink(12, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_12
+                Led.blink(13, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_13
+                Led.blink(14, ONTIME_1, OFFTIME_1);
+                #endif
+                #ifdef ACTION1_FLASH_14
+                Led.blink(14, ONTIME_1, OFFTIME_1);
+                #endif
+                
+            }
+            else {
+                
+                #ifdef ACTION1_1
+                Led.Off(0);
+                #endif
+                #ifdef ACTION1_2
+                Led.Off(1);
+                #endif
+                #ifdef ACTION1_3
+                Led.Off(2);
+                #endif
+                #ifdef ACTION1_4
+                Led.Off(3);
+                #endif
+                #ifdef ACTION1_5
+                Led.Off(4);
+                #endif
+                #ifdef ACTION1_6
+                Led.Off(5);
+                #endif
+                #ifdef ACTION1_7
+                Led.Off(6);
+                #endif
+                #ifdef ACTION1_8
+                Led.Off(7);
+                #endif
+                #ifdef ACTION1_9
+                Led.Off(8);
+                #endif
+                #ifdef ACTION1_10
+                Led.Off(9);
+                #endif
+                #ifdef ACTION1_11
+                Led.Off(12);
+                #endif
+                #ifdef ACTION1_12
+                Led.Off(13);
+                #endif
+                #ifdef ACTION1_13
+                Led.Off(14);
+                #endif
+                #ifdef ACTION1_14
+                Led.Off(15);
+                #endif
+                #ifdef ACTION1_FLASH_1
+                Led.blinkStop(0);
+                #endif
+                #ifdef ACTION1_FLASH_2
+                Led.blinkStop(1);
+                #endif
+                #ifdef ACTION1_FLASH_3
+                Led.blinkStop(2);
+                #endif
+                #ifdef ACTION1_FLASH_4
+                Led.blinkStop(3);
+                #endif
+                #ifdef ACTION1_FLASH_5
+                Led.blinkStop(4);
+                #endif
+                #ifdef ACTION1_FLASH_6
+                Led.blinkStop(5);
+                #endif
+                #ifdef ACTION1_FLASH_7
+                Led.blinkStop(6);
+                #endif
+                #ifdef ACTION1_FLASH_8
+                Led.blinkStop(7);
+                #endif
+                #ifdef ACTION1_FLASH_9
+                Led.blinkStop(8);
+                #endif
+                #ifdef ACTION1_FLASH_10
+                Led.blinkStop(9);
+                #endif
+                #ifdef ACTION1_FLASH_11
+                Led.blinkStop(12);
+                #endif
+                #ifdef ACTION1_FLASH_12
+                Led.blinkStop(13);
+                #endif
+                #ifdef ACTION1_FLASH_13
+                Led.blinkStop(14);
+                #endif
+                #ifdef ACTION1_FLASH_14
+                Led.blinkStop(14);
+                #endif
+                
+            }
+
+    if (Fog_Led && lightsOn ) {
+                
+                #ifdef ACTION3_1
+                Led.On(0);
+                #endif
+                #ifdef ACTION3_2
+                Led.On(1);
+                #endif
+                #ifdef ACTION3_3
+                Led.On(2);
+                #endif
+                #ifdef ACTION3_4
+                Led.On(3);
+                #endif
+                #ifdef ACTION3_5
+                Led.On(4);
+                #endif
+                #ifdef ACTION3_6
+                Led.On(5);
+                #endif
+                #ifdef ACTION3_7
+                Led.On(6);
+                #endif
+                #ifdef ACTION3_8
+                Led.On(7);
+                #endif
+                #ifdef ACTION3_9
+                Led.On(8);
+                #endif
+                #ifdef ACTION3_10
+                Led.On(9);
+                #endif
+                #ifdef ACTION3_11
+                Led.On(12);
+                #endif
+                #ifdef ACTION3_12
+                Led.On(13);
+                #endif
+                #ifdef ACTION3_13
+                Led.On(14);
+                #endif
+                #ifdef ACTION3_14
+                Led.On(15);
+                #endif
+                #ifdef ACTION3_FLASH_1
+                Led.blink(0, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_2
+                Led.blink(1, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_3
+                Led.blink(2, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_4
+                Led.blink(3, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_5
+                Led.blink(4, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_6
+                Led.blink(5, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_7
+                Led.blink(6, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_8
+                Led.blink(7, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_9
+                Led.blink(8, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_10
+                Led.blink(9, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_11
+                Led.blink(12, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_12
+                Led.blink(13, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_13
+                Led.blink(14, ONTIME_3, OFFTIME_3);
+                #endif
+                #ifdef ACTION3_FLASH_14
+                Led.blink(14, ONTIME_3, OFFTIME_3);
+                #endif
+                
+            }
+            else {
+                
+                #ifdef ACTION3_1
+                Led.Off(0);
+                #endif
+                #ifdef ACTION3_2
+                Led.Off(1);
+                #endif
+                #ifdef ACTION3_3
+                Led.Off(2);
+                #endif
+                #ifdef ACTION3_4
+                Led.Off(3);
+                #endif
+                #ifdef ACTION3_5
+                Led.Off(4);
+                #endif
+                #ifdef ACTION3_6
+                Led.Off(5);
+                #endif
+                #ifdef ACTION3_7
+                Led.Off(6);
+                #endif
+                #ifdef ACTION3_8
+                Led.Off(7);
+                #endif
+                #ifdef ACTION3_9
+                Led.Off(8);
+                #endif
+                #ifdef ACTION3_10
+                Led.Off(9);
+                #endif
+                #ifdef ACTION3_11
+                Led.Off(12);
+                #endif
+                #ifdef ACTION3_12
+                Led.Off(13);
+                #endif
+                #ifdef ACTION3_13
+                Led.Off(14);
+                #endif
+                #ifdef ACTION3_14
+                Led.Off(15);
+                #endif
+                #ifdef ACTION3_FLASH_1
+                Led.blinkStop(0);
+                #endif
+                #ifdef ACTION3_FLASH_2
+                Led.blinkStop(1);
+                #endif
+                #ifdef ACTION3_FLASH_3
+                Led.blinkStop(2);
+                #endif
+                #ifdef ACTION3_FLASH_4
+                Led.blinkStop(3);
+                #endif
+                #ifdef ACTION3_FLASH_5
+                Led.blinkStop(4);
+                #endif
+                #ifdef ACTION3_FLASH_6
+                Led.blinkStop(5);
+                #endif
+                #ifdef ACTION3_FLASH_7
+                Led.blinkStop(6);
+                #endif
+                #ifdef ACTION3_FLASH_8
+                Led.blinkStop(7);
+                #endif
+                #ifdef ACTION3_FLASH_9
+                Led.blinkStop(8);
+                #endif
+                #ifdef ACTION3_FLASH_10
+                Led.blinkStop(9);
+                #endif
+                #ifdef ACTION3_FLASH_11
+                Led.blinkStop(12);
+                #endif
+                #ifdef ACTION3_FLASH_12
+                Led.blinkStop(13);
+                #endif
+                #ifdef ACTION3_FLASH_13
+                Led.blinkStop(14);
+                #endif
+                #ifdef ACTION3_FLASH_14
+                Led.blinkStop(14);
+                #endif
+                
+            }
+	
+	#ifdef ACTION4_ENABLE
     
-    if (Alarm_Led) {
-        
-        #ifdef ACTION8_FLASH_1
-        Led.blink(0, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_2
-        Led.blink(1, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_3
-        Led.blink(2, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_4
-        Led.blink(3, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_5
-        Led.blink(4, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_6
-        Led.blink(5, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_7
-        Led.blink(6, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_8
-        Led.blink(7, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_9
-        Led.blink(8, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_10
-        Led.blink(9, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_11
-        Led.blink(12, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_12
-        Led.blink(13, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_13
-        Led.blink(14, ONTIME_8, OFFTIME_8);
-        #endif
-        #ifdef ACTION8_FLASH_14
-        Led.blink(14, ONTIME_8, OFFTIME_8);
-        #endif
-        
-    }
-    else {
-        
-        #ifdef ACTION8_FLASH_1
-        Led.blinkStop(0);
-        #endif
-        #ifdef ACTION8_FLASH_2
-        Led.blinkStop(1);
-        #endif
-        #ifdef ACTION8_FLASH_3
-        Led.blinkStop(2);
-        #endif
-        #ifdef ACTION8_FLASH_4
-        Led.blinkStop(3);
-        #endif
-        #ifdef ACTION8_FLASH_5
-        Led.blinkStop(4);
-        #endif
-        #ifdef ACTION8_FLASH_6
-        Led.blinkStop(5);
-        #endif
-        #ifdef ACTION8_FLASH_7
-        Led.blinkStop(6);
-        #endif
-        #ifdef ACTION8_FLASH_8
-        Led.blinkStop(7);
-        #endif
-        #ifdef ACTION8_FLASH_9
-        Led.blinkStop(8);
-        #endif
-        #ifdef ACTION8_FLASH_10
-        Led.blinkStop(9);
-        #endif
-        #ifdef ACTION8_FLASH_11
-        Led.blinkStop(12);
-        #endif
-        #ifdef ACTION8_FLASH_12
-        Led.blinkStop(13);
-        #endif
-        #ifdef ACTION8_FLASH_13
-        Led.blinkStop(14);
-        #endif
-        #ifdef ACTION8_FLASH_14
-        Led.blinkStop(14);
-        #endif
-        
-    }
-    
-    if (Manoeuvre_Led) {
+    if (Manoeuvre_Led && lightsOn) {
         
         #ifdef ACTION4_1
         Led.On(0);
@@ -189,7 +453,11 @@ void led() {
         #endif
         
     }
+	
+	#endif
     
+	
+	#ifdef ACTION6_ENABLE
     if (machinGunFlash) {
         
         #ifdef ACTION6_1
@@ -282,6 +550,11 @@ void led() {
         #endif
         
     }
+	
+	#endif
+	
+	
+	#ifdef ACTION7_ENABLE
     
     if (cannonFlash) {
         
@@ -375,6 +648,105 @@ void led() {
         #endif
         
     }
+	
+	#endif
+	
+	#ifdef ACTION8_ENABLE 
+    if (Alarm_Led) {
+        
+        #ifdef ACTION8_FLASH_1
+        Led.blink(0, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_2
+        Led.blink(1, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_3
+        Led.blink(2, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_4
+        Led.blink(3, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_5
+        Led.blink(4, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_6
+        Led.blink(5, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_7
+        Led.blink(6, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_8
+        Led.blink(7, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_9
+        Led.blink(8, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_10
+        Led.blink(9, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_11
+        Led.blink(12, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_12
+        Led.blink(13, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_13
+        Led.blink(14, ONTIME_8, OFFTIME_8);
+        #endif
+        #ifdef ACTION8_FLASH_14
+        Led.blink(14, ONTIME_8, OFFTIME_8);
+        #endif
+        
+    }
+    else {
+        
+        #ifdef ACTION8_FLASH_1
+        Led.blinkStop(0);
+        #endif
+        #ifdef ACTION8_FLASH_2
+        Led.blinkStop(1);
+        #endif
+        #ifdef ACTION8_FLASH_3
+        Led.blinkStop(2);
+        #endif
+        #ifdef ACTION8_FLASH_4
+        Led.blinkStop(3);
+        #endif
+        #ifdef ACTION8_FLASH_5
+        Led.blinkStop(4);
+        #endif
+        #ifdef ACTION8_FLASH_6
+        Led.blinkStop(5);
+        #endif
+        #ifdef ACTION8_FLASH_7
+        Led.blinkStop(6);
+        #endif
+        #ifdef ACTION8_FLASH_8
+        Led.blinkStop(7);
+        #endif
+        #ifdef ACTION8_FLASH_9
+        Led.blinkStop(8);
+        #endif
+        #ifdef ACTION8_FLASH_10
+        Led.blinkStop(9);
+        #endif
+        #ifdef ACTION8_FLASH_11
+        Led.blinkStop(12);
+        #endif
+        #ifdef ACTION8_FLASH_12
+        Led.blinkStop(13);
+        #endif
+        #ifdef ACTION8_FLASH_13
+        Led.blinkStop(14);
+        #endif
+        #ifdef ACTION8_FLASH_14
+        Led.blinkStop(14);
+        #endif
+        
+    }
+	
+	#endif
+	
     
     if (AutoLight) {
         
@@ -422,6 +794,8 @@ void led() {
             #ifdef ACTION9_14
             Led.On(15);
             #endif
+			
+			
             #ifdef ACTION9_FLASH_1
             Led.blink(0, ONTIME_9, OFFTIME_9);
             #endif
@@ -464,537 +838,8 @@ void led() {
             #ifdef ACTION9_FLASH_14
             Led.blink(14, ONTIME_9, OFFTIME_9);
             #endif
-            if (Fishing_Led) {
-                
-                #ifdef ACTION1_1
-                Led.On(0);
-                #endif
-                #ifdef ACTION1_2
-                Led.On(1);
-                #endif
-                #ifdef ACTION1_3
-                Led.On(2);
-                #endif
-                #ifdef ACTION1_4
-                Led.On(3);
-                #endif
-                #ifdef ACTION1_5
-                Led.On(4);
-                #endif
-                #ifdef ACTION1_6
-                Led.On(5);
-                #endif
-                #ifdef ACTION1_7
-                Led.On(6);
-                #endif
-                #ifdef ACTION1_8
-                Led.On(7);
-                #endif
-                #ifdef ACTION1_9
-                Led.On(8);
-                #endif
-                #ifdef ACTION1_10
-                Led.On(9);
-                #endif
-                #ifdef ACTION1_11
-                Led.On(12);
-                #endif
-                #ifdef ACTION1_12
-                Led.On(13);
-                #endif
-                #ifdef ACTION1_13
-                Led.On(14);
-                #endif
-                #ifdef ACTION1_14
-                Led.On(15);
-                #endif
-                #ifdef ACTION1_FLASH_1
-                Led.blink(0, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_2
-                Led.blink(1, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_3
-                Led.blink(2, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_4
-                Led.blink(3, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_5
-                Led.blink(4, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_6
-                Led.blink(5, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_7
-                Led.blink(6, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_8
-                Led.blink(7, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_9
-                Led.blink(8, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_10
-                Led.blink(9, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_11
-                Led.blink(12, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_12
-                Led.blink(13, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_13
-                Led.blink(14, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_14
-                Led.blink(14, ONTIME_1, OFFTIME_1);
-                #endif
-                
-            }
-            else {
-                
-                #ifdef ACTION1_1
-                Led.Off(0);
-                #endif
-                #ifdef ACTION1_2
-                Led.Off(1);
-                #endif
-                #ifdef ACTION1_3
-                Led.Off(2);
-                #endif
-                #ifdef ACTION1_4
-                Led.Off(3);
-                #endif
-                #ifdef ACTION1_5
-                Led.Off(4);
-                #endif
-                #ifdef ACTION1_6
-                Led.Off(5);
-                #endif
-                #ifdef ACTION1_7
-                Led.Off(6);
-                #endif
-                #ifdef ACTION1_8
-                Led.Off(7);
-                #endif
-                #ifdef ACTION1_9
-                Led.Off(8);
-                #endif
-                #ifdef ACTION1_10
-                Led.Off(9);
-                #endif
-                #ifdef ACTION1_11
-                Led.Off(12);
-                #endif
-                #ifdef ACTION1_12
-                Led.Off(13);
-                #endif
-                #ifdef ACTION1_13
-                Led.Off(14);
-                #endif
-                #ifdef ACTION1_14
-                Led.Off(15);
-                #endif
-                #ifdef ACTION1_FLASH_1
-                Led.blinkStop(0);
-                #endif
-                #ifdef ACTION1_FLASH_2
-                Led.blinkStop(1);
-                #endif
-                #ifdef ACTION1_FLASH_3
-                Led.blinkStop(2);
-                #endif
-                #ifdef ACTION1_FLASH_4
-                Led.blinkStop(3);
-                #endif
-                #ifdef ACTION1_FLASH_5
-                Led.blinkStop(4);
-                #endif
-                #ifdef ACTION1_FLASH_6
-                Led.blinkStop(5);
-                #endif
-                #ifdef ACTION1_FLASH_7
-                Led.blinkStop(6);
-                #endif
-                #ifdef ACTION1_FLASH_8
-                Led.blinkStop(7);
-                #endif
-                #ifdef ACTION1_FLASH_9
-                Led.blinkStop(8);
-                #endif
-                #ifdef ACTION1_FLASH_10
-                Led.blinkStop(9);
-                #endif
-                #ifdef ACTION1_FLASH_11
-                Led.blinkStop(12);
-                #endif
-                #ifdef ACTION1_FLASH_12
-                Led.blinkStop(13);
-                #endif
-                #ifdef ACTION1_FLASH_13
-                Led.blinkStop(14);
-                #endif
-                #ifdef ACTION1_FLASH_14
-                Led.blinkStop(14);
-                #endif
-                
-            }
-            
-            if (Fog_Led) {
-                
-                #ifdef ACTION3_1
-                Led.On(0);
-                #endif
-                #ifdef ACTION3_2
-                Led.On(1);
-                #endif
-                #ifdef ACTION3_3
-                Led.On(2);
-                #endif
-                #ifdef ACTION3_4
-                Led.On(3);
-                #endif
-                #ifdef ACTION3_5
-                Led.On(4);
-                #endif
-                #ifdef ACTION3_6
-                Led.On(5);
-                #endif
-                #ifdef ACTION3_7
-                Led.On(6);
-                #endif
-                #ifdef ACTION3_8
-                Led.On(7);
-                #endif
-                #ifdef ACTION3_9
-                Led.On(8);
-                #endif
-                #ifdef ACTION3_10
-                Led.On(9);
-                #endif
-                #ifdef ACTION3_11
-                Led.On(12);
-                #endif
-                #ifdef ACTION3_12
-                Led.On(13);
-                #endif
-                #ifdef ACTION3_13
-                Led.On(14);
-                #endif
-                #ifdef ACTION3_14
-                Led.On(15);
-                #endif
-                #ifdef ACTION3_FLASH_1
-                Led.blink(0, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_2
-                Led.blink(1, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_3
-                Led.blink(2, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_4
-                Led.blink(3, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_5
-                Led.blink(4, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_6
-                Led.blink(5, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_7
-                Led.blink(6, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_8
-                Led.blink(7, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_9
-                Led.blink(8, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_10
-                Led.blink(9, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_11
-                Led.blink(12, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_12
-                Led.blink(13, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_13
-                Led.blink(14, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_14
-                Led.blink(14, ONTIME_3, OFFTIME_3);
-                #endif
-                
-            }
-            else {
-                
-                #ifdef ACTION3_1
-                Led.Off(0);
-                #endif
-                #ifdef ACTION3_2
-                Led.Off(1);
-                #endif
-                #ifdef ACTION3_3
-                Led.Off(2);
-                #endif
-                #ifdef ACTION3_4
-                Led.Off(3);
-                #endif
-                #ifdef ACTION3_5
-                Led.Off(4);
-                #endif
-                #ifdef ACTION3_6
-                Led.Off(5);
-                #endif
-                #ifdef ACTION3_7
-                Led.Off(6);
-                #endif
-                #ifdef ACTION3_8
-                Led.Off(7);
-                #endif
-                #ifdef ACTION3_9
-                Led.Off(8);
-                #endif
-                #ifdef ACTION3_10
-                Led.Off(9);
-                #endif
-                #ifdef ACTION3_11
-                Led.Off(12);
-                #endif
-                #ifdef ACTION3_12
-                Led.Off(13);
-                #endif
-                #ifdef ACTION3_13
-                Led.Off(14);
-                #endif
-                #ifdef ACTION3_14
-                Led.Off(15);
-                #endif
-                #ifdef ACTION3_FLASH_1
-                Led.blinkStop(0);
-                #endif
-                #ifdef ACTION3_FLASH_2
-                Led.blinkStop(1);
-                #endif
-                #ifdef ACTION3_FLASH_3
-                Led.blinkStop(2);
-                #endif
-                #ifdef ACTION3_FLASH_4
-                Led.blinkStop(3);
-                #endif
-                #ifdef ACTION3_FLASH_5
-                Led.blinkStop(4);
-                #endif
-                #ifdef ACTION3_FLASH_6
-                Led.blinkStop(5);
-                #endif
-                #ifdef ACTION3_FLASH_7
-                Led.blinkStop(6);
-                #endif
-                #ifdef ACTION3_FLASH_8
-                Led.blinkStop(7);
-                #endif
-                #ifdef ACTION3_FLASH_9
-                Led.blinkStop(8);
-                #endif
-                #ifdef ACTION3_FLASH_10
-                Led.blinkStop(9);
-                #endif
-                #ifdef ACTION3_FLASH_11
-                Led.blinkStop(12);
-                #endif
-                #ifdef ACTION3_FLASH_12
-                Led.blinkStop(13);
-                #endif
-                #ifdef ACTION3_FLASH_13
-                Led.blinkStop(14);
-                #endif
-                #ifdef ACTION3_FLASH_14
-                Led.blinkStop(14);
-                #endif
-                
-            }
-            
-            if (Action10_Led) {
-                
-                #ifdef ACTION10_1
-                Led.On(0);
-                #endif
-                #ifdef ACTION10_2
-                Led.On(1);
-                #endif
-                #ifdef ACTION10_3
-                Led.On(2);
-                #endif
-                #ifdef ACTION10_4
-                Led.On(3);
-                #endif
-                #ifdef ACTION10_5
-                Led.On(4);
-                #endif
-                #ifdef ACTION10_6
-                Led.On(5);
-                #endif
-                #ifdef ACTION10_7
-                Led.On(6);
-                #endif
-                #ifdef ACTION10_8
-                Led.On(7);
-                #endif
-                #ifdef ACTION10_9
-                Led.On(8);
-                #endif
-                #ifdef ACTION10_10
-                Led.On(9);
-                #endif
-                #ifdef ACTION10_11
-                Led.On(12);
-                #endif
-                #ifdef ACTION10_12
-                Led.On(13);
-                #endif
-                #ifdef ACTION10_13
-                Led.On(14);
-                #endif
-                #ifdef ACTION10_14
-                Led.On(15);
-                #endif
-                #ifdef ACTION10_FLASH_1
-                Led.blink(0, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_2
-                Led.blink(1, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_3
-                Led.blink(2, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_4
-                Led.blink(3, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_5
-                Led.blink(4, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_6
-                Led.blink(5, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_7
-                Led.blink(6, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_8
-                Led.blink(7, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_9
-                Led.blink(8, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_10
-                Led.blink(9, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_11
-                Led.blink(12, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_12
-                Led.blink(13, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_13
-                Led.blink(14, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_14
-                Led.blink(14, ONTIME_10, OFFTIME_10);
-                #endif
-                
-            }
-            else {
-                
-                #ifdef ACTION10_1
-                Led.Off(0);
-                #endif
-                #ifdef ACTION10_2
-                Led.Off(1);
-                #endif
-                #ifdef ACTION10_3
-                Led.Off(2);
-                #endif
-                #ifdef ACTION10_4
-                Led.Off(3);
-                #endif
-                #ifdef ACTION10_5
-                Led.Off(4);
-                #endif
-                #ifdef ACTION10_6
-                Led.Off(5);
-                #endif
-                #ifdef ACTION10_7
-                Led.Off(6);
-                #endif
-                #ifdef ACTION10_8
-                Led.Off(7);
-                #endif
-                #ifdef ACTION10_9
-                Led.Off(8);
-                #endif
-                #ifdef ACTION10_10
-                Led.Off(9);
-                #endif
-                #ifdef ACTION10_11
-                Led.Off(12);
-                #endif
-                #ifdef ACTION10_12
-                Led.Off(13);
-                #endif
-                #ifdef ACTION10_13
-                Led.Off(14);
-                #endif
-                #ifdef ACTION10_14
-                Led.Off(15);
-                #endif
-                #ifdef ACTION10_FLASH_1
-                Led.blinkStop(0);
-                #endif
-                #ifdef ACTION10_FLASH_2
-                Led.blinkStop(1);
-                #endif
-                #ifdef ACTION10_FLASH_3
-                Led.blinkStop(2);
-                #endif
-                #ifdef ACTION10_FLASH_4
-                Led.blinkStop(3);
-                #endif
-                #ifdef ACTION10_FLASH_5
-                Led.blinkStop(4);
-                #endif
-                #ifdef ACTION10_FLASH_6
-                Led.blinkStop(5);
-                #endif
-                #ifdef ACTION10_FLASH_7
-                Led.blinkStop(6);
-                #endif
-                #ifdef ACTION10_FLASH_8
-                Led.blinkStop(7);
-                #endif
-                #ifdef ACTION10_FLASH_9
-                Led.blinkStop(8);
-                #endif
-                #ifdef ACTION10_FLASH_10
-                Led.blinkStop(9);
-                #endif
-                #ifdef ACTION10_FLASH_11
-                Led.blinkStop(12);
-                #endif
-                #ifdef ACTION10_FLASH_12
-                Led.blinkStop(13);
-                #endif
-                #ifdef ACTION10_FLASH_13
-                Led.blinkStop(14);
-                #endif
-                #ifdef ACTION10_FLASH_14
-                Led.blinkStop(14);
-                #endif
-                
-            }
-            
+			
+			
             
         }
         
@@ -1088,536 +933,7 @@ void led() {
             #ifdef ACTION9_FLASH_14
             Led.blink(14, ONTIME_9, OFFTIME_9);
             #endif
-            if (Fishing_Led) {
-                
-                #ifdef ACTION1_1
-                Led.On(0);
-                #endif
-                #ifdef ACTION1_2
-                Led.On(1);
-                #endif
-                #ifdef ACTION1_3
-                Led.On(2);
-                #endif
-                #ifdef ACTION1_4
-                Led.On(3);
-                #endif
-                #ifdef ACTION1_5
-                Led.On(4);
-                #endif
-                #ifdef ACTION1_6
-                Led.On(5);
-                #endif
-                #ifdef ACTION1_7
-                Led.On(6);
-                #endif
-                #ifdef ACTION1_8
-                Led.On(7);
-                #endif
-                #ifdef ACTION1_9
-                Led.On(8);
-                #endif
-                #ifdef ACTION1_10
-                Led.On(9);
-                #endif
-                #ifdef ACTION1_11
-                Led.On(12);
-                #endif
-                #ifdef ACTION1_12
-                Led.On(13);
-                #endif
-                #ifdef ACTION1_13
-                Led.On(14);
-                #endif
-                #ifdef ACTION1_14
-                Led.On(15);
-                #endif
-                #ifdef ACTION1_FLASH_1
-                Led.blink(0, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_2
-                Led.blink(1, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_3
-                Led.blink(2, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_4
-                Led.blink(3, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_5
-                Led.blink(4, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_6
-                Led.blink(5, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_7
-                Led.blink(6, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_8
-                Led.blink(7, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_9
-                Led.blink(8, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_10
-                Led.blink(9, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_11
-                Led.blink(12, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_12
-                Led.blink(13, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_13
-                Led.blink(14, ONTIME_1, OFFTIME_1);
-                #endif
-                #ifdef ACTION1_FLASH_14
-                Led.blink(14, ONTIME_1, OFFTIME_1);
-                #endif
-                
-            }
-            else {
-                
-                #ifdef ACTION1_1
-                Led.Off(0);
-                #endif
-                #ifdef ACTION1_2
-                Led.Off(1);
-                #endif
-                #ifdef ACTION1_3
-                Led.Off(2);
-                #endif
-                #ifdef ACTION1_4
-                Led.Off(3);
-                #endif
-                #ifdef ACTION1_5
-                Led.Off(4);
-                #endif
-                #ifdef ACTION1_6
-                Led.Off(5);
-                #endif
-                #ifdef ACTION1_7
-                Led.Off(6);
-                #endif
-                #ifdef ACTION1_8
-                Led.Off(7);
-                #endif
-                #ifdef ACTION1_9
-                Led.Off(8);
-                #endif
-                #ifdef ACTION1_10
-                Led.Off(9);
-                #endif
-                #ifdef ACTION1_11
-                Led.Off(12);
-                #endif
-                #ifdef ACTION1_12
-                Led.Off(13);
-                #endif
-                #ifdef ACTION1_13
-                Led.Off(14);
-                #endif
-                #ifdef ACTION1_14
-                Led.Off(15);
-                #endif
-                #ifdef ACTION1_FLASH_1
-                Led.blinkStop(0);
-                #endif
-                #ifdef ACTION1_FLASH_2
-                Led.blinkStop(1);
-                #endif
-                #ifdef ACTION1_FLASH_3
-                Led.blinkStop(2);
-                #endif
-                #ifdef ACTION1_FLASH_4
-                Led.blinkStop(3);
-                #endif
-                #ifdef ACTION1_FLASH_5
-                Led.blinkStop(4);
-                #endif
-                #ifdef ACTION1_FLASH_6
-                Led.blinkStop(5);
-                #endif
-                #ifdef ACTION1_FLASH_7
-                Led.blinkStop(6);
-                #endif
-                #ifdef ACTION1_FLASH_8
-                Led.blinkStop(7);
-                #endif
-                #ifdef ACTION1_FLASH_9
-                Led.blinkStop(8);
-                #endif
-                #ifdef ACTION1_FLASH_10
-                Led.blinkStop(9);
-                #endif
-                #ifdef ACTION1_FLASH_11
-                Led.blinkStop(12);
-                #endif
-                #ifdef ACTION1_FLASH_12
-                Led.blinkStop(13);
-                #endif
-                #ifdef ACTION1_FLASH_13
-                Led.blinkStop(14);
-                #endif
-                #ifdef ACTION1_FLASH_14
-                Led.blinkStop(14);
-                #endif
-                
-            }
             
-            if (Fog_Led) {
-                
-                #ifdef ACTION3_1
-                Led.On(0);
-                #endif
-                #ifdef ACTION3_2
-                Led.On(1);
-                #endif
-                #ifdef ACTION3_3
-                Led.On(2);
-                #endif
-                #ifdef ACTION3_4
-                Led.On(3);
-                #endif
-                #ifdef ACTION3_5
-                Led.On(4);
-                #endif
-                #ifdef ACTION3_6
-                Led.On(5);
-                #endif
-                #ifdef ACTION3_7
-                Led.On(6);
-                #endif
-                #ifdef ACTION3_8
-                Led.On(7);
-                #endif
-                #ifdef ACTION3_9
-                Led.On(8);
-                #endif
-                #ifdef ACTION3_10
-                Led.On(9);
-                #endif
-                #ifdef ACTION3_11
-                Led.On(12);
-                #endif
-                #ifdef ACTION3_12
-                Led.On(13);
-                #endif
-                #ifdef ACTION3_13
-                Led.On(14);
-                #endif
-                #ifdef ACTION3_14
-                Led.On(15);
-                #endif
-                #ifdef ACTION3_FLASH_1
-                Led.blink(0, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_2
-                Led.blink(1, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_3
-                Led.blink(2, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_4
-                Led.blink(3, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_5
-                Led.blink(4, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_6
-                Led.blink(5, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_7
-                Led.blink(6, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_8
-                Led.blink(7, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_9
-                Led.blink(8, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_10
-                Led.blink(9, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_11
-                Led.blink(12, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_12
-                Led.blink(13, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_13
-                Led.blink(14, ONTIME_3, OFFTIME_3);
-                #endif
-                #ifdef ACTION3_FLASH_14
-                Led.blink(14, ONTIME_3, OFFTIME_3);
-                #endif
-                
-            }
-            else {
-                
-                #ifdef ACTION3_1
-                Led.Off(0);
-                #endif
-                #ifdef ACTION3_2
-                Led.Off(1);
-                #endif
-                #ifdef ACTION3_3
-                Led.Off(2);
-                #endif
-                #ifdef ACTION3_4
-                Led.Off(3);
-                #endif
-                #ifdef ACTION3_5
-                Led.Off(4);
-                #endif
-                #ifdef ACTION3_6
-                Led.Off(5);
-                #endif
-                #ifdef ACTION3_7
-                Led.Off(6);
-                #endif
-                #ifdef ACTION3_8
-                Led.Off(7);
-                #endif
-                #ifdef ACTION3_9
-                Led.Off(8);
-                #endif
-                #ifdef ACTION3_10
-                Led.Off(9);
-                #endif
-                #ifdef ACTION3_11
-                Led.Off(12);
-                #endif
-                #ifdef ACTION3_12
-                Led.Off(13);
-                #endif
-                #ifdef ACTION3_13
-                Led.Off(14);
-                #endif
-                #ifdef ACTION3_14
-                Led.Off(15);
-                #endif
-                #ifdef ACTION3_FLASH_1
-                Led.blinkStop(0);
-                #endif
-                #ifdef ACTION3_FLASH_2
-                Led.blinkStop(1);
-                #endif
-                #ifdef ACTION3_FLASH_3
-                Led.blinkStop(2);
-                #endif
-                #ifdef ACTION3_FLASH_4
-                Led.blinkStop(3);
-                #endif
-                #ifdef ACTION3_FLASH_5
-                Led.blinkStop(4);
-                #endif
-                #ifdef ACTION3_FLASH_6
-                Led.blinkStop(5);
-                #endif
-                #ifdef ACTION3_FLASH_7
-                Led.blinkStop(6);
-                #endif
-                #ifdef ACTION3_FLASH_8
-                Led.blinkStop(7);
-                #endif
-                #ifdef ACTION3_FLASH_9
-                Led.blinkStop(8);
-                #endif
-                #ifdef ACTION3_FLASH_10
-                Led.blinkStop(9);
-                #endif
-                #ifdef ACTION3_FLASH_11
-                Led.blinkStop(12);
-                #endif
-                #ifdef ACTION3_FLASH_12
-                Led.blinkStop(13);
-                #endif
-                #ifdef ACTION3_FLASH_13
-                Led.blinkStop(14);
-                #endif
-                #ifdef ACTION3_FLASH_14
-                Led.blinkStop(14);
-                #endif
-                
-            }
-            
-            if (Action10_Led) {
-                
-                #ifdef ACTION10_1
-                Led.On(0);
-                #endif
-                #ifdef ACTION10_2
-                Led.On(1);
-                #endif
-                #ifdef ACTION10_3
-                Led.On(2);
-                #endif
-                #ifdef ACTION10_4
-                Led.On(3);
-                #endif
-                #ifdef ACTION10_5
-                Led.On(4);
-                #endif
-                #ifdef ACTION10_6
-                Led.On(5);
-                #endif
-                #ifdef ACTION10_7
-                Led.On(6);
-                #endif
-                #ifdef ACTION10_8
-                Led.On(7);
-                #endif
-                #ifdef ACTION10_9
-                Led.On(8);
-                #endif
-                #ifdef ACTION10_10
-                Led.On(9);
-                #endif
-                #ifdef ACTION10_11
-                Led.On(12);
-                #endif
-                #ifdef ACTION10_12
-                Led.On(13);
-                #endif
-                #ifdef ACTION10_13
-                Led.On(14);
-                #endif
-                #ifdef ACTION10_14
-                Led.On(15);
-                #endif
-                #ifdef ACTION10_FLASH_1
-                Led.blink(0, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_2
-                Led.blink(1, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_3
-                Led.blink(2, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_4
-                Led.blink(3, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_5
-                Led.blink(4, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_6
-                Led.blink(5, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_7
-                Led.blink(6, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_8
-                Led.blink(7, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_9
-                Led.blink(8, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_10
-                Led.blink(9, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_11
-                Led.blink(12, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_12
-                Led.blink(13, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_13
-                Led.blink(14, ONTIME_10, OFFTIME_10);
-                #endif
-                #ifdef ACTION10_FLASH_14
-                Led.blink(14, ONTIME_10, OFFTIME_10);
-                #endif
-                
-            }
-            else {
-                
-                #ifdef ACTION10_1
-                Led.Off(0);
-                #endif
-                #ifdef ACTION10_2
-                Led.Off(1);
-                #endif
-                #ifdef ACTION10_3
-                Led.Off(2);
-                #endif
-                #ifdef ACTION10_4
-                Led.Off(3);
-                #endif
-                #ifdef ACTION10_5
-                Led.Off(4);
-                #endif
-                #ifdef ACTION10_6
-                Led.Off(5);
-                #endif
-                #ifdef ACTION10_7
-                Led.Off(6);
-                #endif
-                #ifdef ACTION10_8
-                Led.Off(7);
-                #endif
-                #ifdef ACTION10_9
-                Led.Off(8);
-                #endif
-                #ifdef ACTION10_10
-                Led.Off(9);
-                #endif
-                #ifdef ACTION10_11
-                Led.Off(12);
-                #endif
-                #ifdef ACTION10_12
-                Led.Off(13);
-                #endif
-                #ifdef ACTION10_13
-                Led.Off(14);
-                #endif
-                #ifdef ACTION10_14
-                Led.Off(15);
-                #endif
-                #ifdef ACTION10_FLASH_1
-                Led.blinkStop(0);
-                #endif
-                #ifdef ACTION10_FLASH_2
-                Led.blinkStop(1);
-                #endif
-                #ifdef ACTION10_FLASH_3
-                Led.blinkStop(2);
-                #endif
-                #ifdef ACTION10_FLASH_4
-                Led.blinkStop(3);
-                #endif
-                #ifdef ACTION10_FLASH_5
-                Led.blinkStop(4);
-                #endif
-                #ifdef ACTION10_FLASH_6
-                Led.blinkStop(5);
-                #endif
-                #ifdef ACTION10_FLASH_7
-                Led.blinkStop(6);
-                #endif
-                #ifdef ACTION10_FLASH_8
-                Led.blinkStop(7);
-                #endif
-                #ifdef ACTION10_FLASH_9
-                Led.blinkStop(8);
-                #endif
-                #ifdef ACTION10_FLASH_10
-                Led.blinkStop(9);
-                #endif
-                #ifdef ACTION10_FLASH_11
-                Led.blinkStop(12);
-                #endif
-                #ifdef ACTION10_FLASH_12
-                Led.blinkStop(13);
-                #endif
-                #ifdef ACTION10_FLASH_13
-                Led.blinkStop(14);
-                #endif
-                #ifdef ACTION10_FLASH_14
-                Led.blinkStop(14);
-                #endif
-                
-            }
             
             
         }

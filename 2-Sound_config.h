@@ -9,17 +9,11 @@
 // =======================================================================================================
 //
 
-#include "sounds/boat/AuxSound/Start.h"
-XT_Wav_Class Start(Start_Data);
 //#include "sounds/boat/AuxSound/Alarm2.h"
 //XT_Wav_Class Alarm2(Alarm2_Data);
 
-#include "sounds/boat/AuxSound/ancre.h"
-XT_Wav_Class Ancre(Ancre_Data);
-//DacAudio.Play(&Ancre);
-
-#include "sounds/boat/AuxSound/Alarm3.h"
-XT_Wav_Class Alarm3(Alarm3_Data);
+//#include "sounds/boat/AuxSound/Alarm3.h"
+//XT_Wav_Class Alarm3(Alarm3_Data);
 
 XT_Sequence_Class Sequence1;
 XT_Sequence_Class Sequence2;

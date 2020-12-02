@@ -1,138 +1,200 @@
+
+
+
 void Action() {
-  // ACTION1= PECHE
-  if (Action1.Pos() == ACTION1ON) {
+volatile uint8_t Act1 = Action1.Pos();
+volatile uint8_t Act2 = 0;
+volatile uint8_t Act3 = Action3.Pos();
+volatile uint8_t Act4 = Action4.Pos();
+volatile uint8_t Act5 = Action5.Pos();
+volatile uint8_t Act6 = Action6.momentaryPos();
+volatile uint8_t Act7 = Action7.Pos();
+volatile uint8_t Act8 = Action8.Pos();
+volatile uint8_t Act9 = Action9.Pos();
+volatile uint8_t Act10 = Action10.Pos();
+
+
+#if defined AUTOMATIC_ANCHOR
+if (engineRunning){
+  Act2 = ACTION2OFF;
+  }
+
+  else {
+  Act2 = Action2.Pos();
+  }
+# else 
+   Act2 = Action2.Pos();
+
+#endif 
+
+  if(Init){
+
+
+//Peche/remorquage
+ #ifdef ACTION1_ENABLE
+ switch (Act1) {
+  case ACTION1ON:
     Fishing = true;
     Fishing_Led = true;
-  }
-  if (Action1.Pos() == ACTION1OFF) {
+    break;
+  case ACTION1OFF:
     Fishing = false;
     Fishing_Led = false;
-  }
-  if (Action1.Pos() == ACTION1NA) {
-  }
-  ////////////////////////////////////
-  //ACTION2=MOUILLAGE
-  if (Action2.Pos() == ACTION2NA) {
-  }
-  if (Action2.Pos() == ACTION2OFF) {
+    break;
+ 
+}
+#endif
+
+//ACTION2=MOUILLAGE
+
+ #ifdef ACTION2_ENABLE
+
+  
+ 
+ switch (Act2) {
+  case ACTION2ON:
+     Mouillage = true;
+    break;
+  case ACTION2OFF:
     Mouillage = false;
     BellMillis = millis();
-  }
-  if (Action2.Pos() == ACTION2ON) {
-    Mouillage = true;
-  }
-  ////////////////////////////////////
+    break;
+
+}
+
+
+
+#endif  
+
   //ACTION3= FOG
-  if (Action3.Pos() == ACTION3NA) {
-  }
-  if (Action3.Pos() == ACTION3OFF) {
-    Fog_Led = false;
-    Fog = false;
-    SoundMillis = millis();
-  }
-  if (Action3.Pos() == ACTION3ON) {
+ #ifdef ACTION3_ENABLE 
+ 
+ switch (Act3) {
+  case ACTION3ON:
     Fog = true;
     Fog_Led = true;
-  }
-  ////////////////////////////////////
+    break;
+  case ACTION3OFF:
+    Fog_Led = false;
+    Fog = false;
+    FogSoundMillis = millis();
+    break;
+ }
+#endif
+
   //ACTION4= MANOEUVRE
-  if (Action4.Pos() == ACTION4ON) {
+
+ switch (Act4) {
+  case ACTION4ON:
     Maneuvre = true;
     Manoeuvre_Led = true;
-  }
-  if (Action4.Pos() == ACTION4OFF) {
+    break;
+  case ACTION4OFF:
     Maneuvre = false;
     Manoeuvre_Led = false;
-  }
-  if (Action4.Pos() == ACTION4NA) {
-  }
-  ////////////////////////////////////
+    break;
+ }
+
+ 
+ 
   //ACTION5=AVERTISSEMENT
-  if (Action5.Pos() == ACTION5ON) {
+  #ifdef ACTION5_ENABLE
+  switch (Act5) {
+  case ACTION5ON:
     Avertissement = true;
-  }
-  if (Action5.Pos() == ACTION5OFF) {
-    Avertissement = false;
-  }
-  if (Action5.Pos() == ACTION5NA) {
-  }
-
-//////////////////////////////////////////
-  if (Action6.momentaryPos() == ACTION6NA) {
-
-    }
-  if (Action6.momentaryPos() == ACTION6OFF) {
-
-    }
-  if (Action6.momentaryPos() == ACTION6ON) {
-
-      Sequence12.RemoveAllPlayItems();
-      sequence12();
-      DacAudio.Play(&Sequence12, true);
-
-    }
-//////////////////////////////////////////
-  if (Action7.momentaryPos() == ACTION7NA) {
-
-    }
-  if (Action7.momentaryPos() == ACTION7OFF) {
-
-    }
-  if (Action7.momentaryPos() == ACTION7ON) {
-
-      Sequence11.RemoveAllPlayItems();
-      sequence11();
-      DacAudio.Play(&Sequence11, true);
-
-    }  
-    
-//////////////////////////////////////////
-
- if (Action8.momentaryPos() == ACTION8ON) {
-      Alarm_Sound = true;
-	  #ifdef ALARMSOUND1
-	  Alarm.RepeatForever = true;
-      DacAudio.Play(&Alarm, true);
-	  #elif ALARMSOUND2
-	  #elif ALARMSOUND3
-	  #endif
-    }
- if (Action8.momentaryPos() == ACTION8NA) {
-
-    }
- if (Action8.momentaryPos() == ACTION8OFF) {
-      
-	  Alarm_Sound=false;
-	  DacAudio.StopAllSounds();
-
-    }
+    break;
+  case ACTION5OFF:
+     Avertissement = false;
+    break;
  
+}
+#endif
  
-  if (Action8.Pos() == ACTION8ON) {
+ //machine Gun
+ 
+ #ifdef ACTION6_ENABLE
+ switch (Act6) {
+  case ACTION6ON:
+    MachineGunSound= true;
+    break;
+  case ACTION6OFF:
+     MachineGunSound= false;
+    break;
+}
+#endif
+
+//GUN
+ #ifdef ACTION7_ENABLE
+ switch (Act7) {
+  case ACTION7ON:
+    GunMove= true;
+    break;
+  case ACTION7OFF:
+     GunMove= false;
+    break;
+ 
+}
+#endif
+//Alarm
+
+ #ifdef ACTION8_ENABLE
+ switch (Act8) {
+  case ACTION8ON:
     Alarm_Led = true;
-  }
-  if (Action8.Pos() == ACTION8OFF) {
-    Alarm_Led = false;
-  }
-  if (Action8.Pos() == ACTION8NA) {
-  }
-  //////////////////////////////////////////
+    Alarm_Sound = true;
+    break;
+	
+  case ACTION8OFF:
+  #if defined RINGALARM
+	Alarm_Led = false;
+    Alarm_Sound=false;
+    Ring_Sound = false;
+	
+  #else 
+	Alarm_Led = false;
+    Alarm_Sound=false;
+  
+  #endif 
+    
+    break;
+    
+  case ACTION8NA:
+  #if defined RINGALARM
+	Alarm_Led = true;
+    Alarm_Sound = false;
+    Ring_Sound = true;
+  #endif
+  
+	break;
  
-  if (Action9.Pos() == ACTION9ON) {
+}
+#endif
+
+//manuel light
+
+#ifdef ACTION9_ENABLE
+ switch (Act9) {
+  case ACTION9ON:
     LightManualOn = true;
-  }
-  if (Action9.Pos() == ACTION9OFF) {
+    break;
+  case ACTION9OFF:
     LightManualOn = false;
-  }
-  if (Action9.Pos() == ACTION9NA) {
-  }
-  //////////////////////////////////////////
-  if (Action10.Pos() == ACTION10NA) {
-  }
-  if (Action10.Pos() == ACTION10OFF) {
-    Action10_Led = false;
-  }
-  if (Action10.Pos() == ACTION10ON) {
+    break;
+ }
+ #endif 
+ 
+// action10
+
+  #ifdef ACTION10_ENABLE
+  switch (Act10) {
+  case ACTION10ON:
     Action10_Led = true;
-  }
+    break;
+  case ACTION10OFF:
+     Action10_Led = false;
+    break;
+ }
+ #endif
+ 
+}
 }

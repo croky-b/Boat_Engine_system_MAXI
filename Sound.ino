@@ -1,6 +1,6 @@
 //
 // =======================================================================================================
-// HORN TRIGGERING, SIREN TRIGGERING, SOUND1 TRIGGERING
+// SOUND
 // =======================================================================================================
 //
 
@@ -18,8 +18,59 @@ void triggerSound()
     //
 
 
-////////////////////////////////////
 
+#ifdef ANCHORSOUND     
+     Ancre.Volume=50;
+
+     if (Mouillage && !AncreBas ){
+      AncreStop=false;
+     
+       if ( Ancre.Playing == true && Ancre.TimeElapsed > 10000){
+          AncreBas=true;
+       } 
+       if (Ancre.Playing == false) {
+       DacAudio.Play(&Ancre, true);
+       }
+    } 
+
+    
+     else if (!Mouillage && AncreBas ){
+      AncreStop=false;
+      
+      if ( Ancre.Playing == true && Ancre.TimeElapsed > 10000){
+          AncreBas=false;
+         } 
+      if (Ancre.Playing == false) {
+       DacAudio.Play(&Ancre, true);
+       }
+    }
+    
+
+    if(Ancre.Playing==false){
+      AncreStop=true;
+     }
+
+
+      if (!AncreBas && Ancre.Playing == true && Ancre.TimeElapsed > 8000 && Ancre.TimeElapsed < 10500){
+          
+           AnchorSpeedDown -= 8; 
+           if (AnchorSpeedDown <1500 ){
+            AnchorSpeedDown = 1500; 
+        }
+    }
+
+     if (AncreBas && Ancre.Playing == true && Ancre.TimeElapsed > 8000 && Ancre.TimeElapsed < 10500){
+          
+           AnchorSpeedUp += 8; 
+           if ( AnchorSpeedUp >1500 ){
+            AnchorSpeedUp = 1500; 
+        }
+     }
+
+  #endif 
+
+  
+  #ifdef ACTION3_ENABLE
     if (Fog)
     {
       
@@ -27,8 +78,8 @@ void triggerSound()
         
        //Son Long toutes les 2min 
        #if not defined PILOTBOAT
-       if (millis() - SoundMillis > 120000) {
-          SoundMillis = millis();
+       if (millis() - FogSoundMillis > 120000) {
+          FogSoundMillis = millis();
           Sequence6.RemoveAllPlayItems();
           sequence6();
           DacAudio.Play(&Sequence6, true);
@@ -36,8 +87,8 @@ void triggerSound()
 
      #else
         //4 son courts
-      if (millis() - SoundMillis > 120000) {
-          SoundMillis = millis();
+      if (millis() - FogSoundMillis > 120000) {
+          FogSoundMillis = millis();
           Sequence15.RemoveAllPlayItems();
           sequence15();
           DacAudio.Play(&Sequence15, true);
@@ -50,37 +101,37 @@ void triggerSound()
       // Sons Long et 2 courts toutes les 2min
       if (engineOn && Fishing) {
         // Bateau remorqué 1 Son long 3 courts  
-    #ifdef OTHERBOAT
-        if (millis() - SoundMillis > 120000) {
-          SoundMillis = millis();
+    #if defined OTHERBOAT
+        if (millis() - FogSoundMillis > 120000) {
+          FogSoundMillis = millis();
           Sequence16.RemoveAllPlayItems();
           sequence16();
           DacAudio.Play(&Sequence16, true);
         }
     // 4 sons courts toutes les 2min
     #elif PILOTBOAT
-    if (millis() - SoundMillis > 120000) {
-          SoundMillis = millis();
+    if (millis() - FogSoundMillis > 120000) {
+          FogSoundMillis = millis();
           Sequence15.RemoveAllPlayItems();
           sequence15();
           DacAudio.Play(&Sequence15, true);
     } 
     // Sons Long et 2 courts toutes les 2min    
     #else
-    if (millis() - SoundMillis > 120000) {
-          SoundMillis = millis();
+    if (millis() - FogSoundMillis > 120000) {
+          FogSoundMillis = millis();
           Sequence8.RemoveAllPlayItems();
           sequence8();
           DacAudio.Play(&Sequence8, true);
     }
-    #endif
+  #endif
       }
 
       
       //2 sons Long toutes les 2min
       if (!engineOn && !Fishing && !Mouillage) {
-        if (millis() - SoundMillis > 120000) {
-          SoundMillis = millis();
+        if (millis() - FogSoundMillis > 120000) {
+          FogSoundMillis = millis();
           Sequence7.RemoveAllPlayItems();
           sequence7();
           DacAudio.Play(&Sequence7, true);
@@ -91,7 +142,7 @@ void triggerSound()
         if (millis() - BellMillis > 60000) {
     
           BellMillis = millis();
-      #ifdef INTER
+	 #ifdef INTER
           Sequence10.RemoveAllPlayItems();
           sequence10();
           DacAudio.Play(&Sequence10, true);
@@ -108,10 +159,11 @@ void triggerSound()
       }
 
     }
+#endif
 
-
-
+ #ifdef ACTION4_ENABLE
     if (Maneuvre) {
+      
       /// marche arriere 3 Sons bref
       if (CH3.momentaryPos() == 1) {
         Sequence5.RemoveAllPlayItems();
@@ -140,20 +192,21 @@ void triggerSound()
 
       }
 
-      else if (CH1.momentaryPos() == 2) {
-
+      else  {
       }
 
     }
+	
+ #endif
+	
+	#ifdef ACTION5_ENABLE
 
- if (Avertissement) {
+    if (Avertissement) {
 
-   if ((Short_blast.TimeElapsed > 5 && Short_blast.TimeElapsed < 1200 )||(Long_blast.TimeElapsed > 5 && Long_blast.TimeElapsed < 3600 ))
-    {
-      Manoeuvre_Led = true;
-    }
+				if ((Short_blast.TimeElapsed > 5 && Short_blast.TimeElapsed < 1200 )||(Long_blast.TimeElapsed > 5 && Long_blast.TimeElapsed < 3600 ))
+					{ Manoeuvre_Led = true;}
 
-    else {Manoeuvre_Led = false;}
+				else { Manoeuvre_Led = false;}
 
     /// Depasse par la gauche 2 Long 2 court
     if (CH4.momentaryPos() == 1)
@@ -163,7 +216,7 @@ void triggerSound()
 
     }
     /// Depasse par la droite  deux long 1 court
-    if (CH4.momentaryPos() == 3)
+    else if (CH4.momentaryPos() == 3)
     {
       Sequence2.RemoveAllPlayItems();
       sequence2();
@@ -171,7 +224,7 @@ void triggerSound()
 
     }
 
-    else if (CH4.momentaryPos() == 2) {
+    else  {
 
     }
 
@@ -184,22 +237,77 @@ void triggerSound()
 
     }
 
-    else if (CH2.momentaryPos() == 2) {
-
-    }
+    
  }
+ 
+	#endif
 
  
     
-    //
-    // =======================================================================================================
-    // SPECIAL SOUND
-    // =======================================================================================================
-    //
+//
+// =======================================================================================================
+// SPECIAL SOUND
+// =======================================================================================================
+//
 
+#ifdef ACTION8_ENABLE
+	#if defined RINGALARM
     
+	if (Ring_Sound){
+		
+		if (Ring.Playing == false) {
+			
+       		DacAudio.Play(&Ring, true);
+		}
+      }
 
-    if (GunServo) {
+    if (Alarm_Sound){
+    
+		if (Alarm.Playing == false) {
+       
+			DacAudio.Play(&Alarm, true);
+			}
+
+			if (Ring.Playing == false) {
+			DacAudio.Play(&Ring, true);}
+  }
+
+ #else
+    if (Alarm_Sound){
+    
+		if (Alarm.Playing == false) {
+       
+		DacAudio.Play(&Alarm, true);
+		}
+ 
+  }
+
+	#endif
+
+#endif 
+
+ #ifdef ACTION6_ENABLE
+    if(MachineGunSound ){
+
+      if (Sequence12.Playing == false) {
+      Sequence12.RemoveAllPlayItems();
+      sequence12();
+      DacAudio.Play(&Sequence12, true);
+    }
+    }
+	
+	
+	 if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+ 
+#endif  
+
+#ifdef ACTION7_ENABLE
+
+    if (GunServo ) {
 
       if (Sequence11.Playing == false) {
         Sequence11.RemoveAllPlayItems();
@@ -217,15 +325,14 @@ void triggerSound()
 
     else cannonFlash = false;
 
-    if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
-      machinGunFlash = true;
-    }
-
-    else machinGunFlash = false;
+ #endif   
 
 
-  }
-}
+  } //fin init
+}// fin triggersound 
+
+
+
 
 // Avertissement demande par babord
 void sequence1() {
