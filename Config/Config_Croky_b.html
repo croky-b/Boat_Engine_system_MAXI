@@ -97,7 +97,7 @@ button {
 </head>
 <body>
 
-<h1>Croky_b Setup Config Ver.5.2</h1>
+<h1>Croky_b Setup Config Ver.5.3</h1>
 
 <div class="test">	
 
@@ -193,11 +193,12 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<option value="1">Small Diesel</option>
 		<option value="2">Large Diesel</option>
 		<option value="3">Turbo Diesel</option>
-		<option value="4">PT Boat</option>
+		<option value="4" >PT Boat </option>
 		<option value="5">Vosper Boat</option>
 		<option value="6">Diesel 120HP</option>
 		<option value="7">Diesel 180HP</option>
 		<option value="8">Diesel </option>
+		<option value="9">Small Tug Diesel </option>
 		
 		</select>
 		 <br><br>
@@ -264,6 +265,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		</select>
 		
 		</p>
+		<br>
 		
 		
 		<class="element-separator"><hr><h3 class="section-break-title"></h3>	
@@ -306,6 +308,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		 
 		 Derive (Direction): </p>
 		 </p>
+		 <br> 
 		  
 		<input title="Inversion de la direction" id="INV" type="checkbox"  > Inversion Ch derive
 	<br><br>
@@ -497,9 +500,12 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<option title="Bateau de + 20m" value="2">+20m</option><br><br>
 				
 		</select>
+		
+		<input type="checkbox" id="SoundAncor" Checked title="Si cochée Son actif, sinon désactivée " >Son Chaine
+		<input type="checkbox" id="MotorAncor" Checked title="Si cochée Moteur(servo6) actif, sinon désactivée " >Moteur<br><br>
+		<input type="checkbox" id="AutoAncor" Checked title="Si l'ancre est automatiquement relevee au demarage du moteur " >Ancre auto<br><br>
 		Choix du type de bateau 
 		<br><br>
-		<input id="AnchorTime" type="text" size="1"  value="10" title="Temps d'activation du moteur"  >Temps Ancre<br><br>
 		
 		<div class="channel" style="border:2px solid 	#363636">
 		
@@ -1052,6 +1058,8 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<input type="checkbox" id="Action8ON" Checked title="Si cochée action active, sinon désactivée " >Action 8 Active<br><br>
 		
 		<input id="Action8Ch" type="text" size="1" value="10" title="Choix du Canal"  >CH<br><br>
+		
+		<input type="checkbox" id="2SoundsAlarm" Checked title="Deux son different alarm ( ring)sur Na et ring +alarm sur On" >2 Sounds<br><br>
 		
 		<select name="Action8HIGH" id="Action8HIGH" >
 
@@ -1952,9 +1960,10 @@ function download(){
 			var Action2HIGH = document.getElementById("Action2HIGH").value;
 			var Action2NEUTRAL = document.getElementById("Action2NEUTRAL").value;
 			var Action2LOW = document.getElementById("Action2LOW").value;
-			
-			var AnchorTime = document.getElementById("AnchorTime").value;
-			
+			var SoundAncor = document.getElementById("SoundAncor").checked;
+			var MotorAncor = document.getElementById("MotorAncor").checked;
+			var AutoAncor = document.getElementById("AutoAncor").checked;
+
 			var FogType = document.getElementById("FogType").value;
 			var Action3Ch = document.getElementById("Action3Ch").value;
 			var Action3HIGH = document.getElementById("Action3HIGH").value;
@@ -1989,6 +1998,7 @@ function download(){
 			var Action7LOW = document.getElementById("Action7LOW").value;
 			
 			
+			var SoundsAlarm = document.getElementById("2SoundsAlarm").checked;
 			var AlarmSound = document.getElementById("AlarmSound").value;
 			var Action8Ch = document.getElementById("Action8Ch").value;
 			var Action8HIGH = document.getElementById("Action8HIGH").value;
@@ -2301,19 +2311,15 @@ function download(){
 			Text += "//_______________________________________________________________________________\r\n";
 			Text += "\r\n";
 			
-			Text += "volatile int startVolumePercentage = 100;\r\n";
-			Text += "volatile int idleVolumePercentage = 100;\r\n";
+			
 			Text += "volatile int engineIdleVolumePercentage = 40;\r\n";
 			Text += "volatile int fullThrottleVolumePercentage = 100;\r\n";
-			Text += "volatile int slowVolumePercentage  = 100;\r\n";
-			Text += "volatile int stopVolumePercentage = 100;\r\n";
-			Text += "volatile int revVolumePercentage = 100;\r\n";
 			Text += "volatile int engineRevVolumePercentage = 50;\r\n";
 			Text += "volatile const uint16_t revSwitchPoint = 150;\r\n";
+			Text += "volatile const uint16_t slowSwitchPoint = 50;\r\n";
 			Text += "volatile const uint16_t idleEndPoint = 400;\r\n";
 			Text += "volatile const uint16_t idleVolumeProportionPercentage = 80;\r\n";
-			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
-			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			
 			
 			
 			if(Sound == "1"){
@@ -2321,6 +2327,13 @@ function download(){
 			Text += "#include \"sounds/boat/smal diesel idle.h\"\r\n";
 			Text += "#define ENGINE_STOP\r\n";
 			Text += "#include \"sounds/boat/Small_diesel_stop.h\"\r\n";
+			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
+			Text += "volatile int startVolumePercentage = 100;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;\r\n";
+			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			Text += "volatile int slowVolumePercentage  = 100;\r\n";
+			Text += "volatile int stopVolumePercentage = 100;\r\n";
+			Text += "volatile int revVolumePercentage = 100;\r\n";
 			Text2 += "Small Diesel sound\r\n";
 			}
 			
@@ -2329,6 +2342,13 @@ function download(){
 			Text += "#include \"sounds/boat/large diesel idle.h\"\r\n";
 			Text += "#define ENGINE_STOP\r\n";
 			Text += "#include \"sounds/boat/Large_diesel_stop.h\"\r\n";
+			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
+			Text += "volatile int startVolumePercentage = 100;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;\r\n";
+			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			Text += "volatile int slowVolumePercentage  = 100;\r\n";
+			Text += "volatile int stopVolumePercentage = 100;\r\n";
+			Text += "volatile int revVolumePercentage = 100;\r\n";
 			Text2 += "Large Diesel sound\r\n";
 			}
 			
@@ -2337,6 +2357,13 @@ function download(){
 			Text += "#include \"sounds/boat/turbo diesel idle.h\"\r\n";
 			Text += "#define ENGINE_STOP\r\n";
 			Text += "#include \"sounds/boat/turbo_diesel_stop.h\"\r\n";
+			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
+			Text += "volatile int startVolumePercentage = 100;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;\r\n";
+			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			Text += "volatile int slowVolumePercentage  = 100;\r\n";
+			Text += "volatile int stopVolumePercentage = 100;\r\n";
+			Text += "volatile int revVolumePercentage = 100;\r\n";
 			Text2 += "Turbo Diesel sound\r\n";
 			}
 			
@@ -2347,6 +2374,13 @@ function download(){
 			Text += "#include \"sounds/boat/PT_BOAT_STOP.h\"\r\n";
 			Text += "#define SLOW\r\n";
 			Text += "#include \"sounds/boat/PT_BOAT_SLOW.h\"\r\n";
+			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
+			Text += "volatile int startVolumePercentage = 100;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;\r\n";
+			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			Text += "volatile int slowVolumePercentage  = 100;\r\n";
+			Text += "volatile int stopVolumePercentage = 100;\r\n";
+			Text += "volatile int revVolumePercentage = 100;\r\n";
 			Text2 += "PT_Boat sound\r\n";
 			}
 			
@@ -2359,18 +2393,39 @@ function download(){
 			Text += "#include \"sounds/boat/PT_BOAT_SLOW.h\"\r\n";
 			Text += "#define REV_SOUND\r\n";
 			Text += "#include \"sounds/boat/vosper turbine idleRev.h\"\r\n";
+			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
+			Text += "volatile int startVolumePercentage = 100;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;\r\n";
+			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			Text += "volatile int slowVolumePercentage  = 100;\r\n";
+			Text += "volatile int stopVolumePercentage = 100;\r\n";
+			Text += "volatile int revVolumePercentage = 100;\r\n";
 			Text2 += "Vosper sound\r\n";
 			}
 			
 			if(Sound == "6"){
 			Text += "#include \"sounds/boat/diesel 120HP Start.h\"\r\n";
-			Text += "#include \"sounds/boat/sounds/boat/diesel 120HP Idle.h\"\r\n";
+			Text += "#include \"sounds/boat/diesel 120HP Idle.h\"\r\n";
+			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
+			Text += "volatile int startVolumePercentage = 100;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;\r\n";
+			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			Text += "volatile int slowVolumePercentage  = 100;\r\n";
+			Text += "volatile int stopVolumePercentage = 100;\r\n";
+			Text += "volatile int revVolumePercentage = 100;\r\n";
 			Text2 += "Diesel 120HP sound\r\n";			
 			}
 			
 			if(Sound == "7"){
 			Text += "#include \"sounds/boat/diesel 180HP Start.h\"\r\n";
-			Text += "#include \"sounds/boat/sounds/boat/diesel 180HP Idle.h\"\r\n";
+			Text += "#include \"sounds/boat/diesel 180HP Idle.h\"\r\n";
+			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
+			Text += "volatile int startVolumePercentage = 100;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;\r\n";
+			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			Text += "volatile int slowVolumePercentage  = 100;\r\n";
+			Text += "volatile int stopVolumePercentage = 100;\r\n";
+			Text += "volatile int revVolumePercentage = 100;\r\n";
 			Text2 += "Diesel 180HP sound\r\n";			
 			}
 			
@@ -2379,7 +2434,30 @@ function download(){
 			Text += "#include \"sounds/boat/Diesel_idle.h\"\r\n";
 			Text += "#define ENGINE_STOP\r\n";
 			Text += "#include \"sounds/boat/Diesel_stop.h\"\r\n";
+			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
+			Text += "volatile int startVolumePercentage = 100;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;\r\n";
+			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			Text += "volatile int slowVolumePercentage  = 100;\r\n";
+			Text += "volatile int stopVolumePercentage = 100;\r\n";
+			Text += "volatile int revVolumePercentage = 100;\r\n";
 			Text2 += "Diesel sound\r\n";
+			}
+			Text2 += "\r\n";
+			
+			if(Sound == "9"){
+			Text += "#include \"sounds/boat/Small_diesel_tug_Start.h\"\r\n";
+			Text += "#include \"sounds/boat/Small_diesel_tug.h\"\r\n";
+			Text += "#define ENGINE_STOP\r\n";
+			Text += "#include \"sounds/boat/Small_diesel_tug_Stop.h\"\r\n";
+			Text += "volatile int starterStopVolumePercentage = 150;\r\n";
+			Text += "volatile int startVolumePercentage = 150;\r\n";
+			Text += "volatile int idleVolumePercentage = 100;\r\n";
+			Text += "volatile int starterVolumePercentage = 150;\r\n";
+			Text += "volatile int slowVolumePercentage  = 100;\r\n";
+			Text += "volatile int stopVolumePercentage = 100;\r\n";
+			Text += "volatile int revVolumePercentage = 100;\r\n";
+			Text2 += "Small Tug Diesel sound\r\n";
 			}
 			Text2 += "\r\n";
 		
@@ -2428,6 +2506,16 @@ function download(){
 			Text += "//______________________________________________________________________________\r\n";
 			Text += "//------------------------------MIXING CONFIG------------------------------------\r\n";
 			Text += "//_______________________________________________________________________________\r\n";
+			Text += "\r\n";
+			
+			
+			Text += "const uint16_t valreverse = 1250;\r\n";
+			Text += "\r\n";
+			Text += "const uint8_t linearPercentage = 35;\r\n";
+			Text += "const uint8_t modPercentage = 50;\r\n";
+			Text += "\r\n";
+			Text += "const uint8_t linearPercentageRev = 25;\r\n";
+			Text += "const uint8_t modPercentageRev = 50;\r\n";
 			Text += "\r\n";
 			
 			if( Mixage==true){
@@ -2487,10 +2575,22 @@ function download(){
 			
 			Text2 += "\r\n";
 			
+			
+			
+			
 			Text += "\r\n";
 			Text += "//______________________________________________________________________________\r\n";
 			Text += "//---------------------------------CHANNEL CONFIG--------------------------------\r\n";
 			Text += "//_______________________________________________________________________________\r\n";
+			Text += "\r\n";
+			Text += "\r\n";
+			
+			Text += "const int16_t esc1PulseSpan = 500;\r\n";
+			Text += "const int16_t esc2PulseSpan = 500;\r\n";
+			Text += "const int16_t esc3PulseSpan = 500;\r\n";
+			Text += "\r\n";
+			Text += "const uint16_t pulseNeutral = 30;\r\n";
+			Text += "const uint16_t pulseSpan = 500;\r\n";
 			Text += "\r\n";
 			
 			if(Gaz=="1"){
@@ -2730,6 +2830,9 @@ function download(){
 				Text += "const uint8_t StartSound = 0; \r\n";
 				Text2 += "Start sound = NON\r\n";
 				}
+			
+			Text += "#include \"sounds/boat/AuxSound/Start.h\"\r\n";
+			Text += "XT_Wav_Class Start(Start_Data);\r\n";
 				
 			
 			
@@ -2745,6 +2848,8 @@ function download(){
 			Text2 += "\r\n";
 			
 			if (ActionON==true){
+			
+			
 						
 			if (Flash1Action1 ==1){			
 			Text += "#define ACTION1_1\r\n";
@@ -2926,7 +3031,7 @@ function download(){
 			}
 			else{document.getElementById("Led14Recap" ).innerHTML =  "";}
 			
-						
+			Text += "#define ACTION1_ENABLE\r\n";			
 			Text += "#define ACTION1CH "+ ActionCh +"\r\n";
 			
 			
@@ -2968,10 +3073,8 @@ function download(){
 			}
 			}
 			else{
-			Text += "#define ACTION1CH 999\r\n";
-			Text += "#define ACTION1ON 999\r\n";
-			Text += "#define ACTION1OFF 999\r\n";
-			Text += "#define ACTION1NA 999\r\n";
+			
+			Text2 += "Action1 inactive ";
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION1 = LED1 ="+Led1Action1+"/LED2 ="+Led2Action1+"/LED3 ="+Led3Action1+"/LED4 ="+Led4Action1+"/LED5 ="+Led5Action1+"/LED6 ="+Led6Action1+"/LED7 ="+Led7Action1+"/\rLED8 ="+Led8Action1+"/LED9 ="+Led9Action1+"/LED10 ="+Led10Action1+"/LED11 ="+Led11Action1+"/LED12 ="+Led12Action1+"/LED13 ="+Led13Action1+"/LED14 ="+Led14Action1+"\r\n";
@@ -2989,9 +3092,34 @@ function download(){
 			
 			if (Action2ON==true){
 			
-			Text += "#define ANCHORTIME "+AnchorTime+"000\r\n";
-			Text2 += "Temps Ancre "+AnchorTime+" sec\r\n";
+			if(AutoAncor=="1"){
+			Text += "#define AUTOMATIC_ANCHOR\r\n";
+			Text2 += "Ancre auto \r\n";
+			}
+			else{
 			
+			Text2 += "Ancre Auto desactive\r\n";
+			}
+			
+			if(MotorAncor=="1"){
+			Text += "#define ANCHORMOTOR\r\n";
+			Text2 += "Moteur Chaine actif \r\n";
+			}
+			else{
+			
+			Text2 += "Moteur desactive\r\n";
+			}
+			
+			if(SoundAncor=="1"){
+			Text += "#include \"sounds/boat/AuxSound/ancre.h\"\r\n";
+			Text += "XT_Wav_Class Ancre(Ancre_Data);\r\n";
+			Text += "#define ANCHORSOUND\r\n";
+			Text2 += "Son Chaine\r\n";
+			}
+			else{
+			
+			Text2 += "Pas Son Chaine\r\n";
+			}
 			
 			if(Mouillage == "1"){
 			Text += "#define SHORT\r\n";
@@ -3002,6 +3130,7 @@ function download(){
 			Text2 += "Bateau de + 20m\r\n";
 			}
 			
+			Text += "#define ACTION2_ENABLE\r\n";
 			Text += "#define ACTION2CH "+ Action2Ch +"\r\n";
 			
 			if(Action2HIGH == "1"){
@@ -3041,10 +3170,7 @@ function download(){
 			}
 			}
 			else{
-			Text += "#define ACTION2CH 999\r\n";
-			Text += "#define ACTION2ON 999\r\n";
-			Text += "#define ACTION2OFF 999\r\n";
-			Text += "#define ACTION2NA 999\r\n";
+			
 			}
 			Text2 += "\r\n";
 			Text += "\r\n";
@@ -3264,7 +3390,7 @@ function download(){
 			else{document.getElementById("Led14Recap_3" ).innerHTML =  "";}
 			
 			
-			
+			Text += "#define ACTION3_ENABLE\r\n";
 			Text += "#define ACTION3CH "+ Action3Ch +"\r\n";
 
 			if(Action3HIGH == "1"){
@@ -3304,10 +3430,7 @@ function download(){
 			}
 			}
 			else{
-			Text += "#define ACTION3CH 999\r\n";
-			Text += "#define ACTION3ON 999\r\n";
-			Text += "#define ACTION3OFF 999\r\n";
-			Text += "#define ACTION3NA 999\r\n";
+			
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION3 = LED1 ="+Led1Action3+"/LED2 ="+Led2Action3+"/LED3 ="+Led3Action3+"/LED4 ="+Led4Action3+"/LED5 ="+Led5Action3+"/LED6 ="+Led6Action3+"/LED7 ="+Led7Action3+"/\rLED8 ="+Led8Action3+"/LED9 ="+Led9Action3+"/LED10 ="+Led10Action3+"/LED11 ="+Led11Action3+"/LED12 ="+Led12Action3+"/LED13 ="+Led13Action3+"/LED14 ="+Led14Action3+"\r\n";
@@ -3410,7 +3533,7 @@ function download(){
 			else{document.getElementById("Led14Recap_4" ).innerHTML =  "";}
 			
 			
-			
+			Text += "#define ACTION4_ENABLE\r\n";
 			Text += "#define ACTION4CH "+ Action4Ch +"\r\n";
 
 			if(Action4HIGH == "1"){
@@ -3451,10 +3574,7 @@ function download(){
 			}
 			}
 			else{
-			Text += "#define ACTION4CH 999\r\n";
-			Text += "#define ACTION4ON 999\r\n";
-			Text += "#define ACTION4OFF 999\r\n";
-			Text += "#define ACTION4NA 999\r\n";
+			
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION4 = LED1 ="+Led1Action4+"/LED2 ="+Led2Action4+"/LED3 ="+Led3Action4+"/LED4 ="+Led4Action4+"/LED5 ="+Led5Action4+"/LED6 ="+Led6Action4+"/LED7 ="+Led7Action4+"/\rLED8 ="+Led8Action4+"/LED9 ="+Led9Action4+"/LED10 ="+Led10Action4+"/LED11 ="+Led11Action4+"/LED12 ="+Led12Action4+"/LED13 ="+Led13Action4+"/LED14 ="+Led14Action4+"\r\n";
@@ -3466,7 +3586,8 @@ function download(){
 			Text += "//---------------------------------ACTION5---------------------------------------\r\n";
 			Text += "//_______________________________________________________________________________\r\n";
 			
-			if (Action5ON==true){		
+			if (Action5ON==true){	
+			Text += "#define ACTION5_ENABLE\r\n";	
 			Text += "#define ACTION5CH "+ Action5Ch +"\r\n";
 
 			if(Action5HIGH == "1"){
@@ -3507,10 +3628,7 @@ function download(){
 			}
 			
 			else{
-			Text += "#define ACTION5CH 999\r\n";
-			Text += "#define ACTION5ON 999\r\n";
-			Text += "#define ACTION5OFF 999\r\n";
-			Text += "#define ACTION5NA 999\r\n";
+			
 			}
 			
 			Text2 += "\r\n";
@@ -3652,7 +3770,7 @@ function download(){
 			else{document.getElementById("Led14Recap_6" ).innerHTML =  "";}
 			
 			
-			
+			Text += "#define ACTION6_ENABLE\r\n";
 			Text += "#define ACTION6CH "+ Action6Ch +"\r\n";
 			
 			if(Action6HIGH == "1"){
@@ -3692,10 +3810,7 @@ function download(){
 			}
 			}
 			else{
-			Text += "#define ACTION6CH 999\r\n";
-			Text += "#define ACTION6ON 999\r\n";
-			Text += "#define ACTION6OFF 999\r\n";
-			Text += "#define ACTION6NA 999\r\n";
+			
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION6 = LED1 ="+Led1Action6+"/LED2 ="+Led2Action6+"/LED3 ="+Led3Action6+"/LED4 ="+Led4Action6+"/LED5 ="+Led5Action6+"/LED6 ="+Led6Action6+"/LED7 ="+Led7Action6+"/\rLED8 ="+Led8Action6+"/LED9 ="+Led9Action6+"/LED10 ="+Led10Action6+"/LED11 ="+Led11Action6+"/LED12 ="+Led12Action6+"/LED13 ="+Led13Action6+"/LED14 ="+Led14Action6+"\r\n";
@@ -3837,7 +3952,7 @@ function download(){
 			}
 			else{document.getElementById("Led14Recap_7" ).innerHTML =  "";}
 			
-			
+			Text += "#define ACTION7_ENABLE\r\n";
 			Text += "#define ACTION7CH "+ Action7Ch +"\r\n";
 			
 			if(Action7HIGH == "1"){
@@ -3877,10 +3992,7 @@ function download(){
 			}
 			}
 			else{
-			Text += "#define ACTION7CH 999\r\n";
-			Text += "#define ACTION7ON 999\r\n";
-			Text += "#define ACTION7OFF 999\r\n";
-			Text += "#define ACTION7NA 999\r\n";
+			
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION7 = LED1 ="+Led1Action7+"/LED2 ="+Led2Action7+"/LED3 ="+Led3Action7+"/LED4 ="+Led4Action7+"/LED5 ="+Led5Action7+"/LED6 ="+Led6Action7+"/LED7 ="+Led7Action7+"/\rLED8 ="+Led8Action7+"/LED9 ="+Led9Action7+"/LED10 ="+Led10Action7+"/LED11 ="+Led11Action7+"/LED12 ="+Led12Action7+"/LED13 ="+Led13Action7+"/LED14 ="+Led14Action7+"\r\n";
@@ -3900,6 +4012,13 @@ function download(){
 			Text += "//_______________________________________________________________________________\r\n";
 			
 			if (Action8ON==true){
+			
+			if(SoundsAlarm == "1"){
+			Text += "#include \"sounds/boat/AuxSound/Ring.h\"\r\n";
+			Text += "XT_Wav_Class Ring(Ring_Data);\r\n";
+			Text += "#define RINGALARM\r\n";
+			Text2 += "Alarme 2 sons";
+			}
 			
 			if(AlarmSound == "1"){
 			Text += "#include \"sounds/boat/AuxSound/Alarm.h\"\r\n";
@@ -4027,7 +4146,7 @@ function download(){
 			}
 			else{document.getElementById("Led14Recap_8" ).innerHTML =  "";}
 			
-			
+			Text += "#define ACTION8_ENABLE\r\n";
 			Text += "#define ACTION8CH "+ Action8Ch +"\r\n";
 			
 			if(Action8HIGH == "1"){
@@ -4067,10 +4186,7 @@ function download(){
 			}
 			}
 			else{
-			Text += "#define ACTION8CH 999\r\n";
-			Text += "#define ACTION8ON 999\r\n";
-			Text += "#define ACTION8OFF 999\r\n";
-			Text += "#define ACTION8NA 999\r\n";
+			
 			}
 						
 			Text2 += "\r\n";
@@ -4272,16 +4388,15 @@ function download(){
 			
 			if (Action9ON==true){		
 			Text += "volatile boolean AutoLight =true;\r\n";
-			Text += "#define ACTION9CH 999\r\n";
-			Text += "#define ACTION9ON 999\r\n";
-			Text += "#define ACTION9OFF 999\r\n";
-			Text += "#define ACTION9NA 999\r\n";
 			Text2 += "AutoLight =true;\r\n";
 			}
 			
 			else {Text += "volatile boolean AutoLight =false;\r\n";
+			Text += "#define ACTION9_ENABLE\r\n";
 			Text += "#define ACTION9CH "+ Action9Ch +"\r\n";
 			Text2 += "AutoLight =false;\r\n";
+			
+			
 			if(Action9HIGH == "1"){
 			Text += "#define ACTION9ON 3\r\n";
 			Text2 += "ACTION 9 ON Sur VOIE "+ Action9Ch +" quand HIGH \r\n";
@@ -4515,7 +4630,7 @@ function download(){
 			}
 			else{document.getElementById("Led14Recap_10" ).innerHTML =  "";}
 			
-			
+			Text += "#define ACTION10_ENABLE\r\n";
 			Text += "#define ACTION10CH "+ Action10Ch +"\r\n";
 			
 			if(Action10HIGH == "1"){
@@ -4555,10 +4670,7 @@ function download(){
 			}
 			}
 			else{
-			Text += "#define ACTION10CH 999\r\n";
-			Text += "#define ACTION10ON 999\r\n";
-			Text += "#define ACTION10OFF 999\r\n";
-			Text += "#define ACTION10NA 999\r\n";
+			
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION10 = LED1 ="+Led1Action10+"/LED2 ="+Led2Action10+"/LED3 ="+Led3Action10+"/LED4 ="+Led4Action10+"/LED5 ="+Led5Action10+"/LED6 ="+Led6Action10+"/LED7 ="+Led7Action10+"/\rLED8 ="+Led8Action10+"/LED9 ="+Led9Action10+"/LED10 ="+Led10Action10+"/LED11 ="+Led11Action10+"/LED12 ="+Led12Action10+"/LED13 ="+Led13Action10+"/LED14 ="+Led14Action10+"\r\n";
@@ -4890,7 +5002,7 @@ function download1(){
     text = text.replace(/\n/g, "\r\n"); // To retain the Line breaks.
     var blob = new Blob([text], { type: "text/plain"});
     var anchor = document.createElement("a");
-    anchor.download = "3-Setup.h";
+    anchor.download = "1-Setup.h";
     anchor.href = window.URL.createObjectURL(blob);
     anchor.target ="_blank";
     anchor.style.display = "none"; // just to be safe!
