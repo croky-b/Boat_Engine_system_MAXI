@@ -92,6 +92,48 @@ button {
   cursor: pointer;
 }
 
+div#colonne1 {
+	float: left;
+	width: 210px;
+	border: 2px solid grey;
+	background: lightgray;
+	padding: 0px 12px;
+	
+}
+
+div#colonne2 {
+	float: right;
+	border: 2px solid grey;
+	width: 210px;
+	background: lightgray;
+	padding: 0px 12px;
+	
+}
+
+div#Actcol1 {
+	float: left;
+	width: 210px;
+	border: 2px solid grey;
+	background: lightgray;
+	padding: 0px 12px;
+}
+
+div#Actcol2 {
+	float: right;
+	border: 2px solid grey;
+	width: 210px;
+	background: lightgray;
+	padding: 0px 12px;
+}
+div#button {
+	
+	background: lightblue;
+	padding: 0px 20px;
+}
+
+body{
+ background: white;
+}
 
 </style>
 </head>
@@ -100,43 +142,74 @@ button {
 <h1>Croky_b Setup Config Ver.5.3</h1>
 
 <div class="test">	
-
+	<div  id="button"> 
 <button type="button" name="CreateSetup" onclick="Convert()">Create Setup File</button>	
-<button type="button" onclick="download1()">Save</button>	<br>
+<button type="button" onclick="download1()">Save</button>	
 <button type="button" onclick="download2()">SaveRecap</button><br>
-<br>
+	</div>
+	<div id="ActRecap">
+		<div id="Actcol1">
+	<p>	
+	Action 1 :<label id="Action1Recap"></label><br>
+	Action 2 :<label id="Action2Recap"></label><br>	
+	Action 3 :<label id="Action3Recap"></label><br>	
+	Action 4 :<label id="Action4Recap"></label><br>	
+	Action 5 :<label id="Action5Recap"></label><br>	
+	</p>
+		</div>
+		<div id="Actcol2">
+		<p>	
+	Action 6 :<label id="Action6Recap"></label><br>
+	Action 7 :<label id="Action7Recap"></label><br>	
+	Action 8 :<label id="Action8Recap"></label><br>	
+	Action 9 :<label id="Action9Recap"></label><br>	
+	Action 10 :<label id="Action10Recap"></label><br>			
+		</p>
+		</div>	
+	</div>
+	<div  id="colonne1"> 
+		<p>
+led1 :<label id="Led1Recap"></label><label id="Led1Recap_3"></label><label id="Led1Recap_4"></label><label id="Led1Recap_6"></label><label id="Led1Recap_7"></label><label id="Led1Recap_8"></label><label id="Led1Recap_9"></label><label id="Led1Recap_10"></label><br>
+led2 :<label id="Led2Recap"></label><label id="Led2Recap_3"></label><label id="Led2Recap_4"></label><label id="Led2Recap_6"></label><label id="Led2Recap_7"></label><label id="Led2Recap_8"></label><label id="Led2Recap_9"></label><label id="Led2Recap_10"></label><br>
+led3 :<label id="Led3Recap"></label><label id="Led3Recap_3"></label><label id="Led3Recap_4"></label><label id="Led3Recap_6"></label><label id="Led3Recap_7"></label><label id="Led3Recap_8"></label><label id="Led3Recap_9"></label><label id="Led3Recap_10"></label><br>
+led4 :<label id="Led4Recap"></label><label id="Led4Recap_3"></label><label id="Led4Recap_4"></label><label id="Led4Recap_6"></label><label id="Led4Recap_7"></label><label id="Led4Recap_8"></label><label id="Led4Recap_9"></label><label id="Led4Recap_10"></label><br>
+led5 :<label id="Led5Recap"></label><label id="Led5Recap_3"></label><label id="Led5Recap_4"></label><label id="Led5Recap_6"></label><label id="Led5Recap_7"></label><label id="Led5Recap_8"></label><label id="Led5Recap_9"></label><label id="Led5Recap_10"></label><br>
+led6 :<label id="Led6Recap"></label><label id="Led6Recap_3"></label><label id="Led6Recap_4"></label><label id="Led6Recap_6"></label><label id="Led6Recap_7"></label><label id="Led6Recap_8"></label><label id="Led6Recap_9"></label><label id="Led6Recap_10"></label><br>
+led7 :<label id="Led7Recap"></label><label id="Led7Recap_3"></label><label id="Led7Recap_4"></label><label id="Led7Recap_6"></label><label id="Led7Recap_7"></label><label id="Led7Recap_8"></label><label id="Led7Recap_9"></label><label id="Led7Recap_10"></label><br>
+led8 :<label id="Led8Recap"></label><label id="Led8Recap_3"></label><label id="Led8Recap_4"></label><label id="Led8Recap_6"></label><label id="Led8Recap_7"></label><label id="Led8Recap_8"></label><label id="Led8Recap_9"></label><label id="Led8Recap_10"></label><br>
+led9 :<label id="Led9Recap"></label><label id="Led9Recap_3"></label><label id="Led9Recap_4"></label><label id="Led9Recap_6"></label><label id="Led9Recap_7"></label><label id="Led9Recap_8"></label><label id="Led9Recap_9"></label><label id="Led9Recap_10"></label><br>
+led10 :<label id="Led10Recap"></label><label id="Led10Recap_3"></label><label id="Led10Recap_4"></label><label id="Led10Recap_6"></label><label id="Led10Recap_7"></label><label id="Led10Recap_8"></label><label id="Led10Recap_9"></label><label id="Led10Recap_10"></label><br>
+led11 :<label id="Led11Recap"></label><label id="Led11Recap_3"></label><label id="Led11Recap_4"></label><label id="Led11Recap_6"></label><label id="Led11Recap_7"></label><label id="Led11Recap_8"></label><label id="Led11Recap_9"></label><label id="Led11Recap_10"></label><br>
+led12 :<label id="Led12Recap"></label><label id="Led12Recap_3"></label><label id="Led12Recap_4"></label><label id="Led12Recap_6"></label><label id="Led12Recap_7"></label><label id="Led12Recap_8"></label><label id="Led12Recap_9"></label><label id="Led12Recap_10"></label><br>
+led13 :<label id="Led13Recap"></label><label id="Led13Recap_3"></label><label id="Led13Recap_4"></label><label id="Led13Recap_6"></label><label id="Led13Recap_7"></label><label id="Led13Recap_8"></label><label id="Led13Recap_9"></label><label id="Led13Recap_10"></label><br>
+led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id="Led14Recap_4"></label><label id="Led14Recap_6"></label><label id="Led14Recap_7"></label><label id="Led14Recap_8"></label><label id="Led14Recap_9"></label><label id="Led14Recap_10"></label><br>
+		</p>
+		
 
-led1 :<label id="Led1Recap"></label><label id="Led1Recap_3"></label><label id="Led1Recap_4"></label><label id="Led1Recap_6"></label><label id="Led1Recap_7"></label><label id="Led1Recap_8"></label><label id="Led1Recap_9"></label><label id="Led1Recap_10"></label>&emsp;&emsp;Flash1 :<label id="Flash1Recap"></label><label id="Flash1Recap_3"></label><label id="Flash1Recap_4"></label><label id="Flash1Recap_6"></label><label id="Flash1Recap_7"></label><label id="Flash1Recap_8"></label><label id="Flash1Recap_9"></label><label id="Flash1Recap_10"></label><br /><br />  
-
-led2 :<label id="Led2Recap"></label><label id="Led2Recap_3"></label><label id="Led2Recap_4"></label><label id="Led2Recap_6"></label><label id="Led2Recap_7"></label><label id="Led2Recap_8"></label><label id="Led2Recap_9"></label><label id="Led2Recap_10"></label>&emsp;&emsp;Flash2 :<label id="Flash2Recap"></label><label id="Flash2Recap_3"></label><label id="Flash2Recap_4"></label><label id="Flash2Recap_6"></label><label id="Flash2Recap_7"></label><label id="Flash2Recap_8"></label><label id="Flash2Recap_9"></label><label id="Flash2Recap_10"></label><br /><br />  
- 
-led3 :<label id="Led3Recap"></label><label id="Led3Recap_3"></label><label id="Led3Recap_4"></label><label id="Led3Recap_6"></label><label id="Led3Recap_7"></label><label id="Led3Recap_8"></label><label id="Led3Recap_9"></label><label id="Led3Recap_10"></label>&emsp;&emsp;Flash3 :<label id="Flash3Recap"></label><label id="Flash3Recap_3"></label><label id="Flash3Recap_4"></label><label id="Flash3Recap_6"></label><label id="Flash3Recap_7"></label><label id="Flash3Recap_8"></label><label id="Flash3Recap_9"></label><label id="Flash3Recap_10"></label><br /><br />  
-
-led4 :<label id="Led4Recap"></label><label id="Led4Recap_3"></label><label id="Led4Recap_4"></label><label id="Led4Recap_6"></label><label id="Led4Recap_7"></label><label id="Led4Recap_8"></label><label id="Led4Recap_9"></label><label id="Led4Recap_10"></label>&emsp;&emsp;Flash4 :<label id="Flash4Recap"></label><label id="Flash4Recap_3"></label><label id="Flash4Recap_4"></label><label id="Flash4Recap_6"></label><label id="Flash4Recap_7"></label><label id="Flash4Recap_8"></label><label id="Flash4Recap_9"></label><label id="Flash4Recap_10"></label><br /><br />  
-
-led5 :<label id="Led5Recap"></label><label id="Led5Recap_3"></label><label id="Led5Recap_4"></label><label id="Led5Recap_6"></label><label id="Led5Recap_7"></label><label id="Led5Recap_8"></label><label id="Led5Recap_9"></label><label id="Led5Recap_10"></label>&emsp;&emsp;Flash5 :<label id="Flash5Recap"></label><label id="Flash5Recap_3"></label><label id="Flash5Recap_4"></label><label id="Flash5Recap_6"></label><label id="Flash5Recap_7"></label><label id="Flash5Recap_8"></label><label id="Flash5Recap_9"></label><label id="Flash5Recap_10"></label><br /><br />  
-
-led6 :<label id="Led6Recap"></label><label id="Led6Recap_3"></label><label id="Led6Recap_4"></label><label id="Led6Recap_6"></label><label id="Led6Recap_7"></label><label id="Led6Recap_8"></label><label id="Led6Recap_9"></label><label id="Led6Recap_10"></label>&emsp;&emsp;Flash6 :<label id="Flash6Recap"></label><label id="Flash6Recap_3"></label><label id="Flash6Recap_4"></label><label id="Flash6Recap_6"></label><label id="Flash6Recap_7"></label><label id="Flash6Recap_8"></label><label id="Flash6Recap_9"></label><label id="Flash6Recap_10"></label><br /><br />  
-
-led7 :<label id="Led7Recap"></label><label id="Led7Recap_3"></label><label id="Led7Recap_4"></label><label id="Led7Recap_6"></label><label id="Led7Recap_7"></label><label id="Led7Recap_8"></label><label id="Led7Recap_9"></label><label id="Led7Recap_10"></label>&emsp;&emsp;Flash7 :<label id="Flash7Recap"></label><label id="Flash7Recap_3"></label><label id="Flash7Recap_4"></label><label id="Flash7Recap_6"></label><label id="Flash7Recap_7"></label><label id="Flash7Recap_8"></label><label id="Flash7Recap_9"></label><label id="Flash7Recap_10"></label><br /><br />  
-
-led8 :<label id="Led8Recap"></label><label id="Led8Recap_3"></label><label id="Led8Recap_4"></label><label id="Led8Recap_6"></label><label id="Led8Recap_7"></label><label id="Led8Recap_8"></label><label id="Led8Recap_9"></label><label id="Led8Recap_10"></label>&emsp;&emsp;Flash8 :<label id="Flash8Recap"></label><label id="Flash8Recap_3"></label><label id="Flash8Recap_4"></label><label id="Flash8Recap_6"></label><label id="Flash8Recap_7"></label><label id="Flash8Recap_8"></label><label id="Flash8Recap_9"></label><label id="Flash8Recap_10"></label><br /><br />  
-
-led9 :<label id="Led9Recap"></label><label id="Led9Recap_3"></label><label id="Led9Recap_4"></label><label id="Led9Recap_6"></label><label id="Led9Recap_7"></label><label id="Led9Recap_8"></label><label id="Led9Recap_9"></label><label id="Led9Recap_10"></label>&emsp;&emsp;Flash9 :<label id="Flash9Recap"></label><label id="Flash9Recap_3"></label><label id="Flash9Recap_4"></label><label id="Flash9Recap_6"></label><label id="Flash9Recap_7"></label><label id="Flash9Recap_8"></label><label id="Flash9Recap_9"></label><label id="Flash9Recap_10"></label><br /><br />  
-
-led10 :<label id="Led10Recap"></label><label id="Led10Recap_3"></label><label id="Led10Recap_4"></label><label id="Led10Recap_6"></label><label id="Led10Recap_7"></label><label id="Led10Recap_8"></label><label id="Led10Recap_9"></label><label id="Led10Recap_10"></label>&emsp;&emsp;Flash10 :<label id="Flash10Recap"></label><label id="Flash10Recap_3"></label><label id="Flash10Recap_4"></label><label id="Flash10Recap_6"></label><label id="Flash10Recap_7"></label><label id="Flash10Recap_8"></label><label id="Flash10Recap_9"></label><label id="Flash10Recap_10"></label><br /><br />  
-
-led11 :<label id="Led11Recap"></label><label id="Led11Recap_3"></label><label id="Led11Recap_4"></label><label id="Led11Recap_6"></label><label id="Led11Recap_7"></label><label id="Led11Recap_8"></label><label id="Led11Recap_9"></label><label id="Led11Recap_10"></label>&emsp;&emsp;Flash11 :<label id="Flash11Recap"></label><label id="Flash11Recap_3"></label><label id="Flash11Recap_4"></label><label id="Flash11Recap_6"></label><label id="Flash11Recap_7"></label><label id="Flash11Recap_8"></label><label id="Flash11Recap_9"></label><label id="Flash11Recap_10"></label><br /><br />  
-
-led12 :<label id="Led12Recap"></label><label id="Led12Recap_3"></label><label id="Led12Recap_4"></label><label id="Led12Recap_6"></label><label id="Led12Recap_7"></label><label id="Led12Recap_8"></label><label id="Led12Recap_9"></label><label id="Led12Recap_10"></label>&emsp;&emsp;Flash12 :<label id="Flash12Recap"></label><label id="Flash12Recap_3"></label><label id="Flash12Recap_4"></label><label id="Flash12Recap_6"></label><label id="Flash12Recap_7"></label><label id="Flash12Recap_8"></label><label id="Flash12Recap_9"></label><label id="Flash12Recap_10"></label><br /><br />  
-
-led13 :<label id="Led13Recap"></label><label id="Led13Recap_3"></label><label id="Led13Recap_4"></label><label id="Led13Recap_6"></label><label id="Led13Recap_7"></label><label id="Led13Recap_8"></label><label id="Led13Recap_9"></label><label id="Led13Recap_10"></label>&emsp;&emsp;Flash13 :<label id="Flash13Recap"></label><label id="Flash13Recap_3"></label><label id="Flash13Recap_4"></label><label id="Flash13Recap_6"></label><label id="Flash13Recap_7"></label><label id="Flash13Recap_8"></label><label id="Flash13Recap_9"></label><label id="Flash13Recap_10"></label><br /><br />  
-
-led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id="Led14Recap_4"></label><label id="Led14Recap_6"></label><label id="Led14Recap_7"></label><label id="Led14Recap_8"></label><label id="Led14Recap_9"></label><label id="Led14Recap_10"></label>&emsp;&emsp;Flash14 :<label id="Flash14Recap"></label><label id="Flash14Recap_3"></label><label id="Flash14Recap_4"></label><label id="Flash14Recap_6"></label><label id="Flash14Recap_7"></label><label id="Flash14Recap_8"></label><label id="Flash14Recap_9"></label><label id="Flash14Recap_10"></label><br /><br /> 
-
-
-
-
+	</div>
+	
+	<div  id="colonne2"> 
+		<p>
+Flash1 :<label id="Flash1Recap"></label><label id="Flash1Recap_3"></label><label id="Flash1Recap_4"></label><label id="Flash1Recap_6"></label><label id="Flash1Recap_7"></label><label id="Flash1Recap_8"></label><label id="Flash1Recap_9"></label><label id="Flash1Recap_10"></label><br>  
+Flash2 :<label id="Flash2Recap"></label><label id="Flash2Recap_3"></label><label id="Flash2Recap_4"></label><label id="Flash2Recap_6"></label><label id="Flash2Recap_7"></label><label id="Flash2Recap_8"></label><label id="Flash2Recap_9"></label><label id="Flash2Recap_10"></label><br> 
+Flash3 :<label id="Flash3Recap"></label><label id="Flash3Recap_3"></label><label id="Flash3Recap_4"></label><label id="Flash3Recap_6"></label><label id="Flash3Recap_7"></label><label id="Flash3Recap_8"></label><label id="Flash3Recap_9"></label><label id="Flash3Recap_10"></label><br> 	
+Flash4 :<label id="Flash4Recap"></label><label id="Flash4Recap_3"></label><label id="Flash4Recap_4"></label><label id="Flash4Recap_6"></label><label id="Flash4Recap_7"></label><label id="Flash4Recap_8"></label><label id="Flash4Recap_9"></label><label id="Flash4Recap_10"></label><br>  
+Flash5 :<label id="Flash5Recap"></label><label id="Flash5Recap_3"></label><label id="Flash5Recap_4"></label><label id="Flash5Recap_6"></label><label id="Flash5Recap_7"></label><label id="Flash5Recap_8"></label><label id="Flash5Recap_9"></label><label id="Flash5Recap_10"></label><br> 
+Flash6 :<label id="Flash6Recap"></label><label id="Flash6Recap_3"></label><label id="Flash6Recap_4"></label><label id="Flash6Recap_6"></label><label id="Flash6Recap_7"></label><label id="Flash6Recap_8"></label><label id="Flash6Recap_9"></label><label id="Flash6Recap_10"></label><br>  
+Flash7 :<label id="Flash7Recap"></label><label id="Flash7Recap_3"></label><label id="Flash7Recap_4"></label><label id="Flash7Recap_6"></label><label id="Flash7Recap_7"></label><label id="Flash7Recap_8"></label><label id="Flash7Recap_9"></label><label id="Flash7Recap_10"></label><br>  
+Flash8 :<label id="Flash8Recap"></label><label id="Flash8Recap_3"></label><label id="Flash8Recap_4"></label><label id="Flash8Recap_6"></label><label id="Flash8Recap_7"></label><label id="Flash8Recap_8"></label><label id="Flash8Recap_9"></label><label id="Flash8Recap_10"></label><br>
+Flash9 :<label id="Flash9Recap"></label><label id="Flash9Recap_3"></label><label id="Flash9Recap_4"></label><label id="Flash9Recap_6"></label><label id="Flash9Recap_7"></label><label id="Flash9Recap_8"></label><label id="Flash9Recap_9"></label><label id="Flash9Recap_10"></label><br>
+Flash10 :<label id="Flash10Recap"></label><label id="Flash10Recap_3"></label><label id="Flash10Recap_4"></label><label id="Flash10Recap_6"></label><label id="Flash10Recap_7"></label><label id="Flash10Recap_8"></label><label id="Flash10Recap_9"></label><label id="Flash10Recap_10"></label><br> 
+Flash11 :<label id="Flash11Recap"></label><label id="Flash11Recap_3"></label><label id="Flash11Recap_4"></label><label id="Flash11Recap_6"></label><label id="Flash11Recap_7"></label><label id="Flash11Recap_8"></label><label id="Flash11Recap_9"></label><label id="Flash11Recap_10"></label><br>
+Flash12 :<label id="Flash12Recap"></label><label id="Flash12Recap_3"></label><label id="Flash12Recap_4"></label><label id="Flash12Recap_6"></label><label id="Flash12Recap_7"></label><label id="Flash12Recap_8"></label><label id="Flash12Recap_9"></label><label id="Flash12Recap_10"></label><br>
+Flash13 :<label id="Flash13Recap"></label><label id="Flash13Recap_3"></label><label id="Flash13Recap_4"></label><label id="Flash13Recap_6"></label><label id="Flash13Recap_7"></label><label id="Flash13Recap_8"></label><label id="Flash13Recap_9"></label><label id="Flash13Recap_10"></label><br>
+Flash14 :<label id="Flash14Recap"></label><label id="Flash14Recap_3"></label><label id="Flash14Recap_4"></label><label id="Flash14Recap_6"></label><label id="Flash14Recap_7"></label><label id="Flash14Recap_8"></label><label id="Flash14Recap_9"></label><label id="Flash14Recap_10"></label><br> 
+		</p>
+	</div>
+	
+	
+	
+	
 </div>	
 
 <div class="tab">
@@ -159,9 +232,9 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
  
 <div id="GeneralConfig" class="tabcontent">
 
-	 <br><br> 
+	 <br>
 	Type de carte 
-		<select name="Board" id="Board" >
+		<select name="Board" id="Board"  >
 
 		<option  title="Version Maxi avec SX1509" value="1" >MAXI</option>
 		<option  title="Version Mini sans SX1509" value="2"disabled >MINI</option>
@@ -174,7 +247,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 	
 	Type de Communication: <br><br>
 	
-		<select name="Communication" id="Communication" >
+		<select name="Communication" id="Communication" onchange="Convert()" >
 
 		<option  title="SBUS jusqu'a 16 canaux" value="1">SBUS</option>
 		<option  title="PWM 8 cannaux MAX" value="2">PWM</option>
@@ -188,7 +261,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		Son Moteur:
 		<br>
 		<br>
-		<select name="Motor" id="Motor">
+		<select name="Motor" id="Motor" onchange="Convert()">
 
 		<option value="1">Small Diesel</option>
 		<option value="2">Large Diesel</option>
@@ -204,13 +277,13 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		 <br><br>
 		 
 		
-	 <input id="AirStarter" type="checkbox"   title="Ajoute le bruit d'air comprimée avant le démarrage et a l'arret du moteur"> AIR STARTER
+	 <input id="AirStarter" type="checkbox"   title="Ajoute le bruit d'air comprimée avant le démarrage et a l'arret du moteur" onchange="Convert()"> AIR STARTER
 	<br><br>
 	
 	Air starter Sound:
 		<br>
 		<br>
-		<select name="AirStart" id="AirStart">
+		<select name="AirStart" id="AirStart" onchange="Convert()">
 
 		<option value="1">Air starter 1</option>
 		<option value="2">Air starter 2</option>
@@ -218,7 +291,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		
-		<select name="AirStop" id="AirStop">
+		<select name="AirStop" id="AirStop"onchange="Convert()">
 
 		<option value="1">Air stop 1</option>
 		<option value="2">Air stop 2</option>
@@ -227,25 +300,25 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		</p>	
-		 <input title="200 vehicule lent 400 pour un vehicule rapide, MAX 400" id="RPM" type="text" size="1" value="250" >RPM range
-		 <input title="200 vehicule lent 400 pour un vehicule rapide MAX 400"id="RevRPM" type="text" size="1" value="200" >RevRPM range
-		 <input title="1 vehicule lent 9 pour un vehicule rapide MAX 9"id="Acc" type="text" size="1" value="5" >Acceleration
-		 <input title="1 vehicule lent 9 pour un vehicule rapide MAX 9"id="Dec" type="text" size="1" value="4" >Deceleration
+		 <input title="200 vehicule lent 400 pour un vehicule rapide, MAX 400" id="RPM" type="text" size="1" value="250" onchange="Convert()">RPM range
+		 <input title="200 vehicule lent 400 pour un vehicule rapide MAX 400"id="RevRPM" type="text" size="1" value="200" onchange="Convert()">RevRPM range
+		 <input title="1 vehicule lent 9 pour un vehicule rapide MAX 9"id="Acc" type="text" size="1" value="5"onchange="Convert()" >Acceleration
+		 <input title="1 vehicule lent 9 pour un vehicule rapide MAX 9"id="Dec" type="text" size="1" value="4"onchange="Convert()">Deceleration
 		</div> 
 		<class="element-separator"><hr><h3 class="section-break-title"></h3>
 
-		<input title="Active le Mixage Gaz/Direction" id="Mixage" type="checkbox"  > Mixage 
+		<input title="Active le Mixage Gaz/Direction" id="Mixage" type="checkbox" onchange="Convert()" > Mixage 
 	<br><br>
-		<input title=" active= Mixage lineaire / sinon mixage proportionel ( plus la vitesse est importante moins le mixage est fort) "id="Linear" type="checkbox"  > Mixage Lineaire
+		<input title=" active= Mixage lineaire / sinon mixage proportionel ( plus la vitesse est importante moins le mixage est fort) "id="Linear" type="checkbox"  onchange="Convert()"> Mixage Lineaire
 	<br><br>
-		<input title="Inverse la sortie de l'ESC" id="InvESC" type="checkbox" checked > Inv ESC
+		<input title="Inverse la sortie de l'ESC" id="InvESC" type="checkbox" checked onchange="Convert()"> Inv ESC
 	<br><br>
 		
 		
 	Mixage(direction/gaz) Av/Arr:
 		<br>
 		<br>
-		<select name="Avant" id="Avant"> 
+		<select name="Avant" id="Avant"onchange="Convert()"> 
 
 		<option title="Pas d'inversion des moteurs "value="1">Mode1</option>
 		<option title="Inversion des moteurs possible"value="2">Mode2</option>
@@ -255,7 +328,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		
-		<select name="Arriere" id="Arriere">
+		<select name="Arriere" id="Arriere"onchange="Convert()">
 
 		<option title=" Mixage avec vitesse limité " value="1">Mode1</option>
 		<option title=" Mixage sans limitation de vitesse " value="2">Mode2</option>
@@ -270,7 +343,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<class="element-separator"><hr><h3 class="section-break-title"></h3>	
 		<div class="channel" style="border:2px solid 	#363636">  
-		<select name="GAZ" id="GAZ" >
+		<select name="GAZ" id="GAZ"onchange="Convert()" >
 		<option title="Canal 1 pour les gaz"value="1">Channel 1</option>
 		<option title="Canal 2 pour les gaz"value="2">Channel 2</option>
 		<option title="Canal 3 pour les gaz"selected value="3">Channel 3</option>
@@ -278,7 +351,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		 </select>
 		 
 		 Gaz: </p>
-		 <select name="PROFONDEUR" id="PROFONDEUR">
+		 <select name="PROFONDEUR" id="PROFONDEUR"onchange="Convert()">
 
 		<option title="Canal 1 pour la profondeur "value="1">Channel 1</option>
 		<option title="Canal 2 pour la profondeur "selected value="2">Channel 2</option>
@@ -288,7 +361,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		 
 		 
 		 Profondeur: </p>
-		 <select name="AILLERONS" id="AILLERONS">
+		 <select name="AILLERONS" id="AILLERONS"onchange="Convert()">
 
 		<option title="Canal 1 pour les Aillerons "selected value="1">Channel 1</option>
 		<option title="Canal 2 pour les Aillerons "value="2">Channel 2</option>
@@ -298,7 +371,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		 
 		 
 		 Aillerons : </p>
-		 <select name="DERIVE" id="DERIVE">
+		 <select name="DERIVE" id="DERIVE"onchange="Convert()">
 
 		<option title="Canal 1 pour la direction "value="1">Channel 1</option>
 		<option title="Canal 2 pour la direction "value="2">Channel 2</option>
@@ -310,50 +383,50 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		 </p>
 		 <br> 
 		  
-		<input title="Inversion de la direction" id="INV" type="checkbox"  > Inversion Ch derive
+		<input title="Inversion de la direction" id="INV" type="checkbox" onchange="Convert()" > Inversion Ch derive
 	<br><br>
 	<class="element-separator"><hr><h3 class="section-break-title"></h3>			 
 	
-		 <input type="checkbox" id="Channel1" Checked title="Si cochée voie active, sinon désactivée " > Channel 1<input type="checkbox" id="Channel5"title="Si cochée voie active, sinon désactivée " > Channel 5<input type="checkbox" id="Channel9" title="Si cochée voie active, sinon désactivée "> Channel 9  <input type="checkbox" id="Channel13"title="Si cochée voie active, sinon désactivée "> Channel 13<br>
-		 <input type="checkbox" id="Channel2" Checked title="Si cochée voie active, sinon désactivée "> Channel 2<input type="checkbox" id="Channel6"title="Si cochée voie active, sinon désactivée "  > Channel 6<input type="checkbox" id="Channel10"title="Si cochée voie active, sinon désactivée "> Channel 10<input type="checkbox" id="Channel14"title="Si cochée voie active, sinon désactivée "> Channel 14<br>
-		 <input type="checkbox" id="Channel3" Checked title="Si cochée voie active, sinon désactivée "> Channel 3<input type="checkbox" id="Channel7" title="Si cochée voie active, sinon désactivée "> Channel 7<input type="checkbox" id="Channel11"title="Si cochée voie active, sinon désactivée "> Channel 11<input type="checkbox" id="Channel15"title="Si cochée voie active, sinon désactivée "> Channel 15<br>
-		 <input type="checkbox" id="Channel4" Checked title="Si cochée voie active, sinon désactivée " > Channel 4<input type="checkbox" id="Channel8"title="Si cochée voie active, sinon désactivée "> Channel 8<input type="checkbox" id="Channel12"title="Si cochée voie active, sinon désactivée "> Channel 12<input type="checkbox" id="Channel16"title="Si cochée voie active, sinon désactivée "> Channel 16<br>
+		 <input type="checkbox" id="Channel1" Checked title="Si cochée voie active, sinon désactivée " onchange="Convert()"> Channel 1<input type="checkbox" id="Channel5"title="Si cochée voie active, sinon désactivée " onchange="Convert()"> Channel 5<input type="checkbox" id="Channel9" title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 9  <input type="checkbox" id="Channel13"title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 13<br>
+		 <input type="checkbox" id="Channel2" Checked title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 2<input type="checkbox" id="Channel6"title="Si cochée voie active, sinon désactivée "  onchange="Convert()"> Channel 6<input type="checkbox" id="Channel10"title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 10<input type="checkbox" id="Channel14"title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 14<br>
+		 <input type="checkbox" id="Channel3" Checked title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 3<input type="checkbox" id="Channel7" title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 7<input type="checkbox" id="Channel11"title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 11<input type="checkbox" id="Channel15"title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 15<br>
+		 <input type="checkbox" id="Channel4" Checked title="Si cochée voie active, sinon désactivée " onchange="Convert()"> Channel 4<input type="checkbox" id="Channel8"title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 8<input type="checkbox" id="Channel12"title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 12<input type="checkbox" id="Channel16"title="Si cochée voie active, sinon désactivée "onchange="Convert()"> Channel 16<br>
 		 </p>
 		 </p>
 		</div>   
 	<class="element-separator"><hr><h3 class="section-break-title"></h3>		
 		Engine ON/OFF</p>
 		 </p>
-	    <select name="EngineOn/Off" id="EngineOn/Off" >
+	    <select name="EngineOn/Off" id="EngineOn/Off" onchange="Convert()" >
 		<option title="demarge et extinction commander par une voie de l'emeteur" selected value="1">Manuel</option>
 		<option title="demarge automatique des que le gaz sont actionné et extinction après qq secondes en neutre" value="2">Auto</option>
 		
 		 </select>
-		 <input id="EngineOn/OffCh" type="text" size="1" value="2" >CH
+		 <input id="EngineOn/OffCh" type="text" size="1" value="2" onchange="Convert()">CH
 		 </p>
 		    </p>
-		<input title="Temps en seconde avant extinction du moteur ( en zone neutre)" id="MotorTime" type="text" size="2" value="15" >Motor Off Time
-		<input title="Temps en seconde après l'extinction du moteur pour que les lampes s'eteignent " id="LightTime" type="text" size="2" value="10" >Light Off Time
-		<input title="Temps en seconde après l'extinction du moteur pour que le radar  s'eteigne " id="RadarTime" type="text" size="2" value="15" >Radar Off Time		
+		<input title="Temps en seconde avant extinction du moteur ( en zone neutre)" id="MotorTime" type="text" size="2" value="15" onchange="Convert()">Motor Off Time
+		<input title="Temps en seconde après l'extinction du moteur pour que les lampes s'eteignent " id="LightTime" type="text" size="2" value="10" onchange="Convert()">Light Off Time
+		<input title="Temps en seconde après l'extinction du moteur pour que le radar  s'eteigne " id="RadarTime" type="text" size="2" value="15"onchange="Convert()" >Radar Off Time		
 	<class="element-separator"><hr><h3 class="section-break-title"></h3>
 		<div class="audio" style="border:2px solid 	#363636"> 
 		Volume Control (CH8) </p>
 		 </p>
-	    <select name="Volume" id="Volume" >
+	    <select name="Volume" id="Volume" onchange="Convert()" >
 		<option selected value="1">ON</option>
 		<option value="2">OFF</option>
 		
 		 </select>	 
 		 
-		<input id="VolumeCh" type="text" size="1"  value="8" title="Choix du Canal"  > CH<br><br> 
-		<input id="VolMIN" type="text" size="3" value="50" > MIN
-		<input id="VolINT" type="text" size="3" value="100" >INT
-		<input id="VolMAX" type="text" size="3" value="150" >MAX	
+		<input id="VolumeCh" type="text" size="1"  value="8" title="Choix du Canal" onchange="Convert()" > CH<br><br> 
+		<input id="VolMIN" type="text" size="3" value="50" onchange="Convert()" > MIN
+		<input id="VolINT" type="text" size="3" value="100" onchange="Convert()">INT
+		<input id="VolMAX" type="text" size="3" value="150" onchange="Convert()">MAX	
 		</div> 
 	<class="element-separator"><hr><h3 class="section-break-title"></h3>
 	
 		<div class="audio" style="border:2px solid 	#363636"> 
-	<select name="StartSound" id="StartSound">
+	<select name="StartSound" id="StartSound"onchange="Convert()">
 
 		<option title="Son joue lorsque la carte est prete "value="1">Corne de brume</option>
 		<option title="Son joue lorsque la carte est prete "value="2">Cloche</option>
@@ -393,68 +466,68 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		
 		<div class="led" style="border:2px solid 	#363636">
-		<input id="Led1 Action1" type="radio" name ="led1act1"title="Choix de la led" value="ACTION 1">1
-		<input id="Led2 Action1" type="radio" name ="led2act1"title="Choix de la led" value="ACTION 1" >2
-		<input id="Led3 Action1" type="radio" name ="led3act1"title="Choix de la led" value="ACTION 1"  >3
-		<input id="Led4 Action1" type="radio" name ="led4act1"title="Choix de la led" value="ACTION 1" >4
-		<input id="Led5 Action1" type="radio" name ="led5act1"title="Choix de la led"  value="ACTION 1">5
-		<input id="Led6 Action1" type="radio" name ="led6act1"title="Choix de la led" value="ACTION 1" >6
-		<input id="Led7 Action1" type="radio" name ="led7act1"title="Choix de la led" value="ACTION 1" >7
-		<input id="Led8 Action1" type="radio" name ="led8act1"title="Choix de la led"  value="ACTION 1">8
-		<input id="Led9 Action1" type="radio" name ="led9act1"title="Choix de la led"  value="ACTION 1">9
-		<input id="Led10 Action1" type="radio" name ="led10act1"title="Choix de la led" value="ACTION 1">10
-		<input id="Led11 Action1" type="radio" name ="led11act1"title="Choix de la led" value="ACTION 1">11
-		<input id="Led12 Action1" type="radio" name ="led12act1"title="Choix de la led" value="ACTION 1">12
-		<input id="Led13 Action1" type="radio" name ="led13act1"title="Choix de la led" value="ACTION 1">13
-		<input id="Led14 Action1" type="radio" name ="led14act1"title="Choix de la led" value="ACTION 1" >14
+		<input id="Led1 Action1" type="radio" name ="led1act1"title="Choix de la led" value="ACTION 1"onchange="Convert()">1
+		<input id="Led2 Action1" type="radio" name ="led2act1"title="Choix de la led" value="ACTION 1"onchange="Convert()" >2
+		<input id="Led3 Action1" type="radio" name ="led3act1"title="Choix de la led" value="ACTION 1"onchange="Convert()"  >3
+		<input id="Led4 Action1" type="radio" name ="led4act1"title="Choix de la led" value="ACTION 1"onchange="Convert()" >4
+		<input id="Led5 Action1" type="radio" name ="led5act1"title="Choix de la led"  value="ACTION 1"onchange="Convert()">5
+		<input id="Led6 Action1" type="radio" name ="led6act1"title="Choix de la led" value="ACTION 1" onchange="Convert()">6
+		<input id="Led7 Action1" type="radio" name ="led7act1"title="Choix de la led" value="ACTION 1" onchange="Convert()">7
+		<input id="Led8 Action1" type="radio" name ="led8act1"title="Choix de la led"  value="ACTION 1"onchange="Convert()">8
+		<input id="Led9 Action1" type="radio" name ="led9act1"title="Choix de la led"  value="ACTION 1"onchange="Convert()">9
+		<input id="Led10 Action1" type="radio" name ="led10act1"title="Choix de la led" value="ACTION 1"onchange="Convert()">10
+		<input id="Led11 Action1" type="radio" name ="led11act1"title="Choix de la led" value="ACTION 1"onchange="Convert()">11
+		<input id="Led12 Action1" type="radio" name ="led12act1"title="Choix de la led" value="ACTION 1"onchange="Convert()">12
+		<input id="Led13 Action1" type="radio" name ="led13act1"title="Choix de la led" value="ACTION 1"onchange="Convert()">13
+		<input id="Led14 Action1" type="radio" name ="led14act1"title="Choix de la led" value="ACTION 1" onchange="Convert()">14
 		/Led<br>
-		<input id="Flash1 Action1" type="radio" name ="led1act1"title="Active le Flash sur la led "  >1
-		<input id="Flash2 Action1" type="radio" name ="led2act1"title="Active le Flash sur la led " >2 
-		<input id="Flash3 Action1" type="radio" name ="led3act1"title="Active le Flash sur la led "  >3
-		<input id="Flash4 Action1" type="radio" name ="led4act1"title="Active le Flash sur la led "  >4
-		<input id="Flash5 Action1" type="radio" name ="led5act1"title="Active le Flash sur la led "  >5
-		<input id="Flash6 Action1" type="radio" name ="led6act1"title="Active le Flash sur la led "  >6
-		<input id="Flash7 Action1" type="radio" name ="led7act1"title="Active le Flash sur la led "  >7
-		<input id="Flash8 Action1" type="radio" name ="led8act1"title="Active le Flash sur la led "  >8
-		<input id="Flash9 Action1" type="radio" name ="led9act1"title="Active le Flash sur la led "  >9
-		<input id="Flash10 Action1" type="radio" name ="led10act1"title="Active le Flash sur la led "  >10
-		<input id="Flash11 Action1" type="radio" name ="led11act1" title="Active le Flash sur la led "  >11
-		<input id="Flash12 Action1" type="radio" name ="led12act1" title="Active le Flash sur la led "  >12
-		<input id="Flash13 Action1" type="radio" name ="led13act1"title="Active le Flash sur la led "  >13
-		<input id="Flash14 Action1" type="radio" name ="led14act1" title="Active le Flash sur la led "  >14
+		<input id="Flash1 Action1" type="radio" name ="led1act1"title="Active le Flash sur la led "onchange="Convert()"  >1
+		<input id="Flash2 Action1" type="radio" name ="led2act1"title="Active le Flash sur la led "onchange="Convert()" >2 
+		<input id="Flash3 Action1" type="radio" name ="led3act1"title="Active le Flash sur la led " onchange="Convert()" >3
+		<input id="Flash4 Action1" type="radio" name ="led4act1"title="Active le Flash sur la led " onchange="Convert()" >4
+		<input id="Flash5 Action1" type="radio" name ="led5act1"title="Active le Flash sur la led " onchange="Convert()" >5
+		<input id="Flash6 Action1" type="radio" name ="led6act1"title="Active le Flash sur la led " onchange="Convert()" >6
+		<input id="Flash7 Action1" type="radio" name ="led7act1"title="Active le Flash sur la led " onchange="Convert()" >7
+		<input id="Flash8 Action1" type="radio" name ="led8act1"title="Active le Flash sur la led " onchange="Convert()" >8
+		<input id="Flash9 Action1" type="radio" name ="led9act1"title="Active le Flash sur la led "  onchange="Convert()">9
+		<input id="Flash10 Action1" type="radio" name ="led10act1"title="Active le Flash sur la led " onchange="Convert()" >10
+		<input id="Flash11 Action1" type="radio" name ="led11act1" title="Active le Flash sur la led " onchange="Convert()" >11
+		<input id="Flash12 Action1" type="radio" name ="led12act1" title="Active le Flash sur la led " onchange="Convert()" >12
+		<input id="Flash13 Action1" type="radio" name ="led13act1"title="Active le Flash sur la led " onchange="Convert()" >13
+		<input id="Flash14 Action1" type="radio" name ="led14act1" title="Active le Flash sur la led " onchange="Convert()" >14
 		/Flash<br>
-		<input id="Na1 Action1" type="radio" name ="led1act1"title="Pas de led " checked >1
-		<input id="Na2 Action1" type="radio" name ="led2act1"title="Pas de led  " checked >2
-		<input id="Na3 Action1" type="radio" name ="led3act1"title="Pas de led  " checked >3
-		<input id="Na4 Action1" type="radio" name ="led4act1"title="Pas de led  " checked >4
-		<input id="Na5 Action1" type="radio" name ="led5act1"title="Pas de led  " checked >5
-		<input id="Na6 Action1" type="radio" name ="led6act1"title="Pas de led  " checked >6
-		<input id="Na7 Action1" type="radio" name ="led7act1"title="Pas de led  " checked >7
-		<input id="Na8 Action1" type="radio" name ="led8act1"title="Pas de led  "checked  >8
-		<input id="Na9 Action1" type="radio" name ="led9act1"title="Pas de led  " checked >9
-		<input id="Na10 Action1" type="radio" name ="led10act1" title="Pas de led  "checked >10
-		<input id="Na11 Action1" type="radio" name ="led11act1"title="Pas de led  " checked >11
-		<input id="Na12 Action1" type="radio" name ="led12act1" title="Pas de led  " checked >12
-		<input id="Na13 Action1" type="radio" name ="led13act1" title="Pas de led  "checked  >13
-		<input id="Na14 Action1" type="radio" name ="led14act1" title="Pas de led  " checked >14
+		<input id="Na1 Action1" type="radio" name ="led1act1"title="Pas de led " checked onchange="Convert()">1
+		<input id="Na2 Action1" type="radio" name ="led2act1"title="Pas de led  " checked onchange="Convert()">2
+		<input id="Na3 Action1" type="radio" name ="led3act1"title="Pas de led  " checked onchange="Convert()">3
+		<input id="Na4 Action1" type="radio" name ="led4act1"title="Pas de led  " checked onchange="Convert()">4
+		<input id="Na5 Action1" type="radio" name ="led5act1"title="Pas de led  " checked onchange="Convert()">5
+		<input id="Na6 Action1" type="radio" name ="led6act1"title="Pas de led  " checked onchange="Convert()">6
+		<input id="Na7 Action1" type="radio" name ="led7act1"title="Pas de led  " checked onchange="Convert()">7
+		<input id="Na8 Action1" type="radio" name ="led8act1"title="Pas de led  "checked  onchange="Convert()">8
+		<input id="Na9 Action1" type="radio" name ="led9act1"title="Pas de led  " checked onchange="Convert()">9
+		<input id="Na10 Action1" type="radio" name ="led10act1" title="Pas de led  "checked onchange="Convert()">10
+		<input id="Na11 Action1" type="radio" name ="led11act1"title="Pas de led  " checked onchange="Convert()">11
+		<input id="Na12 Action1" type="radio" name ="led12act1" title="Pas de led  " checked onchange="Convert()">12
+		<input id="Na13 Action1" type="radio" name ="led13act1" title="Pas de led  "checked  onchange="Convert()">13
+		<input id="Na14 Action1" type="radio" name ="led14act1" title="Pas de led  " checked onchange="Convert()">14
 		/Na<br>
 		
 		<br>
-		 <input title="On Time" id="OnTimeAction1" type="text" size="1" value="250" >On Time
-		 <input title="Off Time" id="OffTimeAction1" type="text" size="1" value="250" >Off Time
+		 <input title="On Time" id="OnTimeAction1" type="text" size="1" value="250" onchange="Convert()">On Time
+		 <input title="Off Time" id="OffTimeAction1" type="text" size="1" value="250" onchange="Convert()">Off Time
 		</div>
 		
 		<br><br>
 		
 		<div class="channel" style="border:2px solid 	#363636">
 		
-		<input type="checkbox" id="ActionON" Checked title="Si cochée action active, sinon désactivée " >Action 1 Active<br><br>
+		<input type="checkbox" id="ActionON"  title="Si cochée action active, sinon désactivée " onchange="Convert()"  >Action 1 Active<br><br>
 		
 		
-		<input id="ActionCh" type="text" size="1"  value="6" title="Choix du Canal"  > CH<br><br>
+		<input id="ActionCh" type="text" size="1"  value="6" title="Choix du Canal" onchange="Convert()" > CH<br><br>
 		
 		
-		<select name="ActionHIGH" id="ActionHIGH" >HIGH
+		<select name="ActionHIGH" id="ActionHIGH" onchange="Convert()">HIGH
 
 		<option title="Action active quand l'interrupteur est sur HIGH" selected value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur HIGH" value="2">OFF</option>
@@ -494,26 +567,26 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<h6>Quand est activé,active le moteur de l'ancre et quand le mode FOG est activé joue le son de "cloche" <br>"Un navire au mouillage doit émettre un tintement de cloche de 5 secondes toutes les minutes" <br>
 		</h6>
 		
-		<select name="Mouillage" id="Mouillage" ><br><br>
+		<select name="Mouillage" id="Mouillage" onchange="Convert()"><br><br>
 
 		<option title="Bateau de - 20m" value="1">-20m</option> 
 		<option title="Bateau de + 20m" value="2">+20m</option><br><br>
 				
 		</select>
 		
-		<input type="checkbox" id="SoundAncor" Checked title="Si cochée Son actif, sinon désactivée " >Son Chaine
-		<input type="checkbox" id="MotorAncor" Checked title="Si cochée Moteur(servo6) actif, sinon désactivée " >Moteur<br><br>
-		<input type="checkbox" id="AutoAncor" Checked title="Si l'ancre est automatiquement relevee au demarage du moteur " >Ancre auto<br><br>
+		<input type="checkbox" id="SoundAncor"  title="Si cochée Son actif, sinon désactivée "onchange="Convert()" >Son Chaine
+		<input type="checkbox" id="MotorAncor"  title="Si cochée Moteur(servo6) actif, sinon désactivée " onchange="Convert()">Moteur<br><br>
+		<input type="checkbox" id="AutoAncor"  title="Si l'ancre est automatiquement relevee au demarage du moteur " onchange="Convert()">Ancre auto<br><br>
 		Choix du type de bateau 
 		<br><br>
 		
 		<div class="channel" style="border:2px solid 	#363636">
 		
-		<input type="checkbox" id="Action2ON" Checked title="Si cochée action2 active, sinon désactivée " >Action 2 Active<br><br>
+		<input type="checkbox" id="Action2ON"  title="Si cochée action2 active, sinon désactivée " onchange="Convert()" >Action 2 Active<br><br>
 		
-		<input id="Action2Ch" type="text" size="1"  value="6" title="Choix du Canal"  >CH<br><br>
+		<input id="Action2Ch" type="text" size="1"  value="6" title="Choix du Canal" onchange="Convert()" >CH<br><br>
 		
-		<select name="Action2HIGH" id="Action2HIGH" >
+		<select name="Action2HIGH" id="Action2HIGH"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur HIGH"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur HIGH" value="2">OFF</option>
@@ -521,7 +594,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		HIGH
-		<select name="Action2NEUTRAL" id="Action2NEUTRAL" >
+		<select name="Action2NEUTRAL" id="Action2NEUTRAL" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur NEUTRE"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur NEUTRE" selected value="2">OFF</option>
@@ -529,7 +602,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		NEUTRAL
-		<select name="Action2LOW" id="Action2LOW" >
+		<select name="Action2LOW" id="Action2LOW" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur LOW" selected value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur LOW" value="2">OFF</option>
@@ -553,7 +626,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<h6>Quand est activé," Les signaux phoniques par visibilité réduite" sont activés<br>ex:Un navire à moteur avec erre doit émettre un son long toutes les deux minutes <br>
 		Choix des leds allumées pdt l'action<br></h6>
 		
-		<select name="FogType" id="FogType" ><br><br>
+		<select name="FogType" id="FogType"onchange="Convert()" ><br><br>
 
 		<option title="Remorqueur" value="1">Remorqueur(tug)</option> 
 		<option title="Peche" value="2">Pêche(fishing)</option>
@@ -570,20 +643,20 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 	
 		<div class="led" style="border:2px solid 	#363636">
 		
-		<input id="Led1 Action3" type="checkbox"  title="Choix de la led" >1
-		<input id="Led2 Action3" type="checkbox"   title="Choix de la led"  >2
-		<input id="Led3 Action3" type="checkbox"   title="Choix de la led"  >3
-		<input id="Led4 Action3" type="checkbox"  title="Choix de la led"  >4
-		<input id="Led5 Action3" type="checkbox"   title="Choix de la led"  >5
-		<input id="Led6 Action3" type="checkbox"   title="Choix de la led"  >6
-		<input id="Led7 Action3" type="checkbox"   title="Choix de la led"  >7
-		<input id="Led8 Action3" type="checkbox"   title="Choix de la led"  >8
-		<input id="Led9 Action3" type="checkbox"   title="Choix de la led"  >9
-		<input id="Led10 Action3" type="checkbox"   title="Choix de la led"  >10
-		<input id="Led11 Action3" type="checkbox"   title="Choix de la led"  >11
-		<input id="Led12 Action3" type="checkbox" title="Choix de la led"  >12
-		<input id="Led13 Action3" type="checkbox" title="Choix de la led"  >13
-		<input id="Led14 Action3" type="checkbox"   title="Choix de la led"  >14
+		<input id="Led1 Action3" type="checkbox"  title="Choix de la led" onchange="Convert()">1
+		<input id="Led2 Action3" type="checkbox"   title="Choix de la led" onchange="Convert()" >2
+		<input id="Led3 Action3" type="checkbox"   title="Choix de la led"onchange="Convert()" >3
+		<input id="Led4 Action3" type="checkbox"  title="Choix de la led" onchange="Convert()" >4
+		<input id="Led5 Action3" type="checkbox"   title="Choix de la led" onchange="Convert()" >5
+		<input id="Led6 Action3" type="checkbox"   title="Choix de la led"onchange="Convert()"  >6
+		<input id="Led7 Action3" type="checkbox"   title="Choix de la led"onchange="Convert()" >7
+		<input id="Led8 Action3" type="checkbox"   title="Choix de la led"onchange="Convert()"  >8
+		<input id="Led9 Action3" type="checkbox"   title="Choix de la led" onchange="Convert()" >9
+		<input id="Led10 Action3" type="checkbox"   title="Choix de la led" onchange="Convert()" >10
+		<input id="Led11 Action3" type="checkbox"   title="Choix de la led" onchange="Convert()" >11
+		<input id="Led12 Action3" type="checkbox" title="Choix de la led" onchange="Convert()" >12
+		<input id="Led13 Action3" type="checkbox" title="Choix de la led" onchange="Convert()" >13
+		<input id="Led14 Action3" type="checkbox"   title="Choix de la led" onchange="Convert()" >14
 		<br><br>
 			
 		</div>
@@ -591,12 +664,12 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="channel" style="border:2px solid 	#363636">
 	
-		<input type="checkbox" id="Action3ON" Checked title="Si cochée action3 active, sinon désactivée " >Action 3 Active
+		<input type="checkbox" id="Action3ON"  title="Si cochée action3 active, sinon désactivée "onchange="Convert()" >Action 3 Active
 		<br><br>
 		
-		<input id="Action3Ch" type="text" size="1" value="7" title="Choix du Canal"  >CH<br><br>
+		<input id="Action3Ch" type="text" size="1" value="7" title="Choix du Canal" onchange="Convert()" >CH<br><br>
 		
-		<select name="Action3HIGH" id="Action3HIGH" >
+		<select name="Action3HIGH" id="Action3HIGH"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur HIGH" selected value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur HIGH" value="2">OFF</option>
@@ -604,7 +677,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		HIGH
-		<select name="Action3NEUTRAL" id="Action3NEUTRAL" >
+		<select name="Action3NEUTRAL" id="Action3NEUTRAL"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur NEUTRE"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur NEUTRE" selected value="2">OFF</option>
@@ -612,7 +685,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		NEUTRAL
-		<select name="Action3LOW" id="Action3LOW" >
+		<select name="Action3LOW" id="Action3LOW" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur LOW"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur LOW" value="2">OFF</option>
@@ -629,7 +702,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="audio" style="border:2px solid 	#363636">
 		
-		<select name="FogHornShort" id="FogHornShort" >
+		<select name="FogHornShort" id="FogHornShort"onchange="Convert()" >
 
 		<option title="Son Court 1"  value="1">Corne brume 1</option> 
 		<option title="Short_Perso_1"  value="5">Short_Perso_1</option> 
@@ -637,7 +710,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<option title="Short_Perso_3"  value="7">Short_Perso_1</option> 
 		</select>
 	    Short Blast 
-		<select name="FogHornLong" id="FogHornLong" >
+		<select name="FogHornLong" id="FogHornLong"onchange="Convert()" >
 
 		<option title="Son Long 1"  value="1">Corne brume 1</option> 
 		<option title="Long_Perso_1"  value="5">Long_Perso_1</option> 
@@ -645,7 +718,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<option title="Long_Perso_3"  value="7">Long_Perso_3</option> 
 		</select>
 		Long Blast 
-		<select name="BellSound" id="BellSound" >
+		<select name="BellSound" id="BellSound" onchange="Convert()">
 
 		<option title="Cloche 1"  value="1">Cloche 1</option> 
 		<option title="Cloche_Perso_1"  value="5">Cloche_Perso_1</option> 
@@ -662,7 +735,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<font size="-1">Copy the file in: /sounds/boat/AuxSound/</font> 		
 		<br>
 		<br>
-		<select name="AddHornSound" id="AddHornSound" >
+		<select name="AddHornSound" id="AddHornSound"onchange="Convert()" >
 
 		<option title="Short_Perso_1" value="1">Short_Perso_1</option> 
 		<option title="Short_Perso_2" value="2">Short_Perso_2</option> 
@@ -694,21 +767,21 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 
 		<div class="led" style="border:2px solid 	#363636">
 		
-		<input id="Led1 Action4" type="radio" name="canon" title="Choix de la led"  >1
-		<input id="Led2 Action4" type="radio" name="canon" title="Choix de la led"  >2
-		<input id="Led3 Action4" type="radio" name="canon" title="Choix de la led"  >3
-		<input id="Led4 Action4" type="radio" name="canon" title="Choix de la led"  >4
-		<input id="Led5 Action4" type="radio" name="canon" title="Choix de la led"  >5
-		<input id="Led6 Action4" type="radio" name="canon" title="Choix de la led"  >6
-		<input id="Led7 Action4" type="radio" name="canon" title="Choix de la led"  >7
-		<input id="Led8 Action4" type="radio" name="canon" title="Choix de la led"  >8
-		<input id="Led9 Action4" type="radio" name="canon" title="Choix de la led"  >9
-		<input id="Led10 Action4" type="radio" name="canon" title="Choix de la led"  >10
-		<input id="Led11 Action4" type="radio" name="canon" title="Choix de la led"  >11
-		<input id="Led12 Action4" type="radio" name="canon" title="Choix de la led"  >12
-		<input id="Led13 Action4" type="radio" name="canon" title="Choix de la led"  >13
-		<input id="Led14 Action4" type="radio" name="canon" title="Choix de la led"  >14
-		<input id="LedNa Action4" type="radio" name="canon" title="Choix de la led" checked >Na
+		<input id="Led1 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >1
+		<input id="Led2 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >2
+		<input id="Led3 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >3
+		<input id="Led4 Action4" type="radio" name="canon" title="Choix de la led"  onchange="Convert()">4
+		<input id="Led5 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >5
+		<input id="Led6 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >6
+		<input id="Led7 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >7
+		<input id="Led8 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >8
+		<input id="Led9 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >9
+		<input id="Led10 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >10
+		<input id="Led11 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >11
+		<input id="Led12 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >12
+		<input id="Led13 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >13
+		<input id="Led14 Action4" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >14
+		<input id="LedNa Action4" type="radio" name="canon" title="Choix de la led" checked onchange="Convert()">Na
 		
 		
 		</div>
@@ -717,14 +790,14 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="channel" style="border:2px solid 	#363636">
 		<br><br>
-		<input type="checkbox" id="Action4ON" Checked title="Si cochée action4 active, sinon désactivée " >Action 4 Active
+		<input type="checkbox" id="Action4ON"  title="Si cochée action4 active, sinon désactivée "onchange="Convert()" >Action 4 Active
 		
 		<br><br>
 		
-		<input id="Action4Ch" type="text" size="1" value="5" title="Choix du Canal"  >CH<br><br>
+		<input id="Action4Ch" type="text" size="1" value="5" title="Choix du Canal" onchange="Convert()" >CH<br><br>
 		
 		
-		<select name="Action4HIGH" id="Action4HIGH" >
+		<select name="Action4HIGH" id="Action4HIGH" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur HIGH"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur HIGH" value="2">OFF</option>
@@ -732,7 +805,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		HIGH
-		<select name="Action4NEUTRAL" id="Action4NEUTRAL" >
+		<select name="Action4NEUTRAL" id="Action4NEUTRAL"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur NEUTRE"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur NEUTRE" selected value="2">OFF</option>
@@ -740,7 +813,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		NEUTRAL
-		<select name="Action4LOW" id="Action4LOW" >
+		<select name="Action4LOW" id="Action4LOW" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur LOW"  selected value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur LOW" value="2">OFF</option>
@@ -765,13 +838,13 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="channel" style="border:2px solid 	#363636">
 		
-		<input type="checkbox" id="Action5ON" Checked title="Si cochée action active, sinon désactivée " >Action 5 Active
+		<input type="checkbox" id="Action5ON"  title="Si cochée action active, sinon désactivée " onchange="Convert()">Action 5 Active
 		
 		<br><br>
 		
-		<input id="Action5Ch" type="text" size="1" value="5" title="Choix du Canal"  >CH<br><br>
+		<input id="Action5Ch" type="text" size="1" value="5" title="Choix du Canal" onchange="Convert()" >CH<br><br>
 		
-		<select name="Action5HIGH" id="Action5HIGH" >
+		<select name="Action5HIGH" id="Action5HIGH"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur HIGH" selected value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur HIGH" value="2">OFF</option>
@@ -779,7 +852,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		HIGH
-		<select name="Action5NEUTRAL" id="Action5NEUTRAL" >
+		<select name="Action5NEUTRAL" id="Action5NEUTRAL"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur NEUTRE"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur NEUTRE" selected value="2">OFF</option>
@@ -787,7 +860,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		NEUTRAL
-		<select name="Action5LOW" id="Action5LOW" >
+		<select name="Action5LOW" id="Action5LOW"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur LOW"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur LOW" value="2">OFF</option>
@@ -815,34 +888,34 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="led" style="border:2px solid 	#363636">
 		
-		<input id="Led1 Action6" type="radio" name="mitraillette" title="Choix de la led"  >1
-		<input id="Led2 Action6" type="radio" name="mitraillette" title="Choix de la led"  >2
-		<input id="Led3 Action6" type="radio" name="mitraillette" title="Choix de la led"  >3
-		<input id="Led4 Action6" type="radio" name="mitraillette" title="Choix de la led"  >4
-		<input id="Led5 Action6" type="radio" name="mitraillette" title="Choix de la led"  >5
-		<input id="Led6 Action6" type="radio" name="mitraillette" title="Choix de la led"  >6
-		<input id="Led7 Action6" type="radio" name="mitraillette" title="Choix de la led"  >7
-		<input id="Led8 Action6" type="radio" name="mitraillette" title="Choix de la led"  >8
-		<input id="Led9 Action6" type="radio" name="mitraillette" title="Choix de la led"  >9
-		<input id="Led10 Action6" type="radio" name="mitraillette" title="Choix de la led"  >10
-		<input id="Led11 Action6" type="radio" name="mitraillette" title="Choix de la led"  >11
-		<input id="Led12 Action6" type="radio" name="mitraillette" title="Choix de la led"  >12
-		<input id="Led13 Action6" type="radio" name="mitraillette" title="Choix de la led"  >13
-		<input id="Led14 Action6" type="radio" name="mitraillette" title="Choix de la led"  >14
-		<input id="LedNa Action6" type="radio" name="mitraillette" title="Choix de la led"checked  >Na
+		<input id="Led1 Action6" type="radio" name="mitraillette" title="Choix de la led"onchange="Convert()"  >1
+		<input id="Led2 Action6" type="radio" name="mitraillette" title="Choix de la led" onchange="Convert()" >2
+		<input id="Led3 Action6" type="radio" name="mitraillette" title="Choix de la led"onchange="Convert()"  >3
+		<input id="Led4 Action6" type="radio" name="mitraillette" title="Choix de la led"onchange="Convert()"  >4
+		<input id="Led5 Action6" type="radio" name="mitraillette" title="Choix de la led" onchange="Convert()" >5
+		<input id="Led6 Action6" type="radio" name="mitraillette" title="Choix de la led"onchange="Convert()"  >6
+		<input id="Led7 Action6" type="radio" name="mitraillette" title="Choix de la led" onchange="Convert()" >7
+		<input id="Led8 Action6" type="radio" name="mitraillette" title="Choix de la led" onchange="Convert()" >8
+		<input id="Led9 Action6" type="radio" name="mitraillette" title="Choix de la led" onchange="Convert()" >9
+		<input id="Led10 Action6" type="radio" name="mitraillette" title="Choix de la led" onchange="Convert()" >10
+		<input id="Led11 Action6" type="radio" name="mitraillette" title="Choix de la led" onchange="Convert()" >11
+		<input id="Led12 Action6" type="radio" name="mitraillette" title="Choix de la led" onchange="Convert()" >12
+		<input id="Led13 Action6" type="radio" name="mitraillette" title="Choix de la led" onchange="Convert()" >13
+		<input id="Led14 Action6" type="radio" name="mitraillette" title="Choix de la led" onchange="Convert()" >14
+		<input id="LedNa Action6" type="radio" name="mitraillette" title="Choix de la led"checked onchange="Convert()" >Na
 		
 		</div>
 		
 		<br><br>
-		<input type="checkbox" id="ServoAction6" Checked title="Si cochée Servo3 actif " >Servo 3 Actif<br><br>
+		<input type="checkbox" id="ServoAction6"  title="Si cochée Servo3 actif "onchange="Convert()" >Servo 3 Actif<br><br>
 		
 		<div class="channel" style="border:2px solid 	#363636">
 		
-		<input type="checkbox" id="Action6ON" Checked title="Si cochée action6 active, sinon désactivée " >Action 6 Active<br><br>
+		<input type="checkbox" id="Action6ON"  title="Si cochée action6 active, sinon désactivée "onchange="Convert()" >Action 6 Active<br><br>
 		
-		<input id="Action6Ch" type="text" size="1" value="9"title="Choix du Canal"  >CH<br><br>
+		<input id="Action6Ch" type="text" size="1" value="9"title="Choix du Canal" onchange="Convert()" >CH<br><br>
 		
-		<select name="Action6HIGH" id="Action6HIGH" >
+		<select name="Action6HIGH" id="Action6HIGH" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur HIGH" selected value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur HIGH" value="2">OFF</option>
@@ -850,7 +923,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		HIGH
-		<select name="Action6NEUTRAL" id="Action6NEUTRAL" >
+		<select name="Action6NEUTRAL" id="Action6NEUTRAL"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur NEUTRE"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur NEUTRE" selected value="2">OFF</option>
@@ -858,7 +931,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		NEUTRAL
-		<select name="Action6LOW" id="Action6LOW" >
+		<select name="Action6LOW" id="Action6LOW"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur LOW"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur LOW" value="2">OFF</option>
@@ -873,7 +946,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="audio" style="border:2px solid 	#363636">
 		
-		<select name="AAGunSound" id="AAGunSound" >
+		<select name="AAGunSound" id="AAGunSound"onchange="Convert()" >
 
 		<option title="" value="1">AAGun 1</option> 
 		<option title="" value="5">AAGun_perso_1</option> 
@@ -891,7 +964,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<br>
 		<br>
 		
-		<select name="AddAAGunSound" id="AddAAGunSound" >
+		<select name="AddAAGunSound" id="AddAAGunSound"onchange="Convert()" >
 
 		<option title="AAGun_Perso_1" value="1">AAGun_Perso_1</option> 
 		<option title="AAGun_Perso_2" value="2">AAGun_Perso_2</option> 
@@ -924,21 +997,21 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 	
 		<div class="led" style="border:2px solid 	#363636">
 		
-		<input id="Led1 Action7" type="radio" name="canon" title="Choix de la led"  >1
-		<input id="Led2 Action7" type="radio" name="canon" title="Choix de la led"  >2
-		<input id="Led3 Action7" type="radio" name="canon" title="Choix de la led"  >3
-		<input id="Led4 Action7" type="radio" name="canon" title="Choix de la led"  >4
-		<input id="Led5 Action7" type="radio" name="canon" title="Choix de la led"  >5
-		<input id="Led6 Action7" type="radio" name="canon" title="Choix de la led"  >6
-		<input id="Led7 Action7" type="radio" name="canon" title="Choix de la led"  >7
-		<input id="Led8 Action7" type="radio" name="canon" title="Choix de la led"  >8
-		<input id="Led9 Action7" type="radio" name="canon" title="Choix de la led"  >9
-		<input id="Led10 Action7" type="radio" name="canon" title="Choix de la led"  >10
-		<input id="Led11 Action7" type="radio" name="canon" title="Choix de la led"  >11
-		<input id="Led12 Action7" type="radio" name="canon" title="Choix de la led"  >12
-		<input id="Led13 Action7" type="radio" name="canon" title="Choix de la led"  >13
-		<input id="Led14 Action7" type="radio" name="canon" title="Choix de la led"  >14
-		<input id="LedNa Action7" type="radio" name="canon" title="Choix de la led" checked >Na
+		<input id="Led1 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >1
+		<input id="Led2 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >2
+		<input id="Led3 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >3
+		<input id="Led4 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >4
+		<input id="Led5 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >5
+		<input id="Led6 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >6
+		<input id="Led7 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >7
+		<input id="Led8 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >8
+		<input id="Led9 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >9
+		<input id="Led10 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >10
+		<input id="Led11 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >11
+		<input id="Led12 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >12
+		<input id="Led13 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >13
+		<input id="Led14 Action7" type="radio" name="canon" title="Choix de la led" onchange="Convert()" >14
+		<input id="LedNa Action7" type="radio" name="canon" title="Choix de la led" checked onchange="Convert()">Na
   
 	
 		</div>
@@ -947,14 +1020,14 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="channel" style="border:2px solid 	#363636">
 		
-		<input type="checkbox" id="ServoAction7" Checked title="Si cochée Servo3 actif " >Servos 1 et 2 Actif<br><br>
+		<input type="checkbox" id="ServoAction7"  title="Si cochée Servo3 actif "onchange="Convert()" >Servos 1 et 2 Actif<br><br>
 		
 		
-		<input type="checkbox" id="Action7ON" Checked title="Si cochée action4 active, sinon désactivée " >Action 7 Active<br><br>
-		<input id="Action7Ch" type="text" size="1" value="9"title="Choix du Canal"  >CH<br><br>
+		<input type="checkbox" id="Action7ON"  title="Si cochée action4 active, sinon désactivée " onchange="Convert()">Action 7 Active<br><br>
+		<input id="Action7Ch" type="text" size="1" value="9"title="Choix du Canal" onchange="Convert()" >CH<br><br>
 		
 		
-		<select name="Action7HIGH" id="Action7HIGH" >
+		<select name="Action7HIGH" id="Action7HIGH"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur HIGH"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur HIGH" value="2">OFF</option>
@@ -962,7 +1035,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		HIGH
-		<select name="Action7NEUTRAL" id="Action7NEUTRAL" >
+		<select name="Action7NEUTRAL" id="Action7NEUTRAL"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur NEUTRE"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur NEUTRE" selected value="2">OFF</option>
@@ -970,7 +1043,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		NEUTRAL
-		<select name="Action7LOW" id="Action7LOW" >
+		<select name="Action7LOW" id="Action7LOW" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur LOW" selected value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur LOW" value="2">OFF</option>
@@ -984,7 +1057,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="audio" style="border:2px solid 	#363636">
 	
-		<select name="GunSound" id="GunSound" >
+		<select name="GunSound" id="GunSound" onchange="Convert()">
 
 		<option title="" value="1">Gun 1</option> 
 		<option title="" value="5">Gun_perso_1</option> 
@@ -1001,7 +1074,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<font size="-1">Copy the file in: /sounds/boat/AuxSound/</font> 		
 		<br>
 		<br>
-		<select name="AddGunSound" id="AddGunSound" >
+		<select name="AddGunSound" id="AddGunSound" onchange="Convert()">
 
 		<option title="Gun_Perso_1" value="1">Gun_Perso_1</option> 
 		<option title="Gun_Perso_2" value="2">Gun_Perso_2</option> 
@@ -1028,40 +1101,40 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="led" style="border:2px solid 	#363636">
 		
-		<input id="Led1 Action8" type="checkbox" size="1"title="Choix de la led"  >1
-		<input id="Led2 Action8" type="checkbox" size="1"title="Choix de la led"  >2
-		<input id="Led3 Action8" type="checkbox" size="1"title="Choix de la led"  >3
-		<input id="Led4 Action8" type="checkbox" size="1"title="Choix de la led"  >4
-		<input id="Led5 Action8" type="checkbox" size="1"title="Choix de la led"  >5
-		<input id="Led6 Action8" type="checkbox" size="1"title="Choix de la led"  >6
-		<input id="Led7 Action8" type="checkbox" size="1"title="Choix de la led"  >7
-		<input id="Led8 Action8" type="checkbox" size="1"title="Choix de la led"  >8
-		<input id="Led9 Action8" type="checkbox" size="1"title="Choix de la led"  >9
-		<input id="Led10 Action8" type="checkbox" size="1"title="Choix de la led"  >10
-		<input id="Led11 Action8" type="checkbox" size="1"title="Choix de la led"  >11
-		<input id="Led12 Action8" type="checkbox" size="1"title="Choix de la led"  >12
-		<input id="Led13 Action8" type="checkbox" size="1"title="Choix de la led"  >13
-		<input id="Led14 Action8" type="checkbox" size="1"title="Choix de la led"  >14
+		<input id="Led1 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >1
+		<input id="Led2 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >2
+		<input id="Led3 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >3
+		<input id="Led4 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >4
+		<input id="Led5 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >5
+		<input id="Led6 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >6
+		<input id="Led7 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >7
+		<input id="Led8 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >8
+		<input id="Led9 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >9
+		<input id="Led10 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >10
+		<input id="Led11 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >11
+		<input id="Led12 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >12
+		<input id="Led13 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >13
+		<input id="Led14 Action8" type="checkbox" size="1"title="Choix de la led" onchange="Convert()" >14
 		
 		
 		
 		<br><br>
 		
-		 <input title="On Time" id="OnTimeAction8" type="text" size="1" value="250" >On Time
-		 <input title="Off Time" id="OffTimeAction8" type="text" size="1" value="250" >Off Time
+		 <input title="On Time" id="OnTimeAction8" type="text" size="1" value="250"onchange="Convert()" >On Time
+		 <input title="Off Time" id="OffTimeAction8" type="text" size="1" value="250" onchange="Convert()">Off Time
 		</div>
 		
 		<br><br>
 		
 		<div class="channel" style="border:2px solid 	#363636">
 		
-		<input type="checkbox" id="Action8ON" Checked title="Si cochée action active, sinon désactivée " >Action 8 Active<br><br>
+		<input type="checkbox" id="Action8ON"  title="Si cochée action active, sinon désactivée "onchange="Convert()" >Action 8 Active<br><br>
 		
-		<input id="Action8Ch" type="text" size="1" value="10" title="Choix du Canal"  >CH<br><br>
+		<input id="Action8Ch" type="text" size="1" value="10" title="Choix du Canal"onchange="Convert()"  >CH<br><br>
 		
-		<input type="checkbox" id="2SoundsAlarm" Checked title="Deux son different alarm ( ring)sur Na et ring +alarm sur On" >2 Sounds<br><br>
+		<input type="checkbox" id="2SoundsAlarm"  title="Deux son different alarm ( ring)sur Na et ring +alarm sur On"onchange="Convert()" >2 Sounds<br><br>
 		
-		<select name="Action8HIGH" id="Action8HIGH" >
+		<select name="Action8HIGH" id="Action8HIGH" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur HIGH" selected value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur HIGH" value="2">OFF</option>
@@ -1069,7 +1142,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		HIGH
-		<select name="Action8NEUTRAL" id="Action8NEUTRAL" >
+		<select name="Action8NEUTRAL" id="Action8NEUTRAL" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur NEUTRE"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur NEUTRE"  value="2">OFF</option>
@@ -1077,7 +1150,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		NEUTRAL
-		<select name="Action8LOW" id="Action8LOW" >
+		<select name="Action8LOW" id="Action8LOW"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur LOW"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur LOW" selected value="2">OFF</option>
@@ -1090,7 +1163,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="audio" style="border:2px solid 	#363636">
 		
-		<select name="AlarmSound" id="AlarmSound" >
+		<select name="AlarmSound" id="AlarmSound"onchange="Convert()" >
 
 		<option title="" selected value="1">Alarm 1</option> 
 		<option title="" value="1">Alarme Collision</option> 
@@ -1107,7 +1180,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		<font size="-1">Copy the file in: /sounds/boat/AuxSound/</font> 		
 		<br>
 		<br>
-		<select name="AddAlarmSound" id="AddAlarmSound" >
+		<select name="AddAlarmSound" id="AddAlarmSound"onchange="Convert()">
 
 		<option title="Alarm_Perso_1" value="1">Alarm_Perso_1</option> 
 		<option title="Alarm_Perso_2" value="2">Alarm_Perso_2</option> 
@@ -1135,50 +1208,50 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="led" style="border:2px solid 	#363636">
 		
-		<input id="Led1 Action9" type="radio" name ="led1act9"title="Choix de la led"  >1
-		<input id="Led2 Action9" type="radio" name ="led2act9"title="Choix de la led"  >2
-		<input id="Led3 Action9" type="radio" name ="led3act9"title="Choix de la led"  >3
-		<input id="Led4 Action9" type="radio" name ="led4act9"title="Choix de la led"  >4
-		<input id="Led5 Action9" type="radio" name ="led5act9"title="Choix de la led"  >5
-		<input id="Led6 Action9" type="radio" name ="led6act9"title="Choix de la led"  >6
-		<input id="Led7 Action9" type="radio" name ="led7act9"title="Choix de la led"  >7
-		<input id="Led8 Action9" type="radio" name ="led8act9"title="Choix de la led"  >8
-		<input id="Led9 Action9" type="radio" name ="led9act9"title="Choix de la led"  >9
-		<input id="Led10 Action9" type="radio" name ="led10act9"title="Choix de la led"  >10
-		<input id="Led11 Action9" type="radio" name ="led11act9"title="Choix de la led"  >11
-		<input id="Led12 Action9" type="radio" name ="led12act9"title="Choix de la led"  >12
-		<input id="Led13 Action9" type="radio" name ="led13act9"title="Choix de la led"  >13
-		<input id="Led14 Action9" type="radio" name ="led14act9"title="Choix de la led"  >14
+		<input id="Led1 Action9" type="radio" name ="led1act9"title="Choix de la led" onchange="Convert()" >1
+		<input id="Led2 Action9" type="radio" name ="led2act9"title="Choix de la led" onchange="Convert()" >2
+		<input id="Led3 Action9" type="radio" name ="led3act9"title="Choix de la led" onchange="Convert()" >3
+		<input id="Led4 Action9" type="radio" name ="led4act9"title="Choix de la led" onchange="Convert()" >4
+		<input id="Led5 Action9" type="radio" name ="led5act9"title="Choix de la led" onchange="Convert()" >5
+		<input id="Led6 Action9" type="radio" name ="led6act9"title="Choix de la led" onchange="Convert()" >6
+		<input id="Led7 Action9" type="radio" name ="led7act9"title="Choix de la led" onchange="Convert()" >7
+		<input id="Led8 Action9" type="radio" name ="led8act9"title="Choix de la led" onchange="Convert()" >8
+		<input id="Led9 Action9" type="radio" name ="led9act9"title="Choix de la led" onchange="Convert()" >9
+		<input id="Led10 Action9" type="radio" name ="led10act9"title="Choix de la led" onchange="Convert()" >10
+		<input id="Led11 Action9" type="radio" name ="led11act9"title="Choix de la led" onchange="Convert()" >11
+		<input id="Led12 Action9" type="radio" name ="led12act9"title="Choix de la led" onchange="Convert()" >12
+		<input id="Led13 Action9" type="radio" name ="led13act9"title="Choix de la led" onchange="Convert()" >13
+		<input id="Led14 Action9" type="radio" name ="led14act9"title="Choix de la led" onchange="Convert()" >14
 		/Led<br>
-		<input id="Flash1 Action9" type="radio" name ="led1act9"title="Active le Flash sur la led "  >1
-		<input id="Flash2 Action9" type="radio" name ="led2act9"title="Active le Flash sur la led "  >2
-		<input id="Flash3 Action9" type="radio" name ="led3act9"title="Active le Flash sur la led "  >3
-		<input id="Flash4 Action9" type="radio" name ="led4act9"title="Active le Flash sur la led "  >4
-		<input id="Flash5 Action9" type="radio" name ="led5act9"title="Active le Flash sur la led "  >5
-		<input id="Flash6 Action9" type="radio" name ="led6act9"title="Active le Flash sur la led "  >6
-		<input id="Flash7 Action9" type="radio" name ="led7act9"title="Active le Flash sur la led "  >7
-		<input id="Flash8 Action9" type="radio" name ="led8act9"title="Active le Flash sur la led "  >8
-		<input id="Flash9 Action9" type="radio" name ="led9act9"title="Active le Flash sur la led "  >9
-		<input id="Flash10 Action9" type="radio" name ="led10act9"title="Active le Flash sur la led "  >10
-		<input id="Flash11 Action9" type="radio" name ="led11act9"title="Active le Flash sur la led "  >11
-		<input id="Flash12 Action9" type="radio" name ="led12act9"title="Active le Flash sur la led "  >12
-		<input id="Flash13 Action9" type="radio" name ="led13act9"title="Active le Flash sur la led "  >13
-		<input id="Flash14 Action9" type="radio" name ="led14act9"title="Active le Flash sur la led "  >14
+		<input id="Flash1 Action9" type="radio" name ="led1act9"title="Active le Flash sur la led " onchange="Convert()" >1
+		<input id="Flash2 Action9" type="radio" name ="led2act9"title="Active le Flash sur la led " onchange="Convert()" >2
+		<input id="Flash3 Action9" type="radio" name ="led3act9"title="Active le Flash sur la led " onchange="Convert()" >3
+		<input id="Flash4 Action9" type="radio" name ="led4act9"title="Active le Flash sur la led " onchange="Convert()" >4
+		<input id="Flash5 Action9" type="radio" name ="led5act9"title="Active le Flash sur la led " onchange="Convert()" >5
+		<input id="Flash6 Action9" type="radio" name ="led6act9"title="Active le Flash sur la led " onchange="Convert()" >6
+		<input id="Flash7 Action9" type="radio" name ="led7act9"title="Active le Flash sur la led " onchange="Convert()" >7
+		<input id="Flash8 Action9" type="radio" name ="led8act9"title="Active le Flash sur la led "  onchange="Convert()">8
+		<input id="Flash9 Action9" type="radio" name ="led9act9"title="Active le Flash sur la led " onchange="Convert()" >9
+		<input id="Flash10 Action9" type="radio" name ="led10act9"title="Active le Flash sur la led " onchange="Convert()" >10
+		<input id="Flash11 Action9" type="radio" name ="led11act9"title="Active le Flash sur la led " onchange="Convert()" >11
+		<input id="Flash12 Action9" type="radio" name ="led12act9"title="Active le Flash sur la led " onchange="Convert()" >12
+		<input id="Flash13 Action9" type="radio" name ="led13act9"title="Active le Flash sur la led " onchange="Convert()" >13
+		<input id="Flash14 Action9" type="radio" name ="led14act9"title="Active le Flash sur la led " onchange="Convert()" >14
 		/Flash<br>
-		<input id="Na1 Action9" type="radio" name ="led1act9"title="Pas de led  "checked >1
-		<input id="Na2 Action9" type="radio" name ="led2act9"title="Pas de led  "checked >2
-		<input id="Na3 Action9" type="radio" name ="led3act9"title="Pas de led  "checked >3
-		<input id="Na4 Action9" type="radio" name ="led4act9"title="Pas de led  "checked >4
-		<input id="Na5 Action9" type="radio" name ="led5act9"title="Pas de led  "checked >5
-		<input id="Na6 Action9" type="radio" name ="led6act9"title="Pas de led  "checked >6
-		<input id="Na7 Action9" type="radio" name ="led7act9"title="Pas de led  "checked >7
-		<input id="Na8 Action9" type="radio" name ="led8act9"title="Pas de led  "checked >8
-		<input id="Na9 Action9" type="radio" name ="led9act9"title="Pas de led  "checked >9
-		<input id="Na10 Action9" type="radio" name ="led10act9"title="Pas de led  "checked >10
-		<input id="Na11 Action9" type="radio" name ="led11act9"title="Pas de led  "checked >11
-		<input id="Na12 Action9" type="radio" name ="led12act9"title="Pas de led  "checked >12
-		<input id="Na13 Action9" type="radio" name ="led13act9"title="Pas de led  "checked >13
-		<input id="Na14 Action9" type="radio" name ="led14act9"title="Pas de led  "checked >14
+		<input id="Na1 Action9" type="radio" name ="led1act9"title="Pas de led  "checked onchange="Convert()">1
+		<input id="Na2 Action9" type="radio" name ="led2act9"title="Pas de led  "checked onchange="Convert()">2
+		<input id="Na3 Action9" type="radio" name ="led3act9"title="Pas de led  "checked onchange="Convert()">3
+		<input id="Na4 Action9" type="radio" name ="led4act9"title="Pas de led  "checked onchange="Convert()">4
+		<input id="Na5 Action9" type="radio" name ="led5act9"title="Pas de led  "checked onchange="Convert()">5
+		<input id="Na6 Action9" type="radio" name ="led6act9"title="Pas de led  "checked onchange="Convert()">6
+		<input id="Na7 Action9" type="radio" name ="led7act9"title="Pas de led  "checked onchange="Convert()">7
+		<input id="Na8 Action9" type="radio" name ="led8act9"title="Pas de led  "checked onchange="Convert()">8
+		<input id="Na9 Action9" type="radio" name ="led9act9"title="Pas de led  "checked onchange="Convert()">9
+		<input id="Na10 Action9" type="radio" name ="led10act9"title="Pas de led  "checked onchange="Convert()">10
+		<input id="Na11 Action9" type="radio" name ="led11act9"title="Pas de led  "checked onchange="Convert()">11
+		<input id="Na12 Action9" type="radio" name ="led12act9"title="Pas de led  "checked onchange="Convert()">12
+		<input id="Na13 Action9" type="radio" name ="led13act9"title="Pas de led  "checked onchange="Convert()">13
+		<input id="Na14 Action9" type="radio" name ="led14act9"title="Pas de led  "checked onchange="Convert()">14
 		/Na<br>
 		
 
@@ -1187,8 +1260,8 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		
 		
-		 <input title="On Time" id="OnTimeAction9" type="text" size="1" value="250" >On Time
-		 <input title="Off Time" id="OffTimeAction9" type="text" size="1" value="250" >Off Time
+		 <input title="On Time" id="OnTimeAction9" type="text" size="1" value="250" onchange="Convert()">On Time
+		 <input title="Off Time" id="OffTimeAction9" type="text" size="1" value="250" onchange="Convert()">Off Time
 		
 		</div>
 		
@@ -1196,11 +1269,11 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="channel" style="border:2px solid 	#363636">
 		
-		<input type="checkbox" id="Action9ON" Checked title="Si cochée lumiere auto au demarage du moteur ( feux de position), sinon manuelle  " > Auto Light<br><br>
+		<input type="checkbox" id="Action9ON" Checked title="Si cochée lumiere auto au demarage du moteur ( feux de position), sinon manuelle  "onchange="Convert()" > Auto Light<br><br>
 		
-		<input id="Action9Ch" type="text" size="1" value="" title="Choix du Canal"  >CH<br><br>
+		<input id="Action9Ch" type="text" size="1" value="" title="Choix du Canal" onchange="Convert()"  >CH<br><br>
 		
-		<select name="Action9HIGH" id="Action9HIGH" >
+		<select name="Action9HIGH" id="Action9HIGH"onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur HIGH"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur HIGH" value="2">OFF</option>
@@ -1208,7 +1281,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		HIGH
-		<select name="Action9NEUTRAL" id="Action9NEUTRAL" >
+		<select name="Action9NEUTRAL" id="Action9NEUTRAL"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur NEUTRE"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur NEUTRE"  value="2">OFF</option>
@@ -1216,7 +1289,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		NEUTRAL
-		<select name="Action9LOW" id="Action9LOW" >
+		<select name="Action9LOW" id="Action9LOW" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur LOW"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur LOW"  value="2">OFF</option>
@@ -1242,54 +1315,54 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="led" style="border:2px solid 	#363636">
 		
-		<input id="Led1 Action10" type="radio" name ="led1act10"title="Choix de la led"  >1
-		<input id="Led2 Action10" type="radio" name ="led2act10"title="Choix de la led"  >2
-		<input id="Led3 Action10" type="radio" name ="led3act10"title="Choix de la led"  >3
-		<input id="Led4 Action10" type="radio" name ="led4act10"title="Choix de la led"  >4
-		<input id="Led5 Action10" type="radio" name ="led5act10"title="Choix de la led"  >5
-		<input id="Led6 Action10" type="radio" name ="led6act10"title="Choix de la led"  >6
-		<input id="Led7 Action10" type="radio" name ="led7act10"title="Choix de la led"  >7
-		<input id="Led8 Action10" type="radio" name ="led8act10"title="Choix de la led"  >8
-		<input id="Led9 Action10" type="radio" name ="led9act10"title="Choix de la led"  >9
-		<input id="Led10 Action10" type="radio" name ="led10act10"title="Choix de la led"  >10
-		<input id="Led11 Action10" type="radio" name ="led11act10"title="Choix de la led"  >11
-		<input id="Led12 Action10" type="radio" name ="led12act10"title="Choix de la led"  >12
-		<input id="Led13 Action10" type="radio" name ="led13act10"title="Choix de la led"  >13
-		<input id="Led14 Action10" type="radio" name ="led14act10"title="Choix de la led"  >14
+		<input id="Led1 Action10" type="radio" name ="led1act10"title="Choix de la led" onchange="Convert()" >1
+		<input id="Led2 Action10" type="radio" name ="led2act10"title="Choix de la led" onchange="Convert()" >2
+		<input id="Led3 Action10" type="radio" name ="led3act10"title="Choix de la led"onchange="Convert()"  >3
+		<input id="Led4 Action10" type="radio" name ="led4act10"title="Choix de la led"onchange="Convert()"  >4
+		<input id="Led5 Action10" type="radio" name ="led5act10"title="Choix de la led" onchange="Convert()" >5
+		<input id="Led6 Action10" type="radio" name ="led6act10"title="Choix de la led" onchange="Convert()" >6
+		<input id="Led7 Action10" type="radio" name ="led7act10"title="Choix de la led" onchange="Convert()" >7
+		<input id="Led8 Action10" type="radio" name ="led8act10"title="Choix de la led" onchange="Convert()" >8
+		<input id="Led9 Action10" type="radio" name ="led9act10"title="Choix de la led" onchange="Convert()" >9
+		<input id="Led10 Action10" type="radio" name ="led10act10"title="Choix de la led" onchange="Convert()" >10
+		<input id="Led11 Action10" type="radio" name ="led11act10"title="Choix de la led" onchange="Convert()" >11
+		<input id="Led12 Action10" type="radio" name ="led12act10"title="Choix de la led"onchange="Convert()"  >12
+		<input id="Led13 Action10" type="radio" name ="led13act10"title="Choix de la led" onchange="Convert()" >13
+		<input id="Led14 Action10" type="radio" name ="led14act10"title="Choix de la led"  onchange="Convert()">14
 		/Led<br>
-		<input id="Flash1 Action10" type="radio" name ="led1act10"title="Active le Flash sur la led "  >1
-		<input id="Flash2 Action10" type="radio" name ="led2act10"title="Active le Flash sur la led "  >2
-		<input id="Flash3 Action10" type="radio" name ="led3act10"title="Active le Flash sur la led "  >3
-		<input id="Flash4 Action10" type="radio" name ="led4act10"title="Active le Flash sur la led "  >4
-		<input id="Flash5 Action10" type="radio" name ="led5act10"title="Active le Flash sur la led "  >5
-		<input id="Flash6 Action10" type="radio" name ="led6act10"title="Active le Flash sur la led "  >6
-		<input id="Flash7 Action10" type="radio" name ="led7act10"title="Active le Flash sur la led "  >7
-		<input id="Flash8 Action10" type="radio" name ="led8act10"title="Active le Flash sur la led "  >8
-		<input id="Flash9 Action10" type="radio" name ="led9act10"title="Active le Flash sur la led "  >9
-		<input id="Flash10 Action10" type="radio" name ="led10act10"title="Active le Flash sur la led "  >10
-		<input id="Flash11 Action10" type="radio" name ="led11act10"title="Active le Flash sur la led "  >11
-		<input id="Flash12 Action10" type="radio" name ="led12act10"title="Active le Flash sur la led "  >12
-		<input id="Flash13 Action10" type="radio" name ="led13act10"title="Active le Flash sur la led "  >13
-		<input id="Flash14 Action10" type="radio" name ="led14act10"title="Active le Flash sur la led "  >14
+		<input id="Flash1 Action10" type="radio" name ="led1act10"title="Active le Flash sur la led " onchange="Convert()" >1
+		<input id="Flash2 Action10" type="radio" name ="led2act10"title="Active le Flash sur la led " onchange="Convert()" >2
+		<input id="Flash3 Action10" type="radio" name ="led3act10"title="Active le Flash sur la led " onchange="Convert()" >3
+		<input id="Flash4 Action10" type="radio" name ="led4act10"title="Active le Flash sur la led " onchange="Convert()" >4
+		<input id="Flash5 Action10" type="radio" name ="led5act10"title="Active le Flash sur la led " onchange="Convert()" >5
+		<input id="Flash6 Action10" type="radio" name ="led6act10"title="Active le Flash sur la led " onchange="Convert()" >6
+		<input id="Flash7 Action10" type="radio" name ="led7act10"title="Active le Flash sur la led " onchange="Convert()" >7
+		<input id="Flash8 Action10" type="radio" name ="led8act10"title="Active le Flash sur la led "  onchange="Convert()">8
+		<input id="Flash9 Action10" type="radio" name ="led9act10"title="Active le Flash sur la led "  onchange="Convert()">9
+		<input id="Flash10 Action10" type="radio" name ="led10act10"title="Active le Flash sur la led " onchange="Convert()" >10
+		<input id="Flash11 Action10" type="radio" name ="led11act10"title="Active le Flash sur la led " onchange="Convert()" >11
+		<input id="Flash12 Action10" type="radio" name ="led12act10"title="Active le Flash sur la led " onchange="Convert()" >12
+		<input id="Flash13 Action10" type="radio" name ="led13act10"title="Active le Flash sur la led " onchange="Convert()" >13
+		<input id="Flash14 Action10" type="radio" name ="led14act10"title="Active le Flash sur la led " onchange="Convert()" >14
 		/Flash<br>
-		<input id="Na1 Action10" type="radio" name ="led1act10"title="Pas de led " checked >1
-		<input id="Na2 Action10" type="radio" name ="led2act10"title="Pas de led  "checked >2
-		<input id="Na3 Action10" type="radio" name ="led3act10"title="Pas de led  "checked >3
-		<input id="Na4 Action10" type="radio" name ="led4act10"title="Pas de led  "checked  >4
-		<input id="Na5 Action10" type="radio" name ="led5act10"title="Pas de led  "checked >5
-		<input id="Na6 Action10" type="radio" name ="led6act10"title="Pas de led  "checked >6
-		<input id="Na7 Action10" type="radio" name ="led7act10"title="Pas de led  "checked>7
-		<input id="Na8 Action10" type="radio" name ="led8act10"title="Pas de led  "checked >8
-		<input id="Na9 Action10" type="radio" name ="led9act10"title="Pas de led  "checked >9
-		<input id="Na10 Action10" type="radio" name ="led10act10"title="Pas de led  "checked >10
-		<input id="Na11 Action10" type="radio" name ="led11act10"title="Pas de led  "checked >11
-		<input id="Na12 Action10" type="radio" name ="led12act10"title="Pas de led  "checked  >12
-		<input id="Na13 Action10" type="radio" name ="led13act10"title="Pas de led  "checked >13
-		<input id="Na14 Action10" type="radio" name ="led14act10"title="Pas de led  "checked >14
+		<input id="Na1 Action10" type="radio" name ="led1act10"title="Pas de led " checked onchange="Convert()">1
+		<input id="Na2 Action10" type="radio" name ="led2act10"title="Pas de led  "checked onchange="Convert()">2
+		<input id="Na3 Action10" type="radio" name ="led3act10"title="Pas de led  "checked onchange="Convert()">3
+		<input id="Na4 Action10" type="radio" name ="led4act10"title="Pas de led  "checked onchange="Convert()" >4
+		<input id="Na5 Action10" type="radio" name ="led5act10"title="Pas de led  "checked onchange="Convert()">5
+		<input id="Na6 Action10" type="radio" name ="led6act10"title="Pas de led  "checked onchange="Convert()">6
+		<input id="Na7 Action10" type="radio" name ="led7act10"title="Pas de led  "checked onchange="Convert()">7
+		<input id="Na8 Action10" type="radio" name ="led8act10"title="Pas de led  "checked onchange="Convert()">8
+		<input id="Na9 Action10" type="radio" name ="led9act10"title="Pas de led  "checked onchange="Convert()">9
+		<input id="Na10 Action10" type="radio" name ="led10act10"title="Pas de led  "checked onchange="Convert()">10
+		<input id="Na11 Action10" type="radio" name ="led11act10"title="Pas de led  "checked onchange="Convert()">11
+		<input id="Na12 Action10" type="radio" name ="led12act10"title="Pas de led  "checked  onchange="Convert()">12
+		<input id="Na13 Action10" type="radio" name ="led13act10"title="Pas de led  "checked onchange="Convert()">13
+		<input id="Na14 Action10" type="radio" name ="led14act10"title="Pas de led  "checked onchange="Convert()">14
 		/Na<br>
 		<br>
-		 <input title="On Time" id="OnTimeAction10" size="1" type="text"  value="250" >On Time
-		 <input title="Off Time" id="OffTimeAction10" size="1" type="text"  value="250" >Off Time
+		 <input title="On Time" id="OnTimeAction10" size="1" type="text"  value="250"onchange="Convert()" >On Time
+		 <input title="Off Time" id="OffTimeAction10" size="1" type="text"  value="250"onchange="Convert()" >Off Time
 		 
 		 </div>
 		 
@@ -1297,11 +1370,11 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		<div class="channel" style="border:2px solid 	#363636">
 	
-		<input type="checkbox" id="Action10ON"  title="Si cochée action active, sinon désactivée " checked >Action 10 Active<br><br>
+		<input type="checkbox" id="Action10ON"  title="Si cochée action active, sinon désactivée " onchange="Convert()" >Action 10 Active<br><br>
 		
-		<input id="Action10Ch" type="text" size="1" value="7" title="Choix du Canal"  >CH<br><br>
+		<input id="Action10Ch" type="text" size="1" value="7" title="Choix du Canal" onchange="Convert()" >CH<br><br>
 		
-		<select name="Action10HIGH" id="Action10HIGH" >
+		<select name="Action10HIGH" id="Action10HIGH" onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur HIGH"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur HIGH" value="2">OFF</option>
@@ -1309,7 +1382,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		HIGH
-		<select name="Action10NEUTRAL" id="Action10NEUTRAL" >
+		<select name="Action10NEUTRAL" id="Action10NEUTRAL" onchange="Convert()">
 
 		<option title="Action active quand l'interrupteur est sur NEUTRE"  value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur NEUTRE" selected value="2">OFF</option>
@@ -1317,7 +1390,7 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 		
 		</select>
 		NEUTRAL
-		<select name="Action10LOW" id="Action10LOW" >
+		<select name="Action10LOW" id="Action10LOW"onchange="Convert()" >
 
 		<option title="Action active quand l'interrupteur est sur LOW" selected value="1">ON</option> 
 		<option title="Action Off quand l'interrupteur est sur LOW"  value="2">OFF</option>
@@ -1368,8 +1441,8 @@ led14 :<label id="Led14Recap"></label><label id="Led14Recap_3"></label><label id
 
 		Output:
 		<p>
-		<textarea name="ed_output" rows="15" cols="100" style="width: 650px;"></textarea>
-		<textarea name="Link2_output" rows="5" cols="100" style="width: 650px;"></textarea>				
+		<textarea name="ed_output" rows="15" cols="100" style="width: 630px;"></textarea>
+		<textarea name="Link2_output" rows="5" cols="100" style="width: 600px;"></textarea>				
         <br>
         <br>
         <button type="button" onclick="download()">Save</button>
@@ -2849,7 +2922,8 @@ function download(){
 			
 			if (ActionON==true){
 			
-			
+			document.getElementById("Action1Recap" ).innerHTML =  "ON";
+			document.getElementById('Action1Recap').style.color='green';
 						
 			if (Flash1Action1 ==1){			
 			Text += "#define ACTION1_1\r\n";
@@ -3073,7 +3147,8 @@ function download(){
 			}
 			}
 			else{
-			
+			document.getElementById("Action1Recap" ).innerHTML =  "OFF";
+			document.getElementById('Action1Recap').style.color='red';
 			Text2 += "Action1 inactive ";
 			}
 			Text2 += "\r\n";
@@ -3091,6 +3166,10 @@ function download(){
 			Text += "//_______________________________________________________________________________\r\n";
 			
 			if (Action2ON==true){
+			
+			document.getElementById("Action2Recap" ).innerHTML =  "ON";
+			document.getElementById('Action2Recap').style.color='green';
+			
 			
 			if(AutoAncor=="1"){
 			Text += "#define AUTOMATIC_ANCHOR\r\n";
@@ -3170,7 +3249,9 @@ function download(){
 			}
 			}
 			else{
-			
+			document.getElementById("Action2Recap" ).innerHTML =  "OFF";
+			document.getElementById('Action2Recap').style.color='red';
+			Text2 += "Action2 inactive ";
 			}
 			Text2 += "\r\n";
 			Text += "\r\n";
@@ -3182,6 +3263,10 @@ function download(){
 			Text += "//_______________________________________________________________________________\r\n";
 			
 			if (Action3ON==true){
+			
+			document.getElementById("Action3Recap" ).innerHTML =  "ON";
+			document.getElementById('Action3Recap').style.color='green';
+			
 			if(BellSound == "1"){
 			Text += "#include \"sounds/boat/AuxSound/Bell.h\"\r\n";
 			Text += "XT_Wav_Class Bell(Bel_Data);\r\n";
@@ -3430,7 +3515,9 @@ function download(){
 			}
 			}
 			else{
-			
+			document.getElementById("Action3Recap" ).innerHTML =  "OFF";
+			document.getElementById('Action3Recap').style.color='red';
+			Text2 += "Action3 inactive ";
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION3 = LED1 ="+Led1Action3+"/LED2 ="+Led2Action3+"/LED3 ="+Led3Action3+"/LED4 ="+Led4Action3+"/LED5 ="+Led5Action3+"/LED6 ="+Led6Action3+"/LED7 ="+Led7Action3+"/\rLED8 ="+Led8Action3+"/LED9 ="+Led9Action3+"/LED10 ="+Led10Action3+"/LED11 ="+Led11Action3+"/LED12 ="+Led12Action3+"/LED13 ="+Led13Action3+"/LED14 ="+Led14Action3+"\r\n";
@@ -3443,6 +3530,10 @@ function download(){
 			Text += "//_______________________________________________________________________________\r\n";
 			
 			if (Action4ON==true){
+			
+			document.getElementById("Action4Recap" ).innerHTML =  "ON";
+			document.getElementById('Action4Recap').style.color='green';
+			
 			if (Led1Action4 ==1){			
 			Text += "#define ACTION4_1\r\n";
 			document.getElementById("Led1Recap_4" ).innerHTML =  "ACTION4";
@@ -3574,7 +3665,9 @@ function download(){
 			}
 			}
 			else{
-			
+			document.getElementById("Action4Recap" ).innerHTML =  "OFF";
+			document.getElementById('Action4Recap').style.color='red';
+			Text2 += "Action4 inactive ";
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION4 = LED1 ="+Led1Action4+"/LED2 ="+Led2Action4+"/LED3 ="+Led3Action4+"/LED4 ="+Led4Action4+"/LED5 ="+Led5Action4+"/LED6 ="+Led6Action4+"/LED7 ="+Led7Action4+"/\rLED8 ="+Led8Action4+"/LED9 ="+Led9Action4+"/LED10 ="+Led10Action4+"/LED11 ="+Led11Action4+"/LED12 ="+Led12Action4+"/LED13 ="+Led13Action4+"/LED14 ="+Led14Action4+"\r\n";
@@ -3586,7 +3679,11 @@ function download(){
 			Text += "//---------------------------------ACTION5---------------------------------------\r\n";
 			Text += "//_______________________________________________________________________________\r\n";
 			
-			if (Action5ON==true){	
+			if (Action5ON==true){
+
+			document.getElementById("Action5Recap" ).innerHTML =  "ON";
+			document.getElementById('Action5Recap').style.color='green';
+			
 			Text += "#define ACTION5_ENABLE\r\n";	
 			Text += "#define ACTION5CH "+ Action5Ch +"\r\n";
 
@@ -3628,7 +3725,9 @@ function download(){
 			}
 			
 			else{
-			
+			document.getElementById("Action5Recap" ).innerHTML =  "OFF";
+			document.getElementById('Action5Recap').style.color='red';
+			Text2 += "Action5 inactive ";
 			}
 			
 			Text2 += "\r\n";
@@ -3639,6 +3738,9 @@ function download(){
 			Text += "//_______________________________________________________________________________\r\n";
 			
 			if (Action6ON==true){
+			
+			document.getElementById("Action6Recap" ).innerHTML =  "ON";
+			document.getElementById('Action6Recap').style.color='green';
 			
 			if(AAGunSound == "1"){
 			Text += "#include \"sounds/boat/AuxSound/AA_Gun.h\"\r\n";
@@ -3810,7 +3912,9 @@ function download(){
 			}
 			}
 			else{
-			
+			document.getElementById("Action6Recap" ).innerHTML =  "OFF";
+			document.getElementById('Action6Recap').style.color='red';
+			Text2 += "Action6 inactive ";
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION6 = LED1 ="+Led1Action6+"/LED2 ="+Led2Action6+"/LED3 ="+Led3Action6+"/LED4 ="+Led4Action6+"/LED5 ="+Led5Action6+"/LED6 ="+Led6Action6+"/LED7 ="+Led7Action6+"/\rLED8 ="+Led8Action6+"/LED9 ="+Led9Action6+"/LED10 ="+Led10Action6+"/LED11 ="+Led11Action6+"/LED12 ="+Led12Action6+"/LED13 ="+Led13Action6+"/LED14 ="+Led14Action6+"\r\n";
@@ -3823,6 +3927,9 @@ function download(){
 			Text += "//_______________________________________________________________________________\r\n";
 			
 			if (Action7ON==true){
+			
+			document.getElementById("Action7Recap" ).innerHTML =  "ON";
+			document.getElementById('Action7Recap').style.color='green';
 			
 			if (ServoAction7==true){
 			Text += "#define SERVOACTION7\r\n";
@@ -3992,7 +4099,9 @@ function download(){
 			}
 			}
 			else{
-			
+			document.getElementById("Action7Recap" ).innerHTML =  "OFF";
+			document.getElementById('Action7Recap').style.color='red';
+			Text2 += "Action7 inactive ";
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION7 = LED1 ="+Led1Action7+"/LED2 ="+Led2Action7+"/LED3 ="+Led3Action7+"/LED4 ="+Led4Action7+"/LED5 ="+Led5Action7+"/LED6 ="+Led6Action7+"/LED7 ="+Led7Action7+"/\rLED8 ="+Led8Action7+"/LED9 ="+Led9Action7+"/LED10 ="+Led10Action7+"/LED11 ="+Led11Action7+"/LED12 ="+Led12Action7+"/LED13 ="+Led13Action7+"/LED14 ="+Led14Action7+"\r\n";
@@ -4012,6 +4121,10 @@ function download(){
 			Text += "//_______________________________________________________________________________\r\n";
 			
 			if (Action8ON==true){
+			
+			document.getElementById("Action8Recap" ).innerHTML =  "ON";
+			document.getElementById('Action8Recap').style.color='green';
+			
 			
 			if(SoundsAlarm == "1"){
 			Text += "#include \"sounds/boat/AuxSound/Ring.h\"\r\n";
@@ -4186,7 +4299,9 @@ function download(){
 			}
 			}
 			else{
-			
+			document.getElementById("Action8Recap" ).innerHTML =  "OFF";
+			document.getElementById('Action8Recap').style.color='red';
+			Text2 += "Action8 inactive ";
 			}
 						
 			Text2 += "\r\n";
@@ -4389,9 +4504,15 @@ function download(){
 			if (Action9ON==true){		
 			Text += "volatile boolean AutoLight =true;\r\n";
 			Text2 += "AutoLight =true;\r\n";
+			document.getElementById("Action9Recap" ).innerHTML =  "OFF";
+			document.getElementById('Action9Recap').style.color='red';
+			
 			}
 			
 			else {Text += "volatile boolean AutoLight =false;\r\n";
+			document.getElementById("Action9Recap" ).innerHTML =  "ON";
+			document.getElementById('Action9Recap').style.color='green';
+			
 			Text += "#define ACTION9_ENABLE\r\n";
 			Text += "#define ACTION9CH "+ Action9Ch +"\r\n";
 			Text2 += "AutoLight =false;\r\n";
@@ -4451,6 +4572,10 @@ function download(){
 			Text2 += "OFFTIME_10 FLASH LED "+OffTimeAction10+"\r\n";
 			Text2 += "\r\n";
 			if (Action10ON==true){
+			
+			document.getElementById("Action10Recap" ).innerHTML =  "ON";
+			document.getElementById('Action10Recap').style.color='green';
+			
 			if (Flash1Action10 ==1){			
 			Text += "#define ACTION10_1\r\n";
 			document.getElementById("Flash1Recap_10" ).innerHTML =  "ACTION10";
@@ -4670,7 +4795,9 @@ function download(){
 			}
 			}
 			else{
-			
+			document.getElementById("Action10Recap" ).innerHTML =  "OFF";
+			document.getElementById('Action10Recap').style.color='red';
+			Text2 += "Action10 inactive ";
 			}
 			Text2 += "\r\n";
 			Text2 += "LED ACTION10 = LED1 ="+Led1Action10+"/LED2 ="+Led2Action10+"/LED3 ="+Led3Action10+"/LED4 ="+Led4Action10+"/LED5 ="+Led5Action10+"/LED6 ="+Led6Action10+"/LED7 ="+Led7Action10+"/\rLED8 ="+Led8Action10+"/LED9 ="+Led9Action10+"/LED10 ="+Led10Action10+"/LED11 ="+Led11Action10+"/LED12 ="+Led12Action10+"/LED13 ="+Led13Action10+"/LED14 ="+Led14Action10+"\r\n";
