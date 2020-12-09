@@ -11,7 +11,7 @@ pour une utilisation "bateau"
 ### version 5.2:
 - 
 ### Version 5.1:
-- 
+- Configuration par HTML
 ### Version 5.0:
 - 
 
