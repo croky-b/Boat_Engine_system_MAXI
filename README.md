@@ -1,4 +1,4 @@
-# This is an Arduino RC engine sound & light controller for ESP32
+# This is an Arduino RC engine sound & light & Servo controller for ESP32
 Adaptation du projet de :https://github.com/TheDIYGuy999/Rc_Engine_Sound_ESP32
 pour une utilisation "bateau" 
 
