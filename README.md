@@ -8,13 +8,10 @@ pour une utilisation "bateau"
 
 ### version 5.3:
 - Bug sur VOSPER sound fixed 
-
 ### version 5.2:
-
-
+- 
 ### Version 5.1:
 - 
-
 ### Version 5.0:
 - 
 
