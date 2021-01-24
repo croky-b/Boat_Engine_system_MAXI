@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map For ScheduleTable
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ScheduleTable	KEYWORD1
+SchedTable	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+at	KEYWORD2
+start	KEYWORD2
+stop	KEYWORD2
+update	KEYWORD2
+removeAt	KEYWORD2
+empty	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################

@@ -16,7 +16,7 @@
 class Servo
 {
 
-static const int SERVO_MIN_PULSEWIDTH = 400; //Minimum pulse width in microsecond
+static const int SERVO_MIN_PULSEWIDTH = 500; //Minimum pulse width in microsecond
 static const int SERVO_MAX_PULSEWIDTH = 2400; //Maximum pulse width in microsecond
 static const int SERVO_MAX_DEGREE = 180; //Maximum angle in degree upto which servo can rotate
 

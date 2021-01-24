@@ -145,7 +145,7 @@ SlowMotionServo::~SlowMotionServo()
  */
 static unsigned int constrainPulse(unsigned int pulse)
 {
-  if (pulse < 400)  pulse = 400;
+  if (pulse < 500)  pulse = 500;
   else if (pulse > 2400) pulse = 2400;
   return pulse;
 }
@@ -308,7 +308,7 @@ void SlowMotionServo::goTo(float position)
  */
 void SlowMotionServo::updatePosition()
 {
-  float position;
+  float position; 
   unsigned long date = millis();
 
   switch (mState) {
@@ -531,4 +531,10 @@ float SMSSmoothBounce::slopeUp(float time)
 float SMSSmoothBounce::slopeDown(float time)
 {
   return (1.0 - cos(time * PI))/2.265;
+}
+
+
+float SlowMotionServo::readPosition() {
+        
+    return mCurrentRelativeTime;
 }

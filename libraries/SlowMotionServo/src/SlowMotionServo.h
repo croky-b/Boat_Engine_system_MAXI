@@ -75,6 +75,8 @@ public:
   void goToMin() { goTo(0.0); }
   void goToMax() { goTo(1.0); }
   bool isStopped() const;
+  float  readPosition() ;
+
 
   /*
    * Live configuration functions.
