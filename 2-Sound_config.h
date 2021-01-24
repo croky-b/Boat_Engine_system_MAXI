@@ -9,12 +9,6 @@
 // =======================================================================================================
 //
 
-//#include "sounds/boat/AuxSound/Alarm2.h"
-//XT_Wav_Class Alarm2(Alarm2_Data);
-
-//#include "sounds/boat/AuxSound/Alarm3.h"
-//XT_Wav_Class Alarm3(Alarm3_Data);
-
 XT_Sequence_Class Sequence1;
 XT_Sequence_Class Sequence2;
 XT_Sequence_Class Sequence3;
