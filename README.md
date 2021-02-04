@@ -2,7 +2,7 @@
 Adaptation du projet de :https://github.com/TheDIYGuy999/Rc_Engine_Sound_ESP32
 pour une utilisation "bateau" 
 
-
+## Eratta : R29 = 10K 
 
 ## Version :
 
