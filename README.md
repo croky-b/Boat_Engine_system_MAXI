@@ -6,6 +6,8 @@ pour une utilisation "bateau"
 
 ## Version :
 
+### version 5.5:
+- Integration des séquences 
 ### version 5.3:
 - Bug sur VOSPER sound fixed 
 ### version 5.2:
