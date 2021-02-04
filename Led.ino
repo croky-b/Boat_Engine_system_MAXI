@@ -47,6 +47,9 @@ void led() {
                 #ifdef SEQ1_LED_PART1_14
                 Led.On(15);
                 #endif
+                #ifdef SEQ1_MOTOR2_PART1
+                Led.On(10);
+                #endif
                 #ifdef SEQ1_FLASH_PART1_1
                 Led.blink(0, OFFTIME_SEQ1_PART1, ONTIME_SEQ1_PART1);
                 #endif
@@ -220,6 +223,9 @@ void led() {
                 #endif
                 #ifdef SEQ1_LED_PART2_14
                 Led.On(15);
+                #endif
+                #ifdef SEQ1_MOTOR2_PART2
+                Led.On(10);
                 #endif
                 #ifdef SEQ1_FLASH_PART2_1
                 Led.blink(0, OFFTIME_SEQ1_PART2, ONTIME_SEQ1_PART2);
@@ -395,6 +401,9 @@ void led() {
                 #ifdef SEQ1_LED_PART3_14
                 Led.On(15);
                 #endif
+                #ifdef SEQ1_MOTOR2_PART3
+                Led.On(10);
+                #endif
                 #ifdef SEQ1_FLASH_PART3_1
                 Led.blink(0, OFFTIME_SEQ1_PART3, ONTIME_SEQ1_PART3);
                 #endif
@@ -569,6 +578,9 @@ void led() {
                 #ifdef SEQ1_LED_PART4_14
                 Led.On(15);
                 #endif
+                #ifdef SEQ1_MOTOR2_PART4
+                Led.On(10);
+                #endif
                 #ifdef SEQ1_FLASH_PART4_1
                 Led.blink(0, OFFTIME_SEQ1_PART4, ONTIME_SEQ1_PART4);
                 #endif
@@ -741,6 +753,9 @@ if(Seq2LedPart1OnOff){
                 #endif
                 #ifdef SEQ2_LED_PART1_14
                 Led.On(15);
+                #endif
+                #ifdef SEQ2_MOTOR2_PART1
+                Led.On(10);
                 #endif
                 #ifdef SEQ2_FLASH_PART1_1
                 Led.blink(0, OFFTIME_SEQ2_PART1, ONTIME_SEQ2_PART1);
@@ -916,6 +931,9 @@ if(Seq2LedPart1OnOff){
                 #ifdef SEQ2_LED_PART2_14
                 Led.On(15);
                 #endif
+                #ifdef SEQ2_MOTOR2_PART2
+                Led.On(10);
+                #endif
                 #ifdef SEQ2_FLASH_PART2_1
                 Led.blink(0, OFFTIME_SEQ2_PART2, ONTIME_SEQ2_PART2);
                 #endif
@@ -1090,6 +1108,9 @@ if(Seq2LedPart1OnOff){
                 #ifdef SEQ2_LED_PART3_14
                 Led.On(15);
                 #endif
+                #ifdef SEQ2_MOTOR2_PART3
+                Led.On(10);
+                #endif
                 #ifdef SEQ2_FLASH_PART3_1
                 Led.blink(0, OFFTIME_SEQ2_PART3, ONTIME_SEQ2_PART3);
                 #endif
@@ -1263,6 +1284,9 @@ if(Seq2LedPart1OnOff){
                 #endif
                 #ifdef SEQ2_LED_PART4_14
                 Led.On(15);
+                #endif
+                #ifdef SEQ2_MOTOR2_PART4
+                Led.On(10);
                 #endif
                 #ifdef SEQ2_FLASH_PART4_1
                 Led.blink(0, OFFTIME_SEQ2_PART4, ONTIME_SEQ2_PART4);
