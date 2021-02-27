@@ -21551,17 +21551,10 @@ var Action11DRepeatLow= document.getElementById("Action11DRepeatLow").value;
 			
 			
 			
-			if (( Action12ONACT1==1) && ( Action12ONSERVO==0) ){
+			if ( Action12ONACT1==1) {
 			Text += "#define ACT12_ACT1_SWITCH\r\n"; 
-			Text2 += "#Action 1 Switch Actif \r\n"; 
-			Text += "int16_t SERVO_START[7] {1500,"+Servo1Round +","+Servo2Round +","+Servo3Round +","+Servo4Round +","+Servo5Round +","+Servo6Round +"}; \r\n";
-			}
+			Text2 += "#Action 1 Switch Actif \r\n"; }
 			
-			if (( Action12ONACT1==1) && ( Action12ONSERVO==1) ){
-			Text += "#define ACT12_ACT1_SWITCH\r\n"; 
-			Text2 += "#Action 1 Switch Actif \r\n"; 
-		
-			}
 			
 			document.getElementById("Action12Recap" ).innerHTML =  "ON Canal " +Action12Ch+" ";
 			document.getElementById('Action12Recap').style.color='green';
@@ -21575,7 +21568,7 @@ var Action11DRepeatLow= document.getElementById("Action11DRepeatLow").value;
 			if ( Action12ONSERVO==1){
 			Text += "#define ACT12SERVOSWITCH\r\n"; 
 			Text2 += "#Servo Switch Actif \r\n"; 
-			
+			}
 			if(Servo1Home =="1"){
 			Text += "#define SERVO1_HOME\r\n"; 
 			Text2 += "auto Home servo1\r\n";
@@ -22136,7 +22129,7 @@ var Action11DRepeatLow= document.getElementById("Action11DRepeatLow").value;
 			Text += "#define ACTION_SERVO6 99\r\n"; 
 			}
 			
-			}
+			
 			
 			Text += "#define ACTION12_ENABLE\r\n";
 			Text += "#define ACTION12CH "+ Action12Ch +"\r\n";
