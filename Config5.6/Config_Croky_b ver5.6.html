@@ -21551,9 +21551,16 @@ var Action11DRepeatLow= document.getElementById("Action11DRepeatLow").value;
 			
 			
 			
-			if ( Action12ONACT1==1){
+			if (( Action12ONACT1==1) && ( Action12ONSERVO==0) ){
 			Text += "#define ACT12_ACT1_SWITCH\r\n"; 
 			Text2 += "#Action 1 Switch Actif \r\n"; 
+			Text += "int16_t SERVO_START[7] {1500,"+Servo1Round +","+Servo2Round +","+Servo3Round +","+Servo4Round +","+Servo5Round +","+Servo6Round +"}; \r\n";
+			}
+			
+			if (( Action12ONACT1==1) && ( Action12ONSERVO==1) ){
+			Text += "#define ACT12_ACT1_SWITCH\r\n"; 
+			Text2 += "#Action 1 Switch Actif \r\n"; 
+		
 			}
 			
 			document.getElementById("Action12Recap" ).innerHTML =  "ON Canal " +Action12Ch+" ";
