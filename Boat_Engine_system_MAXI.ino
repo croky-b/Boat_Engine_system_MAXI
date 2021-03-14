@@ -8,7 +8,7 @@
    
 */
 
-const float codeVersion = 5.5; // Software revision.
+const float codeVersion = 5.57; // Software revision.
 
 //
 // =======================================================================================================
@@ -47,6 +47,7 @@ const float codeVersion = 5.5; // Software revision.
 #include <Servo_MCPWM.h>
 #include <PWMTrigger.h>
 #include "XT_DAC_Audio.h"
+#include <ScheduleTable.h>
 
 //
 // =======================================================================================================
@@ -89,16 +90,24 @@ const uint8_t RECEIVER_PINS[RECEIVER_CHANNELS_NUM]  = {13, 12, 14, 27, 33, 35, 3
 #define PULSE_NBR 15
 
 SMSSmooth monServo1;
+//SMSLinear monServo1;
 SMSSmooth monServo2;
 SMSSmooth monServo3;
 SMSSmooth monServo4;
 SMSSmooth monServo5;
 SMSSmooth monServo6;
 
+Servo Servo1;
+Servo Servo2;
+Servo Servo3;
+Servo Servo4;
+Servo Servo5;
+Servo Servo6;
 Servo ANCHOR;
 Servo ESC1;
 Servo ESC2;
 Servo ESC3;
+
 
 PWMTrigger Action1;
 PWMTrigger Action2;
@@ -110,14 +119,122 @@ PWMTrigger Action7;
 PWMTrigger Action8;
 PWMTrigger Action9;
 PWMTrigger Action10;
+PWMTrigger Action11A;
+PWMTrigger Action11B;
+PWMTrigger Action11C;
+PWMTrigger Action11D;
+PWMTrigger Action12;
 PWMTrigger VolumeCh;
 
 
+
+SchedTable<10> Sequence1Servo(SEQ1_DURATION);
+SchedTable<10> Sequence1BServo(SEQ1B_DURATION);
+
+SchedTable<2> Sequence1BLedPart1(SEQ1B_DURATION);
+SchedTable<2> Sequence1BLedPart2(SEQ1B_DURATION);
+SchedTable<2> Sequence1BLedPart3(SEQ1B_DURATION);
+SchedTable<2> Sequence1BLedPart4(SEQ1B_DURATION);
+SchedTable<2> Sequence1BSoundPart1(SEQ1B_DURATION);
+SchedTable<2> Sequence1BSoundPart2(SEQ1B_DURATION);
+SchedTable<2> Sequence1BSoundPart3(SEQ1B_DURATION);
+SchedTable<2> Sequence1BSoundPart4(SEQ1B_DURATION);
+SchedTable<2> Sequence1BMotorPart1(SEQ1B_DURATION);
+SchedTable<2> Sequence1BMotorPart2(SEQ1B_DURATION);
+SchedTable<2> Sequence1BMotorPart3(SEQ1B_DURATION);
+SchedTable<2> Sequence1BMotorPart4(SEQ1B_DURATION);
+
+SchedTable<2> Sequence1LedPart1(SEQ1_DURATION);
+SchedTable<2> Sequence1LedPart2(SEQ1_DURATION);
+SchedTable<2> Sequence1LedPart3(SEQ1_DURATION);
+SchedTable<2> Sequence1LedPart4(SEQ1_DURATION);
+SchedTable<2> Sequence1SoundPart1(SEQ1_DURATION);
+SchedTable<2> Sequence1SoundPart2(SEQ1_DURATION);
+SchedTable<2> Sequence1SoundPart3(SEQ1_DURATION);
+SchedTable<2> Sequence1SoundPart4(SEQ1_DURATION);
+SchedTable<2> Sequence1MotorPart1(SEQ1_DURATION);
+SchedTable<2> Sequence1MotorPart2(SEQ1_DURATION);
+SchedTable<2> Sequence1MotorPart3(SEQ1_DURATION);
+SchedTable<2> Sequence1MotorPart4(SEQ1_DURATION);
+
+SchedTable<10> Sequence2BServo(SEQ2B_DURATION);
+
+SchedTable<2> Sequence2BLedPart1(SEQ2B_DURATION);
+SchedTable<2> Sequence2BLedPart2(SEQ2B_DURATION);
+SchedTable<2> Sequence2BLedPart3(SEQ2B_DURATION);
+SchedTable<2> Sequence2BLedPart4(SEQ2B_DURATION);
+SchedTable<2> Sequence2BSoundPart1(SEQ2B_DURATION);
+SchedTable<2> Sequence2BSoundPart2(SEQ2B_DURATION);
+SchedTable<2> Sequence2BSoundPart3(SEQ2B_DURATION);
+SchedTable<2> Sequence2BSoundPart4(SEQ2B_DURATION);
+SchedTable<2> Sequence2BMotorPart1(SEQ2B_DURATION);
+SchedTable<2> Sequence2BMotorPart2(SEQ2B_DURATION);
+SchedTable<2> Sequence2BMotorPart3(SEQ2B_DURATION);
+SchedTable<2> Sequence2BMotorPart4(SEQ2B_DURATION);
+
+SchedTable<10> Sequence2Servo(SEQ2_DURATION);
+
+SchedTable<2> Sequence2LedPart1(SEQ2_DURATION);
+SchedTable<2> Sequence2LedPart2(SEQ2_DURATION);
+SchedTable<2> Sequence2LedPart3(SEQ2_DURATION);
+SchedTable<2> Sequence2LedPart4(SEQ2_DURATION);
+SchedTable<2> Sequence2SoundPart1(SEQ2_DURATION);
+SchedTable<2> Sequence2SoundPart2(SEQ2_DURATION);
+SchedTable<2> Sequence2SoundPart3(SEQ2_DURATION);
+SchedTable<2> Sequence2SoundPart4(SEQ2_DURATION);
+SchedTable<2> Sequence2MotorPart1(SEQ2B_DURATION);
+SchedTable<2> Sequence2MotorPart2(SEQ2_DURATION);
+SchedTable<2> Sequence2MotorPart3(SEQ2_DURATION);
+SchedTable<2> Sequence2MotorPart4(SEQ2_DURATION);
+
+SchedTable<10> Sequence6Servo(SEQ6_DURATION);
+SchedTable<10> Sequence6BServo(SEQ6B_DURATION);
+
+
+SchedTable<2> Sequence6BSoundPart1(SEQ6B_DURATION);
+SchedTable<2> Sequence6BSoundPart2(SEQ6B_DURATION);
+SchedTable<2> Sequence6BSoundPart3(SEQ6B_DURATION);
+SchedTable<2> Sequence6BSoundPart4(SEQ6B_DURATION);
+
+
+
+SchedTable<2> Sequence6SoundPart1(SEQ6_DURATION);
+SchedTable<2> Sequence6SoundPart2(SEQ6_DURATION);
+SchedTable<2> Sequence6SoundPart3(SEQ6_DURATION);
+SchedTable<2> Sequence6SoundPart4(SEQ6_DURATION);
+
+SchedTable<10> Sequence7BServo(SEQ7B_DURATION);
+
+
+SchedTable<2> Sequence7BSoundPart1(SEQ7B_DURATION);
+SchedTable<2> Sequence7BSoundPart2(SEQ7B_DURATION);
+SchedTable<2> Sequence7BSoundPart3(SEQ7B_DURATION);
+SchedTable<2> Sequence7BSoundPart4(SEQ7B_DURATION);
+
+SchedTable<10> Sequence7Servo(SEQ7_DURATION);
+
+
+SchedTable<2> Sequence7SoundPart1(SEQ7_DURATION);
+SchedTable<2> Sequence7SoundPart2(SEQ7_DURATION);
+SchedTable<2> Sequence7SoundPart3(SEQ7_DURATION);
+SchedTable<2> Sequence7SoundPart4(SEQ7_DURATION);
 
 PWMTrigger CH1;
 PWMTrigger CH2;
 PWMTrigger CH3;
 PWMTrigger CH4;
+PWMTrigger CH5;
+PWMTrigger CH6;
+PWMTrigger CH7;
+PWMTrigger CH8;
+PWMTrigger CH9;
+PWMTrigger CH10;
+PWMTrigger CH11;
+PWMTrigger CH12;
+PWMTrigger CH13;
+PWMTrigger CH14;
+PWMTrigger CH15;
+PWMTrigger CH16;
 
 
 
@@ -146,12 +263,467 @@ XT_DAC_Audio_Class DacAudio(26, 1); // Create the main player class object. Use 
 statusLED Led_builtin(false);
 
 
+volatile boolean Seq1LedPart1OnOff= false;
+volatile boolean Seq1LedPart2OnOff= false;
+volatile boolean Seq1LedPart3OnOff= false;
+volatile boolean Seq1LedPart4OnOff= false;
+
+volatile boolean Seq1SoundPart1OnOff = false;
+volatile boolean Seq1SoundPart2OnOff = false;
+volatile boolean Seq1SoundPart3OnOff = false;
+volatile boolean Seq1SoundPart4OnOff = false;
+volatile boolean NeutralCtl= false;
+volatile boolean Test= false;
+
+
+
+float StartServoSeq1Part1;
+float EndServoSeq1Part1Mapped;
+float StartServoSeq1Part1Mapped;
+float DistanceServoSeq1Part1;/// P maj 
+float SpeedSeq1Part1;
+
+float StartServobSeq1Part1;
+float EndServobSeq1Part1Mapped;
+float StartServobSeq1Part1Mapped;
+float DistanceServobSeq1Part1;/// P maj 
+float SpeedbSeq1Part1;
+
+
+float StartServoSeq1Part2;
+float EndServoSeq1Part2Mapped;
+float StartServoSeq1Part2Mapped;
+float DistanceServoSeq1Part2;
+float SpeedSeq1Part2;
+
+float StartServobSeq1Part2;
+float EndServobSeq1Part2Mapped;
+float StartServobSeq1Part2Mapped;
+float DistanceServobSeq1Part2;
+float SpeedbSeq1Part2;
+
+float StartServoSeq1Part3;
+float EndServoSeq1Part3Mapped;
+float StartServoSeq1Part3Mapped;
+float DistanceServoSeq1Part3;
+float SpeedSeq1Part3;
+
+float StartServobSeq1Part3;
+float EndServobSeq1Part3Mapped;
+float StartServobSeq1Part3Mapped;
+float DistanceServobSeq1Part3;
+float SpeedbSeq1Part3;
+
+float StartServoSeq1Part4;
+float EndServoSeq1Part4Mapped;
+float StartServoSeq1Part4Mapped;
+float DistanceServoSeq1Part4;
+float SpeedSeq1Part4;
+
+float StartServobSeq1Part4;
+float EndServobSeq1Part4Mapped;
+float StartServobSeq1Part4Mapped;
+float DistanceServobSeq1Part4;
+float SpeedbSeq1Part4;
+
+////////////////////////////////
+
+float StartServoSeq10Part1;
+float EndServoSeq10Part1Mapped;
+float StartServoSeq10Part1Mapped;
+float DistanceServoSeq10Part1;/// P maj 
+float SpeedSeq10Part1;
+
+float StartServobSeq10Part1;
+float EndServobSeq10Part1Mapped;
+float StartServobSeq10Part1Mapped;
+float DistanceServobSeq10Part1;/// P maj 
+float SpeedbSeq10Part1;
+
+
+float StartServoSeq10Part2;
+float EndServoSeq10Part2Mapped;
+float StartServoSeq10Part2Mapped;
+float DistanceServoSeq10Part2;
+float SpeedSeq10Part2;
+
+float StartServobSeq10Part2;
+float EndServobSeq10Part2Mapped;
+float StartServobSeq10Part2Mapped;
+float DistanceServobSeq10Part2;
+float SpeedbSeq10Part2;
+
+float StartServoSeq10Part3;
+float EndServoSeq10Part3Mapped;
+float StartServoSeq10Part3Mapped;
+float DistanceServoSeq10Part3;
+float SpeedSeq10Part3;
+
+float StartServobSeq10Part3;
+float EndServobSeq10Part3Mapped;
+float StartServobSeq10Part3Mapped;
+float DistanceServobSeq10Part3;
+float SpeedbSeq10Part3;
+
+float StartServoSeq10Part4;
+float EndServoSeq10Part4Mapped;
+float StartServoSeq10Part4Mapped;
+float DistanceServoSeq10Part4;
+float SpeedSeq10Part4;
+
+float StartServobSeq10Part4;
+float EndServobSeq10Part4Mapped;
+float StartServobSeq10Part4Mapped;
+float DistanceServobSeq10Part4;
+float SpeedbSeq10Part4;
+
+
+volatile boolean Seq2LedPart1OnOff= false;
+volatile boolean Seq2LedPart2OnOff= false;
+volatile boolean Seq2LedPart3OnOff= false;
+volatile boolean Seq2LedPart4OnOff= false;
+
+volatile boolean Seq2SoundPart1OnOff = false;
+volatile boolean Seq2SoundPart2OnOff = false;
+volatile boolean Seq2SoundPart3OnOff = false;
+volatile boolean Seq2SoundPart4OnOff = false;
+
+
+
+float StartServoSeq2Part1;
+float EndServoSeq2Part1Mapped;
+float StartServoSeq2Part1Mapped;
+float DistanceServoSeq2Part1;/// P maj 
+float SpeedSeq2Part1;
+
+float StartServobSeq2Part1;
+float EndServobSeq2Part1Mapped;
+float StartServobSeq2Part1Mapped;
+float DistanceServobSeq2Part1;/// P maj 
+float SpeedbSeq2Part1;
+
+
+float StartServoSeq2Part2;
+float EndServoSeq2Part2Mapped;
+float StartServoSeq2Part2Mapped;
+float DistanceServoSeq2Part2;
+float SpeedSeq2Part2;
+
+float StartServobSeq2Part2;
+float EndServobSeq2Part2Mapped;
+float StartServobSeq2Part2Mapped;
+float DistanceServobSeq2Part2;
+float SpeedbSeq2Part2;
+
+float StartServoSeq2Part3;
+float EndServoSeq2Part3Mapped;
+float StartServoSeq2Part3Mapped;
+float DistanceServoSeq2Part3;
+float SpeedSeq2Part3;
+
+float StartServobSeq2Part3;
+float EndServobSeq2Part3Mapped;
+float StartServobSeq2Part3Mapped;
+float DistanceServobSeq2Part3;
+float SpeedbSeq2Part3;
+
+float StartServoSeq2Part4;
+float EndServoSeq2Part4Mapped;
+float StartServoSeq2Part4Mapped;
+float DistanceServoSeq2Part4;
+float SpeedSeq2Part4;
+
+float StartServobSeq2Part4;
+float EndServobSeq2Part4Mapped;
+float StartServobSeq2Part4Mapped;
+float DistanceServobSeq2Part4;
+float SpeedbSeq2Part4;
+
+
+float StartServoSeq20Part1;
+float EndServoSeq20Part1Mapped;
+float StartServoSeq20Part1Mapped;
+float DistanceServoSeq20Part1;/// P maj 
+float SpeedSeq20Part1;
+
+float StartServobSeq20Part1;
+float EndServobSeq20Part1Mapped;
+float StartServobSeq20Part1Mapped;
+float DistanceServobSeq20Part1;/// P maj 
+float SpeedbSeq20Part1;
+
+
+float StartServoSeq20Part2;
+float EndServoSeq20Part2Mapped;
+float StartServoSeq20Part2Mapped;
+float DistanceServoSeq20Part2;
+float SpeedSeq20Part2;
+
+float StartServobSeq20Part2;
+float EndServobSeq20Part2Mapped;
+float StartServobSeq20Part2Mapped;
+float DistanceServobSeq20Part2;
+float SpeedbSeq20Part2;
+
+float StartServoSeq20Part3;
+float EndServoSeq20Part3Mapped;
+float StartServoSeq20Part3Mapped;
+float DistanceServoSeq20Part3;
+float SpeedSeq20Part3;
+
+float StartServobSeq20Part3;
+float EndServobSeq20Part3Mapped;
+float StartServobSeq20Part3Mapped;
+float DistanceServobSeq20Part3;
+float SpeedbSeq20Part3;
+
+float StartServoSeq20Part4;
+float EndServoSeq20Part4Mapped;
+float StartServoSeq20Part4Mapped;
+float DistanceServoSeq20Part4;
+float SpeedSeq20Part4;
+
+float StartServobSeq20Part4;
+float EndServobSeq20Part4Mapped;
+float StartServobSeq20Part4Mapped;
+float DistanceServobSeq20Part4;
+float SpeedbSeq20Part4;
+
+volatile boolean Seq6LedPart1OnOff= false;
+volatile boolean Seq6LedPart2OnOff= false;
+volatile boolean Seq6LedPart3OnOff= false;
+volatile boolean Seq6LedPart4OnOff= false;
+
+volatile boolean Seq6SoundPart1OnOff = false;
+volatile boolean Seq6SoundPart2OnOff = false;
+volatile boolean Seq6SoundPart3OnOff = false;
+volatile boolean Seq6SoundPart4OnOff = false;
+
+
+
+float StartServoSeq6Part1;
+float EndServoSeq6Part1Mapped;
+float StartServoSeq6Part1Mapped;
+float DistanceServoSeq6Part1;/// P maj 
+float SpeedSeq6Part1;
+
+float StartServobSeq6Part1;
+float EndServobSeq6Part1Mapped;
+float StartServobSeq6Part1Mapped;
+float DistanceServobSeq6Part1;/// P maj 
+float SpeedbSeq6Part1;
+
+
+float StartServoSeq6Part2;
+float EndServoSeq6Part2Mapped;
+float StartServoSeq6Part2Mapped;
+float DistanceServoSeq6Part2;
+float SpeedSeq6Part2;
+
+float StartServobSeq6Part2;
+float EndServobSeq6Part2Mapped;
+float StartServobSeq6Part2Mapped;
+float DistanceServobSeq6Part2;
+float SpeedbSeq6Part2;
+
+float StartServoSeq6Part3;
+float EndServoSeq6Part3Mapped;
+float StartServoSeq6Part3Mapped;
+float DistanceServoSeq6Part3;
+float SpeedSeq6Part3;
+
+float StartServobSeq6Part3;
+float EndServobSeq6Part3Mapped;
+float StartServobSeq6Part3Mapped;
+float DistanceServobSeq6Part3;
+float SpeedbSeq6Part3;
+
+float StartServoSeq6Part4;
+float EndServoSeq6Part4Mapped;
+float StartServoSeq6Part4Mapped;
+float DistanceServoSeq6Part4;
+float SpeedSeq6Part4;
+
+float StartServobSeq6Part4;
+float EndServobSeq6Part4Mapped;
+float StartServobSeq6Part4Mapped;
+float DistanceServobSeq6Part4;
+float SpeedbSeq6Part4;
+
+////////////////////////////////
+
+float StartServoSeq60Part1;
+float EndServoSeq60Part1Mapped;
+float StartServoSeq60Part1Mapped;
+float DistanceServoSeq60Part1;/// P maj 
+float SpeedSeq60Part1;
+
+float StartServobSeq60Part1;
+float EndServobSeq60Part1Mapped;
+float StartServobSeq60Part1Mapped;
+float DistanceServobSeq60Part1;/// P maj 
+float SpeedbSeq60Part1;
+
+
+float StartServoSeq60Part2;
+float EndServoSeq60Part2Mapped;
+float StartServoSeq60Part2Mapped;
+float DistanceServoSeq60Part2;
+float SpeedSeq60Part2;
+
+float StartServobSeq60Part2;
+float EndServobSeq60Part2Mapped;
+float StartServobSeq60Part2Mapped;
+float DistanceServobSeq60Part2;
+float SpeedbSeq60Part2;
+
+float StartServoSeq60Part3;
+float EndServoSeq60Part3Mapped;
+float StartServoSeq60Part3Mapped;
+float DistanceServoSeq60Part3;
+float SpeedSeq60Part3;
+
+float StartServobSeq60Part3;
+float EndServobSeq60Part3Mapped;
+float StartServobSeq60Part3Mapped;
+float DistanceServobSeq60Part3;
+float SpeedbSeq60Part3;
+
+float StartServoSeq60Part4;
+float EndServoSeq60Part4Mapped;
+float StartServoSeq60Part4Mapped;
+float DistanceServoSeq60Part4;
+float SpeedSeq60Part4;
+
+float StartServobSeq60Part4;
+float EndServobSeq60Part4Mapped;
+float StartServobSeq60Part4Mapped;
+float DistanceServobSeq60Part4;
+float SpeedbSeq60Part4;
+
+
+volatile boolean Seq7LedPart1OnOff= false;
+volatile boolean Seq7LedPart2OnOff= false;
+volatile boolean Seq7LedPart3OnOff= false;
+volatile boolean Seq7LedPart4OnOff= false;
+
+volatile boolean Seq7SoundPart1OnOff = false;
+volatile boolean Seq7SoundPart2OnOff = false;
+volatile boolean Seq7SoundPart3OnOff = false;
+volatile boolean Seq7SoundPart4OnOff = false;
+
+
+
+float StartServoSeq7Part1;
+float EndServoSeq7Part1Mapped;
+float StartServoSeq7Part1Mapped;
+float DistanceServoSeq7Part1;/// P maj 
+float SpeedSeq7Part1;
+
+float StartServobSeq7Part1;
+float EndServobSeq7Part1Mapped;
+float StartServobSeq7Part1Mapped;
+float DistanceServobSeq7Part1;/// P maj 
+float SpeedbSeq7Part1;
+
+
+float StartServoSeq7Part2;
+float EndServoSeq7Part2Mapped;
+float StartServoSeq7Part2Mapped;
+float DistanceServoSeq7Part2;
+float SpeedSeq7Part2;
+
+float StartServobSeq7Part2;
+float EndServobSeq7Part2Mapped;
+float StartServobSeq7Part2Mapped;
+float DistanceServobSeq7Part2;
+float SpeedbSeq7Part2;
+
+float StartServoSeq7Part3;
+float EndServoSeq7Part3Mapped;
+float StartServoSeq7Part3Mapped;
+float DistanceServoSeq7Part3;
+float SpeedSeq7Part3;
+
+float StartServobSeq7Part3;
+float EndServobSeq7Part3Mapped;
+float StartServobSeq7Part3Mapped;
+float DistanceServobSeq7Part3;
+float SpeedbSeq7Part3;
+
+float StartServoSeq7Part4;
+float EndServoSeq7Part4Mapped;
+float StartServoSeq7Part4Mapped;
+float DistanceServoSeq7Part4;
+float SpeedSeq7Part4;
+
+float StartServobSeq7Part4;
+float EndServobSeq7Part4Mapped;
+float StartServobSeq7Part4Mapped;
+float DistanceServobSeq7Part4;
+float SpeedbSeq7Part4;
+
+
+float StartServoSeq70Part1;
+float EndServoSeq70Part1Mapped;
+float StartServoSeq70Part1Mapped;
+float DistanceServoSeq70Part1;/// P maj 
+float SpeedSeq70Part1;
+
+float StartServobSeq70Part1;
+float EndServobSeq70Part1Mapped;
+float StartServobSeq70Part1Mapped;
+float DistanceServobSeq70Part1;/// P maj 
+float SpeedbSeq70Part1;
+
+
+float StartServoSeq70Part2;
+float EndServoSeq70Part2Mapped;
+float StartServoSeq70Part2Mapped;
+float DistanceServoSeq70Part2;
+float SpeedSeq70Part2;
+
+float StartServobSeq70Part2;
+float EndServobSeq70Part2Mapped;
+float StartServobSeq70Part2Mapped;
+float DistanceServobSeq70Part2;
+float SpeedbSeq70Part2;
+
+float StartServoSeq70Part3;
+float EndServoSeq70Part3Mapped;
+float StartServoSeq70Part3Mapped;
+float DistanceServoSeq70Part3;
+float SpeedSeq70Part3;
+
+float StartServobSeq70Part3;
+float EndServobSeq70Part3Mapped;
+float StartServobSeq70Part3Mapped;
+float DistanceServobSeq70Part3;
+float SpeedbSeq70Part3;
+
+float StartServoSeq70Part4;
+float EndServoSeq70Part4Mapped;
+float StartServoSeq70Part4Mapped;
+float DistanceServoSeq70Part4;
+float SpeedSeq70Part4;
+
+float StartServobSeq70Part4;
+float EndServobSeq70Part4Mapped;
+float StartServobSeq70Part4Mapped;
+float DistanceServobSeq70Part4;
+float SpeedbSeq70Part4;
+volatile float SERVO_START_POS[7];
+
+double mapf(double val, double in_min, double in_max, double out_min, double out_max) {
+    return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
 
 // Define global variables
 static uint32_t curEngineSample2; 
 volatile int16_t masterVolume = 100;
 volatile boolean   Init = false;
 volatile boolean   one = false;
+volatile boolean   Setupsequence = false;
 
 volatile boolean failSafe           = false;    // Triggered in emergency situations like: serial signal lost etc.
 volatile int8_t  ppmFailsafeCounter = 0;
@@ -175,11 +747,32 @@ volatile boolean AncreStop = true;
 volatile int16_t  AnchorSpeedDown = 1550;
 volatile int16_t  AnchorSpeedUp = 1550;
 
+
+volatile int16_t  servoPulse[7] = {SERVO_START[0],SERVO_START[1],SERVO_START[2],SERVO_START[3],SERVO_START[4],SERVO_START[5],SERVO_START[6]};
+static unsigned long servoTime[7];
+static unsigned long toggleTime;
+
+volatile boolean Servoposition = false;
+volatile boolean servoMove = false;
+volatile boolean servoCtrl =false;
+volatile int16_t servoSwitch = 1;
+volatile int16_t actionServoSwitch = 0;
+const int8_t servoStep =5;
+volatile boolean servoHome =false;
+
+volatile boolean action1Ctrl =false;
+volatile int16_t action1Switch = 1;
+
+
+
+
 volatile boolean Maneuvre = false;
 volatile boolean Avertissement = false;
 volatile boolean Fog = false;
 volatile boolean Fishing = false;
 volatile boolean Mouillage = false;
+volatile boolean Motor2On = false;
+
 
 
 static unsigned long FogSoundMillis;
@@ -204,7 +797,17 @@ volatile boolean GunServo = false;
 volatile boolean GunMove = false;
 
 volatile boolean MachineGunSound = false;
-volatile boolean lightsOn = false;              
+volatile boolean GunSound = false;
+volatile boolean GunSound2 = false;
+
+volatile boolean lightsOn = false;  
+
+volatile boolean Act12Sound1 = false;  
+volatile boolean Act12Sound2 = false;  
+volatile boolean Act12Sound3 = false;
+volatile boolean manualServo = false;  
+volatile boolean toggleAction = false;  
+  
 
 
 volatile boolean EngineWasAboveIdle = false;    // Engine RPM was above idle
@@ -807,6 +1410,10 @@ void setup()
 
 
 
+
+  
+
+
   Led.begin(SX1509_ADDRESS);
   Led.clock(INTERNAL_CLOCK_2MHZ, 4);
   
@@ -858,54 +1465,69 @@ void setup()
   Led.pinMode(15, OUTPUT);
   Led.digitalWrite(15, LOW);
 
-
-  monServo1.setMin(400);
-  monServo1.setMax(2400);
-  monServo1.setSpeed(1.75);
-  monServo1.setInitialPosition(0.0);
+  SERVO_START_POS[1]= mapf(SERVO_START[1],500,2400,0,1); 
+  SERVO_START_POS[2]= mapf(SERVO_START[2],500,2400,0,1); 
+  SERVO_START_POS[3]= mapf(SERVO_START[3],500,2400,0,1); 
+  SERVO_START_POS[4]= mapf(SERVO_START[4],500,2400,0,1); 
+  SERVO_START_POS[5]= mapf(SERVO_START[5],500,2400,0,1); 
+  SERVO_START_POS[6]= mapf(SERVO_START[6],500,2400,0,1); 
+  
+  
+  monServo1.setMin(SERVO_MIN);
+  monServo1.setMax(SERVO_MAX);
+  monServo1.setSpeed(1.5);
+  monServo1.setInitialPosition(SERVO_START_POS[1]);
   monServo1.setReverted(false);
   monServo1.setPin(5, 0, 0, 0); //pin unit(0,1) timer(0,1,2) pwmout (0,1,2) channel(0,1) // timer0 conflic i2c ??
+ 
+  Servo1.attach(5, 0, 0, 0);
 
-  monServo2.setMin(400);
-  monServo2.setMax(2400);
-  monServo2.setSpeed(2.0);
-  monServo2.setInitialPosition(0.0);
+  
+ 
+  monServo2.setMin(SERVO_MIN);
+  monServo2.setMax(SERVO_MAX);
+  monServo2.setSpeed(1.5);
+  monServo2.setInitialPosition(SERVO_START_POS[2]);
   monServo2.setReverted(false);
   monServo2.setPin(17, 0, 0, 1); //pin unit(0,1) timer(0,1,2)  channel(0,1) // timer0 conflic i2c ??
+  Servo2.attach(17, 0, 0, 1);
 
-  monServo3.setMin(400);
-  monServo3.setMax(2400);
-  monServo3.setSpeed(2.0);
-  monServo3.setInitialPosition(0.5);
+  monServo3.setMin(SERVO_MIN);
+  monServo3.setMax(SERVO_MAX);
+  monServo3.setSpeed(1.5);
+  monServo3.setInitialPosition(SERVO_START_POS[3]);
   monServo3.setReverted(false);
   monServo3.setPin(16, 0, 1, 0); //pin unit(0,1) timer(0,1,2)  channel(0,1) // timer0 conflic i2c ??
+  Servo3.attach(16, 0, 1, 0);
 
-  monServo4.setMin(400);
-  monServo4.setMax(2400);
-  monServo4.setSpeed(1.75);
-  monServo4.setInitialPosition(1.0);
+  
+  monServo4.setMin(SERVO_MIN);
+  monServo4.setMax(SERVO_MAX);
+  monServo4.setSpeed(1.5);
+  monServo4.setInitialPosition(SERVO_START_POS[4]);
   monServo4.setReverted(false);
   monServo4.setPin(4, 0, 1, 1); //pin unit(0,1) timer(0,1,2)  channel(0,1) // timer0 conflic i2c ??
-
-  monServo5.setMin(400);
-  monServo5.setMax(2400);
-  monServo5.setSpeed(2.0);
-  monServo5.setInitialPosition(0.0);
+  Servo4.attach(4, 0, 1, 1);
+  
+ 
+  monServo5.setMin(SERVO_MIN);
+  monServo5.setMax(SERVO_MAX);
+  monServo5.setSpeed(1.5);
+  monServo5.setInitialPosition(SERVO_START_POS[5]);
   monServo5.setReverted(false);
   monServo5.setPin(23, 0, 2, 0); //pin unit(0,1) timer(0,1,2) channel(0,1) // timer0 conflic i2c ??
+  Servo5.attach(23, 0, 2, 0); 
 
-#if not defined ANCHORMOTOR
-  monServo6.setMin(400);
-  monServo6.setMax(2400);
-  monServo6.setSpeed(1.0);
-  monServo6.setInitialPosition(0.0);
+
+  monServo6.setMin(SERVO_MIN);
+  monServo6.setMax(SERVO_MAX);
+  monServo6.setSpeed(1.5);
+  monServo6.setInitialPosition(SERVO_START_POS[6]);
   monServo6.setReverted(false);
   monServo6.setPin(15, 0, 2, 1); //pin unit(0,1) timer(0,1,2)  channel(0,1) // timer0 conflic i2c ??
-#else
+  Servo6.attach(15, 0, 2, 1);
 
-  ANCHOR.attach(15, 0, 2, 1);
-#endif
-
+ 
   ESC1.attach(19, 1, 1, 0);
   ESC2.attach(18, 1, 1, 1);
   ESC3.attach(32, 1, 2, 0);
@@ -1084,10 +1706,24 @@ void setup()
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+ 
+
+        
+//Servo1.writeMicroseconds(SERVO_START[1]);
+Servo1.writeMicroseconds(SERVO_START[1]);
+Servo2.writeMicroseconds(SERVO_START[2]);
+Servo3.writeMicroseconds(SERVO_START[3]);
+Servo4.writeMicroseconds(SERVO_START[4]);
+Servo5.writeMicroseconds(SERVO_START[5]);
+Servo6.writeMicroseconds(SERVO_START[6]);
+servoHome=true;
 
 
+  
+ 
 
 }
+
 
 
 //
@@ -1095,6 +1731,9 @@ void setup()
 // DAC OFFSET FADER
 // =======================================================================================================
 //
+
+
+
 
 static unsigned long dacOffsetMicros;
 boolean              dacInit;
@@ -1422,12 +2061,105 @@ void trigger()
   #endif
   #ifdef ACTION10_ENABLE
   Action10.update(pulseWidth[ACTION10CH-1]);
-#endif
-#ifdef VOLUME_CONTROLE
+  #endif
+  #ifdef ACTION11_ENABLE
+  
+   #ifdef ACTION11A_ENABLE
+  Action11A.update(pulseWidth[ACTION11ACH-1]);
+   #endif
+   #ifdef ACTION11B_ENABLE
+  Action11B.update(pulseWidth[ACTION11BCH-1]);
+   #endif 
+   #ifdef ACTION11C_ENABLE
+  Action11C.update(pulseWidth[ACTION11CCH-1]);
+   #endif
+   #ifdef ACTION11D_ENABLE
+  Action11D.update(pulseWidth[ACTION11DCH-1]);
+   #endif
+   
+  #endif 
+  
+  #ifdef ACTION12_ENABLE
+  Action12.update(pulseWidth[ACTION12CH-1]);
+  #endif 
+  #ifdef VOLUME_CONTROLE
   VolumeCh.update(pulseWidth[VOLUMECH-1]);
-#endif
+  #endif
+  CH5.update(pulseWidth[4]);
 
+  #ifdef SEQ1_CH_5
+   CH5.update(pulseWidth[4]);
+    #endif
+  #ifdef SEQ1_CH_6
+   CH6.update(pulseWidth[5]);
+    #endif
+  #ifdef SEQ1_CH_7
+   CH7.update(pulseWidth[6]);
+    #endif
+  #ifdef SEQ1_CH_8
+   CH8.update(pulseWidth[7]);
+    #endif
+  #ifdef SEQ1_CH_9
+   CH9.update(pulseWidth[8]);
+    #endif
+  #ifdef SEQ1_CH_10
+   CH10.update(pulseWidth[9]);
+    #endif
+  #ifdef SEQ1_CH_11
+   CH11.update(pulseWidth[10]);
+    #endif
+  #ifdef SEQ1_CH_12
+   CH12.update(pulseWidth[11]);
+    #endif
+  #ifdef SEQ1_CH_13
+   CH13.update(pulseWidth[12]);
+    #endif
+  #ifdef SEQ1_CH_14
+   CH14.update(pulseWidth[13]);
+    #endif
+  #ifdef SEQ1_CH_15
+   CH15.update(pulseWidth[14]);
+    #endif
+  #ifdef SEQ1_CH_16
+   CH16.update(pulseWidth[15]);
+    #endif
 
+   #ifdef SEQ2_CH_5
+   CH5.update(pulseWidth[4]);
+    #endif
+  #ifdef SEQ2_CH_6
+   CH6.update(pulseWidth[5]);
+    #endif
+  #ifdef SEQ2_CH_7
+   CH7.update(pulseWidth[6]);
+    #endif
+  #ifdef SEQ2_CH_8
+   CH8.update(pulseWidth[7]);
+    #endif
+  #ifdef SEQ2_CH_9
+   CH9.update(pulseWidth[8]);
+    #endif
+  #ifdef SEQ2_CH_10
+   CH10.update(pulseWidth[9]);
+    #endif
+  #ifdef SEQ2_CH_11
+   CH11.update(pulseWidth[10]);
+    #endif
+  #ifdef SEQ2_CH_12
+   CH12.update(pulseWidth[11]);
+    #endif
+  #ifdef SEQ2_CH_13
+   CH13.update(pulseWidth[12]);
+    #endif
+  #ifdef SEQ2_CH_14
+   CH14.update(pulseWidth[13]);
+    #endif
+  #ifdef SEQ2_CH_15
+   CH15.update(pulseWidth[14]);
+    #endif
+  #ifdef SEQ2_CH_16
+   CH16.update(pulseWidth[15]);
+    #endif  
 
 }
 
@@ -1710,15 +2442,9 @@ void engineMassSimulation()
   Serial.println(pulseWidth[9]);
   Serial.print("CH11 :");
   Serial.println(pulseWidth[10]);
-  Serial.print("CH12 :");
-  Serial.println(pulseWidth[11]);
-  Serial.print("");
-  Serial.println(Short_blast.TimeElapsed );
-  Serial.println(Long_blast.TimeElapsed );
-  Serial.println(Manoeuvre_Led);
-  
-  
-    
+  Serial.print("CH14 :");
+  Serial.println(pulseWidth[13]);
+  Serial.print(Action11.Pos());
     Serial.println("");
   }
 #endif  
@@ -1741,7 +2467,7 @@ void engineOnOff()
     // detect Engine switch on/off  trigger CH 2
     if (pulseWidth[chManualOnOff - 1] > (pulseMaxNeutral[chManualOnOff - 1] + 180) && pulseWidth[chManualOnOff - 1] < pulseMaxLimit[chManualOnOff - 1])
     {
-      if (! Avertissement){
+      if (! Avertissement && !manualServo){
       engineOn = true;
       MotorOn  = true;
       
@@ -1751,9 +2477,10 @@ void engineOnOff()
 
     else if (pulseWidth[chManualOnOff - 1] < (pulseMinNeutral[chManualOnOff - 1] - 180) && pulseWidth[chManualOnOff - 1] > pulseMinLimit[chManualOnOff - 1])
     {
+       if (! Avertissement && !manualServo){
       OnOffDelayMillis = millis();
       engineOn = false;
-      TimerOn  = true;
+      TimerOn  = true;}
     }
   }
 
@@ -2037,6 +2764,7 @@ void Initialisation() {
     one = true;
     //Led_builtin.on();
 
+   
     switch (StartSound) {
     case 0:
     
@@ -2054,6 +2782,9 @@ void Initialisation() {
     DacAudio.Play(&Start, false);
     break;
   }
+
+  Servoposition=true;
+  
   }
 
 }
@@ -2066,6 +2797,8 @@ void Initialisation() {
 
 void volumeControl()
 {
+  
+
 
 #ifdef VOLUME_CONTROLE
 
@@ -2101,6 +2834,15 @@ unsigned long loopDuration()
   return loopTime;
 }
 
+void hello()
+{
+  static byte count = 0;
+
+  Serial.print(++count);
+  Serial.print(" Hello it is ");
+  Serial.println(millis());
+}
+
 //
 // =======================================================================================================
 // MAIN LOOP, RUNNING ON CORE 1
@@ -2123,7 +2865,6 @@ void loop()
   steering();
   
   trigger();
-
   Servos(); 
   
   Initialisation();
@@ -2131,8 +2872,12 @@ void loop()
   volumeControl();
 
   DacAudio.FillBuffer();
+  Sequences();
 
   SlowMotionServo::update(); /* actualisation de la position */
+  ScheduleTable::update();
+
+ 
 
 }
 
@@ -2172,6 +2917,8 @@ void Task1code(void *pvParameters)
     esc();
 
     triggerSound();
+   
+
 
   }
 }
