@@ -8,15 +8,13 @@
    
 */
 
-const float codeVersion = 5.57; // Software revision.
+const float codeVersion = 5.7; // Software revision.
 
 //
 // =======================================================================================================
 // SETTINGS (ADJUST THEM BEFORE CODE UPLOAD)
 // =======================================================================================================
 //
-
-
 
 #include "2-Sound_config.h"
 #include "1-Setup.h"
@@ -39,6 +37,8 @@ const float codeVersion = 5.57; // Software revision.
 // =======================================================================================================
 //
 
+
+
 // Libraries (you have to install all of them)
 #include <statusLED.h> // https://github.com/TheDIYGuy999/statusLED <<------- Install the newest version!
 #include <SBUS.h>     // https://github.com/TheDIYGuy999/SBUS you need to install my fork of this library!
@@ -48,6 +48,7 @@ const float codeVersion = 5.57; // Software revision.
 #include <PWMTrigger.h>
 #include "XT_DAC_Audio.h"
 #include <ScheduleTable.h>
+#include <Adafruit_PWMServoDriver.h>
 
 //
 // =======================================================================================================
@@ -74,7 +75,7 @@ uint32_t maxPwmRpmPercentage = 400; // Limit required to prevent controller fron
 
 #define RECEIVER_CHANNELS_NUM 8
 const uint8_t RECEIVER_CHANNELS[RECEIVER_CHANNELS_NUM] = {0, 1, 2, 3, 4, 5, 6, 7 };
-const uint8_t RECEIVER_PINS[RECEIVER_CHANNELS_NUM]  = {13, 12, 14, 27, 33, 35, 39, 34 };
+const uint8_t RECEIVER_PINS[RECEIVER_CHANNELS_NUM]  = {13, 12, 14, 27, 33, 35, 39, 34};
 
 
 #ifdef PPM_COMMUNICATION
@@ -84,7 +85,7 @@ const uint8_t RECEIVER_PINS[RECEIVER_CHANNELS_NUM]  = {13, 12, 14, 27, 33, 35, 3
 
 #ifdef SBUS_COMMUNICATION
 #define COMMAND_RX  39
-#define COMMAND_TX  36
+//#define COMMAND_TX  36
 #endif
 
 #define PULSE_NBR 15
@@ -236,14 +237,50 @@ PWMTrigger CH14;
 PWMTrigger CH15;
 PWMTrigger CH16;
 
+//Optional Board
+#ifdef PCA_OPTION
+Adafruit_PWMServoDriver board1 = Adafruit_PWMServoDriver(PCA_ADDRESS);
+#endif 
 
-
-
-
+#ifdef SX1509_OPTION
+SX1509 Output1;
+SX1509 Output2;
+SX1509 Output3;
+SX1509 Output4;
+SX1509 Output5;
+SX1509 Output6;
+SX1509 Output7;
+SX1509 Output8;
+SX1509 Output9;
+SX1509 Output10;
+SX1509 Output11;
+SX1509 Output12;
+SX1509 Output13;
+SX1509 Output14;
+SX1509 Output15;
+SX1509 Output16;
+#endif 
 
 // SX1509 I2C address (set by ADDR1 and ADDR0 (00 by default):
 const byte SX1509_ADDRESS = 0x3E;  // SX1509 I2C address
-SX1509 Led; // Create an SX1509 object to be used throughout
+SX1509 Led1; // Create an SX1509 object to be used throughout
+SX1509 Led2; // Create an SX1509 object to be used throughout
+SX1509 Led3; // Create an SX1509 object to be used throughout
+SX1509 Led4; // Create an SX1509 object to be used throughout
+SX1509 Led5; // Create an SX1509 object to be used throughout
+SX1509 Led6; // Create an SX1509 object to be used throughout
+SX1509 Led7; // Create an SX1509 object to be used throughout
+SX1509 Led8; // Create an SX1509 object to be used throughout
+SX1509 Led9; // Create an SX1509 object to be used throughout
+SX1509 Led10; // Create an SX1509 object to be used throughout
+SX1509 Led11; // Create an SX1509 object to be used throughout
+SX1509 Led12; // Create an SX1509 object to be used throughout
+SX1509 Led13; // Create an SX1509 object to be used throughout
+SX1509 Led14; // Create an SX1509 object to be used throughout
+SX1509 Motor1; // Create an SX1509 object to be used throughout
+SX1509 Motor2; // Create an SX1509 object to be used throughout
+
+
 
 
 #define LED_PIN       2   // LED 2
@@ -262,16 +299,754 @@ XT_DAC_Audio_Class DacAudio(26, 1); // Create the main player class object. Use 
 
 statusLED Led_builtin(false);
 
+/*
+#ifdef ACT1_MULTISWITCH
+volatile boolean Act1Permanent =false;
+#endif 
+
+#ifdef ACT2_MULTISWITCH
+volatile boolean Act2Permanent =false;
+#endif 
+
+#ifdef ACT3_MULTISWITCH
+volatile boolean Act3Permanent =false;
+#endif 
+
+#ifdef ACT4_MULTISWITCH
+volatile boolean Act4Permanent =false;
+#endif 
+
+#ifdef ACT6_MULTISWITCH
+volatile boolean Act6Permanent =false;
+#endif 
+
+#ifdef ACT7_MULTISWITCH
+volatile boolean Act7Permanent =false;
+#endif 
+
+#ifdef ACT8_MULTISWITCH
+volatile boolean Act8Permanent =false;
+#endif 
+
+#ifdef ACT9_MULTISWITCH
+volatile boolean Act9Permanent =false;
+#endif 
+
+#ifdef ACT10_MULTISWITCH
+volatile boolean Act10Permanent =false;
+#endif 
+*/
+
+#if not defined ACT1_MULTISWITCH || ACT1_MULTISWITCH_UP1 || ACT1_MULTISWITCH_UP2 || ACT1_MULTISWITCH_UP3 || ACT1_MULTISWITCH_UP4 || ACT1_MULTISWITCH_DOWN1 || ACT1_MULTISWITCH_DOWN2 || ACT1_MULTISWITCH_DOWN3 || ACT1_MULTISWITCH_DOWN4
+volatile uint8_t Act1 = Action1.Pos();
+#endif 
+#if not defined ACT2_MULTISWITCH || ACT2_MULTISWITCH_UP1 || ACT2_MULTISWITCH_UP2 || ACT2_MULTISWITCH_UP3 || ACT2_MULTISWITCH_UP4 || ACT2_MULTISWITCH_DOWN1 || ACT2_MULTISWITCH_DOWN2 || ACT2_MULTISWITCH_DOWN3 || ACT2_MULTISWITCH_DOWN4
+volatile uint8_t Act2 = 0;
+#endif 
+#if not defined ACT3_MULTISWITCH || ACT3_MULTISWITCH_UP1 || ACT3_MULTISWITCH_UP2 || ACT3_MULTISWITCH_UP3 || ACT3_MULTISWITCH_UP4 || ACT3_MULTISWITCH_DOWN1 || ACT3_MULTISWITCH_DOWN2 || ACT3_MULTISWITCH_DOWN3 || ACT3_MULTISWITCH_DOWN4
+volatile uint8_t Act3 = Action3.Pos();
+#endif 
+#if not defined ACT4_MULTISWITCH || ACT4_MULTISWITCH_UP1 || ACT4_MULTISWITCH_UP2 || ACT4_MULTISWITCH_UP3 || ACT4_MULTISWITCH_UP4 || ACT4_MULTISWITCH_DOWN1 || ACT4_MULTISWITCH_DOWN2 || ACT4_MULTISWITCH_DOWN3 || ACT4_MULTISWITCH_DOWN4
+volatile uint8_t Act4 = Action4.Pos();
+#endif 
+#if not defined ACT5_MULTISWITCH || ACT5_MULTISWITCH_UP1 || ACT5_MULTISWITCH_UP2 || ACT5_MULTISWITCH_UP3 || ACT5_MULTISWITCH_UP4 || ACT5_MULTISWITCH_DOWN1 || ACT5_MULTISWITCH_DOWN2 || ACT5_MULTISWITCH_DOWN3 || ACT5_MULTISWITCH_DOWN4
+volatile uint8_t Act5 = Action5.Pos();
+#endif 
+#if not defined ACT6_MULTISWITCH || ACT6_MULTISWITCH_UP1 || ACT6_MULTISWITCH_UP2 || ACT6_MULTISWITCH_UP3 || ACT6_MULTISWITCH_UP4 || ACT6_MULTISWITCH_DOWN1 || ACT6_MULTISWITCH_DOWN2 || ACT6_MULTISWITCH_DOWN3 || ACT6_MULTISWITCH_DOWN4
+volatile uint8_t Act6 = Action6.Pos();
+#endif 
+#if not defined ACT7_MULTISWITCH || ACT7_MULTISWITCH_UP1 || ACT7_MULTISWITCH_UP2 || ACT7_MULTISWITCH_UP3 || ACT7_MULTISWITCH_UP4 || ACT7_MULTISWITCH_DOWN1 || ACT7_MULTISWITCH_DOWN2 || ACT7_MULTISWITCH_DOWN3 || ACT7_MULTISWITCH_DOWN4
+volatile uint8_t Act7 = Action7.Pos();
+#endif 
+#if not defined ACT8_MULTISWITCH || ACT8_MULTISWITCH_UP1 || ACT8_MULTISWITCH_UP2 || ACT8_MULTISWITCH_UP3 || ACT8_MULTISWITCH_UP4 || ACT8_MULTISWITCH_DOWN1 || ACT8_MULTISWITCH_DOWN2 || ACT8_MULTISWITCH_DOWN3 || ACT8_MULTISWITCH_DOWN4
+volatile uint8_t Act8 = Action8.Pos();
+#endif 
+#if not defined ACT9_MULTISWITCH || ACT9_MULTISWITCH_UP1 || ACT9_MULTISWITCH_UP2 || ACT9_MULTISWITCH_UP3 || ACT9_MULTISWITCH_UP4 || ACT9_MULTISWITCH_DOWN1 || ACT9_MULTISWITCH_DOWN2 || ACT9_MULTISWITCH_DOWN3 || ACT9_MULTISWITCH_DOWN4
+volatile uint8_t Act9 = Action9.Pos();
+#endif 
+#if not defined ACT10_MULTISWITCH || ACT10_MULTISWITCH_UP1 || ACT10_MULTISWITCH_UP2 || ACT10_MULTISWITCH_UP3 || ACT10_MULTISWITCH_UP4 || ACT10_MULTISWITCH_DOWN1 || ACT10_MULTISWITCH_DOWN2 || ACT10_MULTISWITCH_DOWN3 || ACT10_MULTISWITCH_DOWN4
+volatile uint8_t Act10 = Action10.Pos();
+#endif 
+#if not defined ACT11_MULTISWITCH
+volatile uint8_t Act11 = 5;
+#endif 
+#if not defined ACT12_MULTISWITCH || ACT12_MULTISWITCH_UP1 || ACT12_MULTISWITCH_UP2 || ACT12_MULTISWITCH_UP3 || ACT12_MULTISWITCH_UP4 || ACT12_MULTISWITCH_DOWN1 || ACT12_MULTISWITCH_DOWN2 || ACT12_MULTISWITCH_DOWN3 || ACT12_MULTISWITCH_DOWN4
+volatile uint8_t Act12 = 0;
+#endif 
+
+
+static unsigned long timerOld;
+unsigned long        loopTime;
+unsigned long        timerLoop ;
+
+static unsigned long timerOld2;
+unsigned long        loopTime2;
+unsigned long        timerLoop2 ;
+
+
+
+
+
+volatile boolean Act1Permanent =false;
+volatile boolean Act2Permanent =false;
+volatile boolean Act3Permanent =false;
+volatile boolean Act4Permanent =false;
+volatile boolean Act5Permanent =false;
+volatile boolean Act6Permanent =false;
+volatile boolean Act7Permanent =false;
+volatile boolean Act8Permanent =false;
+volatile boolean Act9Permanent =false;
+volatile boolean Act10Permanent =false;
+volatile boolean Act11Permanent =false;
+volatile boolean Act12Permanent =false;
+volatile boolean Seq6Permanent =false;
+volatile boolean Seq6bPermanent =false;
+volatile boolean Seq7Permanent =false;
+volatile boolean Seq7bPermanent =false;
+volatile boolean Seq1Permanent =false;
+volatile boolean Seq1bPermanent =false;
+volatile boolean Seq2Permanent =false;
+volatile boolean Seq2bPermanent =false;
+////////////////////////////////////
+volatile boolean Act11A_UpPermanent =false;
+volatile boolean Act11A_DownPermanent =false;
+volatile boolean Act11B_UpPermanent =false;
+volatile boolean Act11B_DownPermanent =false;
+volatile boolean Act11C_UpPermanent =false;
+volatile boolean Act11C_DownPermanent =false;
+volatile boolean Act11D_UpPermanent =false;
+volatile boolean Act11D_DownPermanent =false;
+
+
+
+
+#ifdef ACT1_MULTISWITCH
+volatile boolean Act1 = false;
+#endif 
+#ifdef ACT2_MULTISWITCH
+volatile boolean Act2 = false;
+#endif 
+#ifdef ACT3_MULTISWITCH
+volatile boolean Act3 = false;
+#endif 
+#ifdef ACT4_MULTISWITCH
+volatile boolean Act4 = false;
+#endif 
+#ifdef ACT5_MULTISWITCH
+volatile boolean Act5 = false;
+#endif 
+#ifdef ACT6_MULTISWITCH
+volatile boolean Act6 = false;
+#endif 
+#ifdef ACT7_MULTISWITCH
+volatile boolean Act7 = false;
+#endif 
+#ifdef ACT8_MULTISWITCH
+volatile boolean Act8 = false;
+#endif 
+#ifdef ACT9_MULTISWITCH
+volatile boolean Act9 = false;
+#endif 
+#ifdef ACT10_MULTISWITCH
+volatile boolean Act10 = false;
+#endif 
+#ifdef ACT11_MULTISWITCH
+volatile boolean Act11 = false;
+#endif 
+#ifdef ACT12_MULTISWITCH
+volatile boolean Act12 = false;
+#endif 
+
+#ifdef SEQ1_MULTISWITCH
+volatile boolean Seq1 = false;
+#endif 
+#ifdef SEQ1B_MULTISWITCH
+volatile boolean Seq1b = false;
+#endif 
+#ifdef SEQ2_MULTISWITCH
+volatile boolean Seq2 = false;
+#endif 
+#ifdef SEQ2B_MULTISWITCH
+volatile boolean Seq2b = false;
+#endif 
+
+#ifdef SEQ6_MULTISWITCH
+volatile boolean Seq6 = false;
+#endif 
+#ifdef SEQ6B_MULTISWITCH
+volatile boolean Seq6b = false;
+#endif 
+#ifdef SEQ7_MULTISWITCH
+volatile boolean Seq7 = false;
+#endif 
+#ifdef SEQ7B_MULTISWITCH
+volatile boolean Seq7b = false;
+#endif 
+
+#ifdef ACTION11A_UP_MULTISWITCH
+volatile boolean Act11A_UP = false;
+#endif 
+#ifdef ACTION11A_DOWN_MULTISWITCH
+volatile boolean Act11A_DOWN = false;
+#endif 
+#ifdef ACTION11B_UP_MULTISWITCH
+volatile boolean Act11B_UP = false;
+#endif 
+#ifdef ACTION11B_DOWN_MULTISWITCH
+volatile boolean Act11B_DOWN = false;
+#endif 
+#ifdef ACTION11C_UP_MULTISWITCH
+volatile boolean Act11C_UP = false;
+#endif 
+#ifdef ACTION11C_DOWN_MULTISWITCH
+volatile boolean Act11C_DOWN = false;
+#endif 
+#ifdef ACTION11D_UP_MULTISWITCH
+volatile boolean Act11D_UP = false;
+#endif 
+#ifdef ACTION11D_DOWN_MULTISWITCH
+volatile boolean Act11D_DOWN = false;
+#endif 
+
+
+#ifdef ACT1_MULTISWITCH_UP1
+volatile boolean Act1= false;
+#endif 
+#ifdef ACT2_MULTISWITCH_UP1
+volatile boolean Act2= false;
+#endif
+#ifdef ACT3_MULTISWITCH_UP1
+volatile boolean Act3= false;
+#endif
+#ifdef ACT4_MULTISWITCH_UP1
+volatile boolean Act4= false;
+#endif
+#ifdef ACT5_MULTISWITCH_UP1
+volatile boolean Act5= false;
+#endif
+#ifdef ACT6_MULTISWITCH_UP1
+volatile boolean Act6= false;
+#endif
+#ifdef ACT7_MULTISWITCH_UP1
+volatile boolean Act7= false;
+#endif
+#ifdef ACT8_MULTISWITCH_UP1
+volatile boolean Act8= false;
+#endif
+#ifdef ACT9_MULTISWITCH_UP1
+volatile boolean Act9= false;
+#endif
+#ifdef ACT10_MULTISWITCH_UP1
+volatile boolean Act10= false;
+#endif
+#ifdef ACT11A_UP_MULTISWITCH_UP1
+volatile boolean Act11A_UP= false;
+#endif
+#ifdef ACT11A_DOWN_MULTISWITCH_UP1
+volatile boolean Act11A_DOWN= false;
+#endif
+#ifdef ACT11B_UP_MULTISWITCH_UP1
+volatile boolean Act11B_UP= false;
+#endif
+#ifdef ACT11B_DOWN_MULTISWITCH_UP1
+volatile boolean Act11B_DOWN= false;
+#endif
+#ifdef ACT11C_UP_MULTISWITCH_UP1
+volatile boolean Act11C_UP= false;
+#endif
+#ifdef ACT11C_DOWN_MULTISWITCH_UP1
+volatile boolean Act11C_DOWN= false;
+#endif
+#ifdef ACT11D_UP_MULTISWITCH_UP1
+volatile boolean Act11D_UP= false;
+#endif
+#ifdef ACT11D_DOWN_MULTISWITCH_UP1
+volatile boolean Act11D_DOWN= false;
+#endif
+
+#ifdef ACT1_MULTISWITCH_UP2
+volatile boolean Act1= false;
+#endif 
+#ifdef ACT2_MULTISWITCH_UP2
+volatile boolean Act2= false;
+#endif
+#ifdef ACT3_MULTISWITCH_UP2
+volatile boolean Act3= false;
+#endif
+#ifdef ACT4_MULTISWITCH_UP2
+volatile boolean Act4= false;
+#endif
+#ifdef ACT5_MULTISWITCH_UP2
+volatile boolean Act5= false;
+#endif
+#ifdef ACT6_MULTISWITCH_UP2
+volatile boolean Act6= false;
+#endif
+#ifdef ACT7_MULTISWITCH_UP2
+volatile boolean Act7= false;
+#endif
+#ifdef ACT8_MULTISWITCH_UP2
+volatile boolean Act8= false;
+#endif
+#ifdef ACT9_MULTISWITCH_UP2
+volatile boolean Act9= false;
+#endif
+#ifdef ACT10_MULTISWITCH_UP2
+volatile boolean Act10= false;
+#endif
+#ifdef ACT11A_UP_MULTISWITCH_UP2
+volatile boolean Act11A_UP= false;
+#endif
+#ifdef ACT11A_DOWN_MULTISWITCH_UP2
+volatile boolean Act11A_DOWN= false;
+#endif
+#ifdef ACT11B_UP_MULTISWITCH_UP2
+volatile boolean Act11B_UP= false;
+#endif
+#ifdef ACT11B_DOWN_MULTISWITCH_UP2
+volatile boolean Act11B_DOWN= false;
+#endif
+#ifdef ACT11C_UP_MULTISWITCH_UP2
+volatile boolean Act11C_UP= false;
+#endif
+#ifdef ACT11C_DOWN_MULTISWITCH_UP2
+volatile boolean Act11C_DOWN= false;
+#endif
+#ifdef ACT11D_UP_MULTISWITCH_UP2
+volatile boolean Act11D_UP= false;
+#endif
+#ifdef ACT11D_DOWN_MULTISWITCH_UP2
+volatile boolean Act11D_DOWN= false;
+#endif
+
+#ifdef ACT1_MULTISWITCH_UP3
+volatile boolean Act1= false;
+#endif 
+#ifdef ACT2_MULTISWITCH_UP3
+volatile boolean Act2= false;
+#endif
+#ifdef ACT3_MULTISWITCH_UP3
+volatile boolean Act3= false;
+#endif
+#ifdef ACT4_MULTISWITCH_UP3
+volatile boolean Act4= false;
+#endif
+#ifdef ACT5_MULTISWITCH_UP3
+volatile boolean Act5= false;
+#endif
+#ifdef ACT6_MULTISWITCH_UP3
+volatile boolean Act6= false;
+#endif
+#ifdef ACT7_MULTISWITCH_UP3
+volatile boolean Act7= false;
+#endif
+#ifdef ACT8_MULTISWITCH_UP3
+volatile boolean Act8= false;
+#endif
+#ifdef ACT9_MULTISWITCH_UP3
+volatile boolean Act9= false;
+#endif
+#ifdef ACT10_MULTISWITCH_UP3
+volatile boolean Act10= false;
+#endif
+#ifdef ACT11A_UP_MULTISWITCH_UP3
+volatile boolean Act11A_UP= false;
+#endif
+#ifdef ACT11A_DOWN_MULTISWITCH_UP3
+volatile boolean Act11A_DOWN= false;
+#endif
+#ifdef ACT11B_UP_MULTISWITCH_UP3
+volatile boolean Act11B_UP= false;
+#endif
+#ifdef ACT11B_DOWN_MULTISWITCH_UP3
+volatile boolean Act11B_DOWN= false;
+#endif
+#ifdef ACT11C_UP_MULTISWITCH_UP3
+volatile boolean Act11C_UP= false;
+#endif
+#ifdef ACT11C_DOWN_MULTISWITCH_UP3
+volatile boolean Act11C_DOWN= false;
+#endif
+#ifdef ACT11D_UP_MULTISWITCH_UP3
+volatile boolean Act11D_UP= false;
+#endif
+#ifdef ACT11D_DOWN_MULTISWITCH_UP3
+volatile boolean Act11D_DOWN= false;
+#endif
+
+#ifdef ACT1_MULTISWITCH_UP4
+volatile boolean Act1= false;
+#endif 
+#ifdef ACT2_MULTISWITCH_UP4
+volatile boolean Act2= false;
+#endif
+#ifdef ACT3_MULTISWITCH_UP4
+volatile boolean Act3= false;
+#endif
+#ifdef ACT4_MULTISWITCH_UP4
+volatile boolean Act4= false;
+#endif
+#ifdef ACT5_MULTISWITCH_UP4
+volatile boolean Act5= false;
+#endif
+#ifdef ACT6_MULTISWITCH_UP4
+volatile boolean Act6= false;
+#endif
+#ifdef ACT7_MULTISWITCH_UP4
+volatile boolean Act7= false;
+#endif
+#ifdef ACT8_MULTISWITCH_UP4
+volatile boolean Act8= false;
+#endif
+#ifdef ACT9_MULTISWITCH_UP4
+volatile boolean Act9= false;
+#endif
+#ifdef ACT10_MULTISWITCH_UP4
+volatile boolean Act10= false;
+#endif
+#ifdef ACT11A_UP_MULTISWITCH_UP4
+volatile boolean Act11A_UP= false;
+#endif
+#ifdef ACT11A_DOWN_MULTISWITCH_UP4
+volatile boolean Act11A_DOWN= false;
+#endif
+#ifdef ACT11B_UP_MULTISWITCH_UP4
+volatile boolean Act11B_UP= false;
+#endif
+#ifdef ACT11B_DOWN_MULTISWITCH_UP4
+volatile boolean Act11B_DOWN= false;
+#endif
+#ifdef ACT11C_UP_MULTISWITCH_UP4
+volatile boolean Act11C_UP= false;
+#endif
+#ifdef ACT11C_DOWN_MULTISWITCH_UP4
+volatile boolean Act11C_DOWN= false;
+#endif
+#ifdef ACT11D_UP_MULTISWITCH_UP4
+volatile boolean Act11D_UP= false;
+#endif
+#ifdef ACT11D_DOWN_MULTISWITCH_UP4
+volatile boolean Act11D_DOWN= false;
+#endif
+
+
+#ifdef ACT1_MULTISWITCH_DOWN1
+volatile boolean Act1= false;
+#endif 
+#ifdef ACT2_MULTISWITCH_DOWN1
+volatile boolean Act2= false;
+#endif
+#ifdef ACT3_MULTISWITCH_DOWN1
+volatile boolean Act3= false;
+#endif
+#ifdef ACT4_MULTISWITCH_DOWN1
+volatile boolean Act4= false;
+#endif
+#ifdef ACT5_MULTISWITCH_DOWN1
+volatile boolean Act5= false;
+#endif
+#ifdef ACT6_MULTISWITCH_DOWN1
+volatile boolean Act6= false;
+#endif
+#ifdef ACT7_MULTISWITCH_DOWN1
+volatile boolean Act7= false;
+#endif
+#ifdef ACT8_MULTISWITCH_DOWN1
+volatile boolean Act8= false;
+#endif
+#ifdef ACT9_MULTISWITCH_DOWN1
+volatile boolean Act9= false;
+#endif
+#ifdef ACT10_MULTISWITCH_DOWN1
+volatile boolean Act10= false;
+#endif
+#ifdef ACT11A_UP_MULTISWITCH_DOWN1
+volatile boolean Act11A_UP= false;
+#endif
+#ifdef ACT11A_DOWN_MULTISWITCH_DOWN1
+volatile boolean Act11A_DOWN= false;
+#endif
+#ifdef ACT11B_UP_MULTISWITCH_DOWN1
+volatile boolean Act11B_UP= false;
+#endif
+#ifdef ACT11B_DOWN_MULTISWITCH_DOWN1
+volatile boolean Act11B_DOWN= false;
+#endif
+#ifdef ACT11C_UP_MULTISWITCH_DOWN1
+volatile boolean Act11C_UP= false;
+#endif
+#ifdef ACT11C_DOWN_MULTISWITCH_DOWN1
+volatile boolean Act11C_DOWN= false;
+#endif
+#ifdef ACT11D_UP_MULTISWITCH_DOWN1
+volatile boolean Act11D_UP= false;
+#endif
+#ifdef ACT11D_DOWN_MULTISWITCH_DOWN1
+volatile boolean Act11D_DOWN= false;
+#endif
+
+#ifdef ACT1_MULTISWITCH_DOWN2
+volatile boolean Act1= false;
+#endif 
+#ifdef ACT2_MULTISWITCH_DOWN2
+volatile boolean Act2= false;
+#endif
+#ifdef ACT3_MULTISWITCH_DOWN2
+volatile boolean Act3= false;
+#endif
+#ifdef ACT4_MULTISWITCH_DOWN2
+volatile boolean Act4= false;
+#endif
+#ifdef ACT5_MULTISWITCH_DOWN2
+volatile boolean Act5= false;
+#endif
+#ifdef ACT6_MULTISWITCH_DOWN2
+volatile boolean Act6= false;
+#endif
+#ifdef ACT7_MULTISWITCH_DOWN2
+volatile boolean Act7= false;
+#endif
+#ifdef ACT8_MULTISWITCH_DOWN2
+volatile boolean Act8= false;
+#endif
+#ifdef ACT9_MULTISWITCH_DOWN2
+volatile boolean Act9= false;
+#endif
+#ifdef ACT10_MULTISWITCH_DOWN2
+volatile boolean Act10= false;
+#endif
+#ifdef ACT11A_UP_MULTISWITCH_DOWN2
+volatile boolean Act11A_UP= false;
+#endif
+#ifdef ACT11A_DOWN_MULTISWITCH_DOWN2
+volatile boolean Act11A_DOWN= false;
+#endif
+#ifdef ACT11B_UP_MULTISWITCH_DOWN2
+volatile boolean Act11B_UP= false;
+#endif
+#ifdef ACT11B_DOWN_MULTISWITCH_DOWN2
+volatile boolean Act11B_DOWN= false;
+#endif
+#ifdef ACT11C_UP_MULTISWITCH_DOWN2
+volatile boolean Act11C_UP= false;
+#endif
+#ifdef ACT11C_DOWN_MULTISWITCH_DOWN2
+volatile boolean Act11C_DOWN= false;
+#endif
+#ifdef ACT11D_UP_MULTISWITCH_DOWN2
+volatile boolean Act11D_UP= false;
+#endif
+#ifdef ACT11D_DOWN_MULTISWITCH_DOWN2
+volatile boolean Act11D_DOWN= false;
+#endif
+
+#ifdef ACT1_MULTISWITCH_DOWN3
+volatile boolean Act1= false;
+#endif 
+#ifdef ACT2_MULTISWITCH_DOWN3
+volatile boolean Act2= false;
+#endif
+#ifdef ACT3_MULTISWITCH_DOWN3
+volatile boolean Act3= false;
+#endif
+#ifdef ACT4_MULTISWITCH_DOWN3
+volatile boolean Act4= false;
+#endif
+#ifdef ACT5_MULTISWITCH_DOWN3
+volatile boolean Act5= false;
+#endif
+#ifdef ACT6_MULTISWITCH_DOWN3
+volatile boolean Act6= false;
+#endif
+#ifdef ACT7_MULTISWITCH_DOWN3
+volatile boolean Act7= false;
+#endif
+#ifdef ACT8_MULTISWITCH_DOWN3
+volatile boolean Act8= false;
+#endif
+#ifdef ACT9_MULTISWITCH_DOWN3
+volatile boolean Act9= false;
+#endif
+#ifdef ACT10_MULTISWITCH_DOWN3
+volatile boolean Act10= false;
+#endif
+#ifdef ACT11A_UP_MULTISWITCH_DOWN3
+volatile boolean Act11A_UP= false;
+#endif
+#ifdef ACT11A_DOWN_MULTISWITCH_DOWN3
+volatile boolean Act11A_DOWN= false;
+#endif
+#ifdef ACT11B_UP_MULTISWITCH_DOWN3
+volatile boolean Act11B_UP= false;
+#endif
+#ifdef ACT11B_DOWN_MULTISWITCH_DOWN3
+volatile boolean Act11B_DOWN= false;
+#endif
+#ifdef ACT11C_UP_MULTISWITCH_DOWN3
+volatile boolean Act11C_UP= false;
+#endif
+#ifdef ACT11C_DOWN_MULTISWITCH_DOWN3
+volatile boolean Act11C_DOWN= false;
+#endif
+#ifdef ACT11D_UP_MULTISWITCH_DOWN3
+volatile boolean Act11D_UP= false;
+#endif
+#ifdef ACT11D_DOWN_MULTISWITCH_DOWN3
+volatile boolean Act11D_DOWN= false;
+#endif
+
+#ifdef ACT1_MULTISWITCH_DOWN4
+volatile boolean Act1= false;
+#endif 
+#ifdef ACT2_MULTISWITCH_DOWN4
+volatile boolean Act2= false;
+#endif
+#ifdef ACT3_MULTISWITCH_DOWN4
+volatile boolean Act3= false;
+#endif
+#ifdef ACT4_MULTISWITCH_DOWN4
+volatile boolean Act4= false;
+#endif
+#ifdef ACT5_MULTISWITCH_DOWN4
+volatile boolean Act5= false;
+#endif
+#ifdef ACT6_MULTISWITCH_DOWN4
+volatile boolean Act6= false;
+#endif
+#ifdef ACT7_MULTISWITCH_DOWN4
+volatile boolean Act7= false;
+#endif
+#ifdef ACT8_MULTISWITCH_DOWN4
+volatile boolean Act8= false;
+#endif
+#ifdef ACT9_MULTISWITCH_DOWN4
+volatile boolean Act9= false;
+#endif
+#ifdef ACT10_MULTISWITCH_DOWN4
+volatile boolean Act10= false;
+#endif
+#ifdef ACT11A_UP_MULTISWITCH_DOWN4
+volatile boolean Act11A_UP= false;
+#endif
+#ifdef ACT11A_DOWN_MULTISWITCH_DOWN4
+volatile boolean Act11A_DOWN= false;
+#endif
+#ifdef ACT11B_UP_MULTISWITCH_DOWN4
+volatile boolean Act11B_UP= false;
+#endif
+#ifdef ACT11B_DOWN_MULTISWITCH_DOWN4
+volatile boolean Act11B_DOWN= false;
+#endif
+#ifdef ACT11C_UP_MULTISWITCH_DOWN4
+volatile boolean Act11C_UP= false;
+#endif
+#ifdef ACT11C_DOWN_MULTISWITCH_DOWN4
+volatile boolean Act11C_DOWN= false;
+#endif
+#ifdef ACT11D_UP_MULTISWITCH_DOWN4
+volatile boolean Act11D_UP= false;
+#endif
+#ifdef ACT11D_DOWN_MULTISWITCH_DOWN4
+volatile boolean Act11D_DOWN= false;
+#endif
+
+volatile uint8_t CountUp =0;
+volatile uint8_t CountUp2 =0;
+volatile boolean CountUpok=false;
+volatile boolean CountTest=false;
+
+volatile boolean CountUpStop =false;
+
+volatile uint8_t CountDown =0;
+volatile uint8_t CountDown2 =0;
+
+volatile boolean CountDownok=false;
+volatile boolean CountDownStop =false;
+
+volatile uint8_t MomentaryCountUp =0;
+volatile uint8_t MomentaryCountUp2 =0;
+volatile boolean MomentaryCountUpok=false;
+
+volatile boolean MomentaryCountUpStop =false;
+
+volatile uint8_t MomentaryCountDown =0;
+volatile uint8_t MomentaryCountDown2 =0;
+volatile boolean MomentaryCountDownok=false;
+
+volatile boolean MomentaryCountDownStop =false;
+
+volatile boolean MultiSwitch =false;
+volatile boolean MomentaryMultiSwitch =false;
+volatile uint8_t Button1 = 2;
+volatile uint8_t Button2 = 2;
+static unsigned long CountMillis;
+static unsigned long MomentaryCountMillis;
+
+
+static unsigned long Act12Millis;
+
+volatile boolean Multi1Up_Momentary=false;
+volatile boolean Multi2Up_Momentary=false;
+volatile boolean Multi3Up_Momentary=false;
+volatile boolean Multi4Up_Momentary=false;
+
+volatile boolean Multi1Down_Momentary=false;
+volatile boolean Multi2Down_Momentary=false;
+volatile boolean Multi3Down_Momentary=false;
+volatile boolean Multi4Down_Momentary=false;
+
+volatile boolean Multi1=false;
+volatile boolean Multi2=false;
+volatile boolean Multi3=false;
+volatile boolean Multi4=false;
+
+volatile boolean Multi1Up=false;
+volatile boolean Multi2Up=false;
+volatile boolean Multi3Up=false;
+volatile boolean Multi4Up=false;
+
+volatile boolean Multi1Down=false;
+volatile boolean Multi2Down=false;
+volatile boolean Multi3Down=false;
+volatile boolean Multi4Down=false;
+
+
+volatile boolean Multi1UpCtrl=false;
+volatile boolean Multi2UpCtrl=false;
+volatile boolean Multi3UpCtrl=false;
+volatile boolean Multi4UpCtrl=false;
+
+volatile boolean Multi1DownCtrl=false;
+volatile boolean Multi2DownCtrl=false;
+volatile boolean Multi3DownCtrl=false;
+volatile boolean Multi4DownCtrl=false;
+
+
+static unsigned long MultiMillis;
+static unsigned long MultiMillis2;
+
+
 
 volatile boolean Seq1LedPart1OnOff= false;
 volatile boolean Seq1LedPart2OnOff= false;
 volatile boolean Seq1LedPart3OnOff= false;
 volatile boolean Seq1LedPart4OnOff= false;
 
+volatile boolean Seq10LedPart1OnOff= false;
+volatile boolean Seq10LedPart2OnOff= false;
+volatile boolean Seq10LedPart3OnOff= false;
+volatile boolean Seq10LedPart4OnOff= false;
+
+
 volatile boolean Seq1SoundPart1OnOff = false;
 volatile boolean Seq1SoundPart2OnOff = false;
 volatile boolean Seq1SoundPart3OnOff = false;
 volatile boolean Seq1SoundPart4OnOff = false;
+
+volatile boolean Seq10SoundPart1OnOff = false;
+volatile boolean Seq10SoundPart2OnOff = false;
+volatile boolean Seq10SoundPart3OnOff = false;
+volatile boolean Seq10SoundPart4OnOff = false;
 volatile boolean NeutralCtl= false;
 volatile boolean Test= false;
 
@@ -383,12 +1158,20 @@ volatile boolean Seq2LedPart2OnOff= false;
 volatile boolean Seq2LedPart3OnOff= false;
 volatile boolean Seq2LedPart4OnOff= false;
 
+volatile boolean Seq20LedPart1OnOff= false;
+volatile boolean Seq20LedPart2OnOff= false;
+volatile boolean Seq20LedPart3OnOff= false;
+volatile boolean Seq20LedPart4OnOff= false;
+
 volatile boolean Seq2SoundPart1OnOff = false;
 volatile boolean Seq2SoundPart2OnOff = false;
 volatile boolean Seq2SoundPart3OnOff = false;
 volatile boolean Seq2SoundPart4OnOff = false;
 
-
+volatile boolean Seq20SoundPart1OnOff = false;
+volatile boolean Seq20SoundPart2OnOff = false;
+volatile boolean Seq20SoundPart3OnOff = false;
+volatile boolean Seq20SoundPart4OnOff = false;
 
 float StartServoSeq2Part1;
 float EndServoSeq2Part1Mapped;
@@ -498,6 +1281,11 @@ volatile boolean Seq6SoundPart1OnOff = false;
 volatile boolean Seq6SoundPart2OnOff = false;
 volatile boolean Seq6SoundPart3OnOff = false;
 volatile boolean Seq6SoundPart4OnOff = false;
+
+volatile boolean Seq60SoundPart1OnOff = false;
+volatile boolean Seq60SoundPart2OnOff = false;
+volatile boolean Seq60SoundPart3OnOff = false;
+volatile boolean Seq60SoundPart4OnOff = false;
 
 
 
@@ -611,6 +1399,12 @@ volatile boolean Seq7SoundPart1OnOff = false;
 volatile boolean Seq7SoundPart2OnOff = false;
 volatile boolean Seq7SoundPart3OnOff = false;
 volatile boolean Seq7SoundPart4OnOff = false;
+
+
+volatile boolean Seq70SoundPart1OnOff = false;
+volatile boolean Seq70SoundPart2OnOff = false;
+volatile boolean Seq70SoundPart3OnOff = false;
+volatile boolean Seq70SoundPart4OnOff = false;
 
 
 
@@ -771,6 +1565,7 @@ volatile boolean Avertissement = false;
 volatile boolean Fog = false;
 volatile boolean Fishing = false;
 volatile boolean Mouillage = false;
+volatile boolean Mouillage_Led = false;
 volatile boolean Motor2On = false;
 
 
@@ -876,7 +1671,7 @@ volatile uint16_t engineSampleRate = 0;
 TaskHandle_t Task1;
 
 // Loop time (for debug)
-uint16_t loopTime;
+//uint16_t loopTime;
 
 // PPM signal processing variables
 volatile int           valuesInt[NUM_OF_CHL + 1] = { 0 }; // Input values
@@ -1409,62 +2204,117 @@ void setup()
   pinMode(39, INPUT_PULLDOWN);
 
 
-
-
+  //optional Board
+ #ifdef PCA_OPTION
+  board1.begin();
+  board1.setPWMFreq(50);
+ #endif  
+ #ifdef SX1509_OPTION 
+  Output1.begin(SX1509_ADDRESS2);
+  Output2.begin(SX1509_ADDRESS2);
+  Output3.begin(SX1509_ADDRESS2);
+  Output4.begin(SX1509_ADDRESS2);
+  Output5.begin(SX1509_ADDRESS2);
+  Output6.begin(SX1509_ADDRESS2);
+  Output7.begin(SX1509_ADDRESS2);
+  Output8.begin(SX1509_ADDRESS2);
+  Output9.begin(SX1509_ADDRESS2);
+  Output10.begin(SX1509_ADDRESS2);
+  Output11.begin(SX1509_ADDRESS2);
+  Output12.begin(SX1509_ADDRESS2);
+  Output13.begin(SX1509_ADDRESS2);
+  Output14.begin(SX1509_ADDRESS2);
+  Output15.begin(SX1509_ADDRESS2);
+  Output16.begin(SX1509_ADDRESS2);
   
-
-
-  Led.begin(SX1509_ADDRESS);
-  Led.clock(INTERNAL_CLOCK_2MHZ, 4);
+  Output1.pinMode(1, ANALOG_OUTPUT);
+  Output2.pinMode(2, ANALOG_OUTPUT);
+  Output3.pinMode(3, ANALOG_OUTPUT);
+  Output4.pinMode(4, ANALOG_OUTPUT);
+  Output5.pinMode(5, ANALOG_OUTPUT);
+  Output6.pinMode(6, ANALOG_OUTPUT);
+  Output7.pinMode(7, ANALOG_OUTPUT);
+  Output8.pinMode(8, ANALOG_OUTPUT);
+  Output9.pinMode(9, ANALOG_OUTPUT);
+  Output10.pinMode(10, ANALOG_OUTPUT);
+  Output11.pinMode(11, ANALOG_OUTPUT);
+  Output12.pinMode(12, ANALOG_OUTPUT);
+  Output13.pinMode(13, ANALOG_OUTPUT);
+  Output14.pinMode(14, ANALOG_OUTPUT);
+  Output15.pinMode(15, ANALOG_OUTPUT);
+  Output16.pinMode(16, ANALOG_OUTPUT);
   
-  Led.pinMode(0, OUTPUT);
-  Led.digitalWrite(0, LOW);
+  Output1.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output2.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output3.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output4.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output5.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output6.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output7.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output8.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output9.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output10.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output11.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output12.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output13.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output14.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output15.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Output16.clock(INTERNAL_CLOCK_2MHZ, 2);
+#endif
 
-  Led.pinMode(1, OUTPUT);
-  Led.digitalWrite(1, LOW);
-
-  Led.pinMode(2, OUTPUT);
-  Led.digitalWrite(2, LOW);
-
-  Led.pinMode(3, OUTPUT);
-  Led.digitalWrite(3, LOW);
-
-  Led.pinMode(4, OUTPUT);
-  Led.digitalWrite(4, LOW);
-
-  Led.pinMode(5, OUTPUT);
-  Led.digitalWrite(5, LOW);
-
-  Led.pinMode(6, OUTPUT);
-  Led.digitalWrite(6, LOW);
-
-  Led.pinMode(7, OUTPUT);
-  Led.digitalWrite(7, LOW);
-
-  Led.pinMode(8, OUTPUT);
-  Led.digitalWrite(8, LOW);
-
-  Led.pinMode(9, OUTPUT);
-  Led.digitalWrite(9, LOW);
-
-  Led.pinMode(10, OUTPUT);
-  Led.digitalWrite(10, LOW);
-
-  Led.pinMode(11, OUTPUT);
-  Led.digitalWrite(11, LOW);
-
-  Led.pinMode(12, OUTPUT);
-  Led.digitalWrite(12, LOW);
-
-  Led.pinMode(13, OUTPUT);
-  Led.digitalWrite(13, LOW);
-
-  Led.pinMode(14, OUTPUT);
-  Led.digitalWrite(14, LOW);
-
-  Led.pinMode(15, OUTPUT);
-  Led.digitalWrite(15, LOW);
-
+ // Main SX1509
+  Motor1.begin(SX1509_ADDRESS);
+  Motor2.begin(SX1509_ADDRESS);
+  Led1.begin(SX1509_ADDRESS);
+  Led2.begin(SX1509_ADDRESS);
+  Led3.begin(SX1509_ADDRESS);
+  Led4.begin(SX1509_ADDRESS);
+  Led5.begin(SX1509_ADDRESS);
+  Led6.begin(SX1509_ADDRESS);
+  Led7.begin(SX1509_ADDRESS);
+  Led8.begin(SX1509_ADDRESS);
+  Led9.begin(SX1509_ADDRESS);
+  Led10.begin(SX1509_ADDRESS);
+  Led11.begin(SX1509_ADDRESS);
+  Led12.begin(SX1509_ADDRESS);
+  Led13.begin(SX1509_ADDRESS);
+  Led14.begin(SX1509_ADDRESS);
+ 
+  
+  Led1.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led2.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led3.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led4.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led5.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led6.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led7.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led8.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led9.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led10.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led11.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led12.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led13.clock(INTERNAL_CLOCK_2MHZ, 2);
+  Led14.clock(INTERNAL_CLOCK_2MHZ, 2);
+ 
+  Led1.pinMode(0, ANALOG_OUTPUT);
+  Led2.pinMode(1, ANALOG_OUTPUT);
+  Led3.pinMode(2, ANALOG_OUTPUT);
+  Led4.pinMode(3, ANALOG_OUTPUT);
+  Led5.pinMode(4, ANALOG_OUTPUT);
+  Led6.pinMode(5, ANALOG_OUTPUT);
+  Led7.pinMode(6, ANALOG_OUTPUT);
+  Led8.pinMode(7, ANALOG_OUTPUT);
+  Led9.pinMode(8, ANALOG_OUTPUT);
+  Led10.pinMode(9, ANALOG_OUTPUT);
+  Led11.pinMode(12, ANALOG_OUTPUT);
+  Led12.pinMode(13, ANALOG_OUTPUT);
+  Led13.pinMode(14, ANALOG_OUTPUT);
+  Led14.pinMode(15, ANALOG_OUTPUT);
+  Motor1.pinMode(10, ANALOG_OUTPUT);
+  Motor2.pinMode(11, ANALOG_OUTPUT);
+    
+   
+ 
   SERVO_START_POS[1]= mapf(SERVO_START[1],500,2400,0,1); 
   SERVO_START_POS[2]= mapf(SERVO_START[2],500,2400,0,1); 
   SERVO_START_POS[3]= mapf(SERVO_START[3],500,2400,0,1); 
@@ -1540,7 +2390,7 @@ void setup()
   // Communication setup --------------------------------------------
 #if defined SBUS_COMMUNICATION // SBUS ----
   if (MAX_RPM_PERCENTAGE > maxSbusRpmPercentage) MAX_RPM_PERCENTAGE = maxSbusRpmPercentage; // Limit RPM range
-  sBus.begin(COMMAND_RX, COMMAND_TX, sbusInverted); // begin SBUS communication with compatible receivers
+  sBus.begin(COMMAND_RX, sbusInverted); // begin SBUS communication with compatible receivers
 
 
 #elif defined PPM_COMMUNICATION // PPM ----
@@ -1606,7 +2456,10 @@ void setup()
 
   // wait for RC receiver to initialize
 
-  while (millis() <= 3000) ;
+  while (millis() <= 3000){
+    
+    Led_builtin.flash(100,100,0,0,0);
+  }
 
 
 
@@ -2026,41 +2879,61 @@ void failsafeRcSignals()
 void trigger()
 { 
   #ifdef ACTION1_ENABLE
+    #if not defined ACT1_MULTISWITCH
   Action1.update(pulseWidth[ACTION1CH-1]);
+    #endif 
   #endif
   #ifdef ACTION2_ENABLE
+      #if not defined ACT2_MULTISWITCH
   Action2.update(pulseWidth[ACTION2CH-1]);
+      #endif
   #endif
   #ifdef ACTION3_ENABLE
+    #if not defined ACT3_MULTISWITCH
   Action3.update(pulseWidth[ACTION3CH-1]);
+    #endif
   #endif
 
   #ifdef ACTION4_ENABLE
+    #if not defined ACT4_MULTISWITCH
   Action4.update(pulseWidth[ACTION4CH-1]);
+    #endif
   CH3.update(pulseWidth[thrustCh - 1]);
   CH1.update(pulseWidth[steeringCh - 1]);
   #endif
 
   #ifdef ACTION5_ENABLE
+    #if not defined ACT5_MULTISWITCH
   Action5.update(pulseWidth[ACTION5CH-1]); 
+    #endif
   CH4.update(pulseWidth[AilCh - 1]);
   CH2.update(pulseWidth[ElCh - 1]);
   #endif
 
   #ifdef ACTION6_ENABLE
+    #if not defined ACT6_MULTISWITCH
   Action6.update(pulseWidth[ACTION6CH-1]);
+    #endif
   #endif
   #ifdef ACTION7_ENABLE
+    #if not defined ACT7_MULTISWITCH
   Action7.update(pulseWidth[ACTION7CH-1]);
+    #endif
   #endif
   #ifdef ACTION8_ENABLE
-  Action8.update(pulseWidth[ACTION8CH-1]);  
+    #if not defined ACT8_MULTISWITCH
+  Action8.update(pulseWidth[ACTION8CH-1]);
+    #endif  
   #endif
   #ifdef ACTION9_ENABLE
-  Action9.update(pulseWidth[ACTION9CH-1]); 
+    #if not defined ACT9_MULTISWITCH
+  Action9.update(pulseWidth[ACTION9CH-1]);
+    #endif 
   #endif
   #ifdef ACTION10_ENABLE
+    #if not defined ACT10_MULTISWITCH
   Action10.update(pulseWidth[ACTION10CH-1]);
+    #endif
   #endif
   #ifdef ACTION11_ENABLE
   
@@ -2080,7 +2953,9 @@ void trigger()
   #endif 
   
   #ifdef ACTION12_ENABLE
+    #if not defined ACT12_MULTISWITCH
   Action12.update(pulseWidth[ACTION12CH-1]);
+    #endif
   #endif 
   #ifdef VOLUME_CONTROLE
   VolumeCh.update(pulseWidth[VOLUMECH-1]);
@@ -2427,7 +3302,7 @@ void engineMassSimulation()
   Serial.println(pulseWidth[thrustCh - 1]);
     
   Serial.print("AILLERONS :");
-  Serial.println(pulseWidth[AilCh - 1]);
+  Serial.println(pulseWidth[AilCh-1]);
   Serial.print("CH5 :");
   Serial.println(pulseWidth[4]);
   Serial.print("CH6 :");
@@ -2444,7 +3319,7 @@ void engineMassSimulation()
   Serial.println(pulseWidth[10]);
   Serial.print("CH14 :");
   Serial.println(pulseWidth[13]);
-  Serial.print(Action11.Pos());
+
     Serial.println("");
   }
 #endif  
@@ -2477,6 +3352,7 @@ void engineOnOff()
 
     else if (pulseWidth[chManualOnOff - 1] < (pulseMinNeutral[chManualOnOff - 1] - 180) && pulseWidth[chManualOnOff - 1] > pulseMinLimit[chManualOnOff - 1])
     {
+       //if (! Avertissement && !manualServo){
        if (! Avertissement && !manualServo){
       OnOffDelayMillis = millis();
       engineOn = false;
@@ -2758,13 +3634,13 @@ void Initialisation() {
 
 
   if (!one) {
-
+   
+    
     delay(1000);
     Init = true;
     one = true;
-    //Led_builtin.on();
-
-   
+    Led_builtin.on();
+  
     switch (StartSound) {
     case 0:
     
@@ -2817,6 +3693,35 @@ void volumeControl()
 #endif
 }
 
+
+void ledOff()
+{
+
+   if (!one) {
+   
+Led1.digitalWrite(0, LOW);
+    Led2.digitalWrite(1, LOW);
+    Led3.digitalWrite(2, LOW);
+    Led4.digitalWrite(3, LOW);
+    Led5.digitalWrite(4, LOW);
+    Led6.digitalWrite(5, LOW);
+    Led7.digitalWrite(6, LOW);
+    Led8.digitalWrite(7, LOW);
+    Led9.digitalWrite(8, LOW);
+    Led10.digitalWrite(9, LOW);
+    Led11.digitalWrite(12, LOW);
+    Led12.digitalWrite(13, LOW);
+    Led13.digitalWrite(14, LOW);
+    Led14.digitalWrite(15, LOW);
+   }
+  }
+
+
+
+
+
+
+
 //
 // =======================================================================================================
 // LOOP TIME MEASUREMENT
@@ -2834,14 +3739,7 @@ unsigned long loopDuration()
   return loopTime;
 }
 
-void hello()
-{
-  static byte count = 0;
 
-  Serial.print(++count);
-  Serial.print(" Hello it is ");
-  Serial.println(millis());
-}
 
 //
 // =======================================================================================================
@@ -2851,6 +3749,7 @@ void hello()
 
 void loop()
 {
+timerOld = micros();
 
 #if defined SBUS_COMMUNICATION
   readSbusCommands(); // SBUS communication (pin 36)
@@ -2861,23 +3760,23 @@ void loop()
   readRcSignals();
 
 #endif
- 
-  steering();
   
+  steering();
   trigger();
   Servos(); 
-  
   Initialisation();
-
   volumeControl();
-
-  DacAudio.FillBuffer();
   Sequences();
-
+  Multiswitch();
+  DacAudio.FillBuffer();
   SlowMotionServo::update(); /* actualisation de la position */
   ScheduleTable::update();
 
- 
+  
+
+  timerLoop = micros();
+  loopTime = timerLoop - timerOld ;
+
 
 }
 
@@ -2891,6 +3790,10 @@ void Task1code(void *pvParameters)
 {
   for (;;)
   {
+  
+
+    timerOld2 = micros();
+    ledOff(); 
     // DAC offset fader
     dacOffsetFade();
 
@@ -2905,20 +3808,20 @@ void Task1code(void *pvParameters)
 
     // LED control
     led();
-
-    // Radar control
-    Radar();
-    
     Action();
-
-    Motor2();
-
-    // ESC control
     esc();
-
     triggerSound();
+    Radar();
+    MotorTwo();
    
 
+
+   
+
+    timerLoop2 = micros();
+
+   loopTime2 = timerLoop2 - timerOld2 ;
+   
 
   }
 }
