@@ -9,21 +9,27 @@ void Servos()
 {
 
 //if (Init) {
-
+     
+   
 
     static unsigned long lastStateTime;
 
-     if (millis() - lastStateTime > 300)     // Print the data every 300ms
+     if (millis() - lastStateTime > 100)     // Print the data every 300ms
       {
         lastStateTime = millis();
-
-        Serial.println(AnchorSpeedDown);
-        Serial.println(AnchorSpeedUp);
-        
+      Serial.println(manualServo);
+      Serial.println(CH4.momentaryPos());
+     
+  
+    
+     
+ 
+             
       }
 
 
 
+      
  
 
     #ifdef ACTION2_ENABLE
@@ -305,14 +311,14 @@ void Servos()
 
       if (servoSwitch == 1) {
 
-        if ((pulseWidth[AilCh - 1] < 1500) && (pulseWidth[AilCh - 1] > 950)) {
+        if ((pulseWidth[AilCh - 1] < 1450) && (pulseWidth[AilCh - 1] > 950)) {
           if (millis() - servoTime[1] > 10) {
             servoTime[1] = millis();
             servoPulse[1] += servoStep;
             if (servoPulse[1] > SERVO_MAX)
               servoPulse[1] = SERVO_MAX;
           }
-        } else if ((pulseWidth[AilCh - 1] > 1500) && (pulseWidth[AilCh - 1] < 2000))
+        } else if ((pulseWidth[AilCh - 1] > 1550) && (pulseWidth[AilCh - 1] < 2000))
 
         {
           if (millis() - servoTime[1] > 10) {
@@ -327,14 +333,14 @@ void Servos()
 
         Servo1.writeMicroseconds(servoPulse[1]);
 
-        if ((pulseWidth[ElCh - 1] < 1500) && (pulseWidth[ElCh - 1] > 900)) {
+        if ((pulseWidth[ElCh - 1] < 1450) && (pulseWidth[ElCh - 1] > 900)) {
           if (millis() - servoTime[2] > 10) {
             servoTime[2] = millis();
             servoPulse[2] += servoStep;
             if (servoPulse[2] > SERVO_MAX)
               servoPulse[2] = SERVO_MAX;
           }
-        } else if ((pulseWidth[ElCh - 1] > 1500) && (pulseWidth[ElCh - 1] < 2000))
+        } else if ((pulseWidth[ElCh - 1] > 1550) && (pulseWidth[ElCh - 1] < 2000))
 
         {
           if (millis() - servoTime[2] > 10) {
@@ -353,14 +359,14 @@ void Servos()
 
       if (servoSwitch == 2) {
 
-        if ((pulseWidth[AilCh - 1] < 1500) && (pulseWidth[AilCh - 1] > 900)) {
+        if ((pulseWidth[AilCh - 1] < 1450) && (pulseWidth[AilCh - 1] > 900)) {
           if (millis() - servoTime[3] > 10) {
             servoTime[3] = millis();
             servoPulse[3] += servoStep;
             if (servoPulse[3] > SERVO_MAX)
               servoPulse[3] = SERVO_MAX;
           }
-        } else if ((pulseWidth[AilCh - 1] > 1500) && (pulseWidth[AilCh - 1] < 2000))
+        } else if ((pulseWidth[AilCh - 1] > 1550) && (pulseWidth[AilCh - 1] < 2000))
 
         {
           if (millis() - servoTime[3] > 10) {
@@ -375,14 +381,14 @@ void Servos()
 
         Servo3.writeMicroseconds(servoPulse[3]);
 
-        if ((pulseWidth[ElCh - 1] < 1500) && (pulseWidth[ElCh - 1] > 900)) {
+        if ((pulseWidth[ElCh - 1] < 1450) && (pulseWidth[ElCh - 1] > 900)) {
           if (millis() - servoTime[4] > 10) {
             servoTime[4] = millis();
             servoPulse[4] += servoStep;
             if (servoPulse[4] > SERVO_MAX)
               servoPulse[4] = SERVO_MAX;
           }
-        } else if ((pulseWidth[ElCh - 1] > 1500) && (pulseWidth[ElCh - 1] < 2000))
+        } else if ((pulseWidth[ElCh - 1] > 1550) && (pulseWidth[ElCh - 1] < 2000))
 
         {
           if (millis() - servoTime[4] > 10) {
@@ -401,14 +407,14 @@ void Servos()
 
       if (servoSwitch == 3) {
 
-        if ((pulseWidth[AilCh - 1] < 1500) && (pulseWidth[AilCh - 1] > 900)) {
+        if ((pulseWidth[AilCh - 1] < 1450) && (pulseWidth[AilCh - 1] > 900)) {
           if (millis() - servoTime[5] > 10) {
             servoTime[5] = millis();
             servoPulse[5] += servoStep;
             if (servoPulse[5] > SERVO_MAX)
               servoPulse[5] = SERVO_MAX;
           }
-        } else if ((pulseWidth[AilCh - 1] > 1500) && (pulseWidth[AilCh - 1] < 2000))
+        } else if ((pulseWidth[AilCh - 1] > 1550) && (pulseWidth[AilCh - 1] < 2000))
 
         {
           if (millis() - servoTime[5] > 10) {
@@ -425,14 +431,14 @@ void Servos()
 
         
 
-        if ((pulseWidth[ElCh - 1] < 1500) && (pulseWidth[ElCh - 1] > 900)) {
+        if ((pulseWidth[ElCh - 1] < 1450) && (pulseWidth[ElCh - 1] > 900)) {
           if (millis() - servoTime[6] > 10) {
             servoTime[6] = millis();
             servoPulse[6] += servoStep;
             if (servoPulse[6] > SERVO_MAX)
               servoPulse[6] = SERVO_MAX;
           }
-        } else if ((pulseWidth[ElCh - 1] > 1500) && (pulseWidth[ElCh - 1] < 2000))
+        } else if ((pulseWidth[ElCh - 1] > 1550) && (pulseWidth[ElCh - 1] < 2000))
 
         {
           if (millis() - servoTime[6] > 10) {
@@ -457,14 +463,14 @@ void Servos()
 
       if (servoSwitch == 1) {
 
-        if ((pulseWidth[AilCh - 1] < 1500) && (pulseWidth[AilCh - 1] > 950)) {
+        if ((pulseWidth[AilCh - 1] < 1450) && (pulseWidth[AilCh - 1] > 950)) {
           if (millis() - servoTime[1] > 10) {
             servoTime[1] = millis();
             servoPulse[1] += servoStep;
             if (servoPulse[1] > SERVO_MAX)
               servoPulse[1] = SERVO_MAX;
           }
-        } else if ((pulseWidth[AilCh - 1] > 1500) && (pulseWidth[AilCh - 1] < 2000))
+        } else if ((pulseWidth[AilCh - 1] > 1550) && (pulseWidth[AilCh - 1] < 2000))
 
         {
           if (millis() - servoTime[1] > 10) {
@@ -483,14 +489,14 @@ void Servos()
 
       if (servoSwitch == 2) {
 
-        if ((pulseWidth[AilCh - 1] < 1500) && (pulseWidth[AilCh - 1] > 900)) {
+        if ((pulseWidth[AilCh - 1] < 1450) && (pulseWidth[AilCh - 1] > 900)) {
           if (millis() - servoTime[2] > 10) {
             servoTime[2] = millis();
             servoPulse[2] += servoStep;
             if (servoPulse[2] > SERVO_MAX)
               servoPulse[2] = SERVO_MAX;
           }
-        } else if ((pulseWidth[AilCh - 1] > 1500) && (pulseWidth[AilCh - 1] < 2000))
+        } else if ((pulseWidth[AilCh - 1] > 1550) && (pulseWidth[AilCh - 1] < 2000))
 
         {
           if (millis() - servoTime[2] > 10) {
@@ -509,14 +515,14 @@ void Servos()
 
       if (servoSwitch == 3) {
 
-        if ((pulseWidth[AilCh - 1] < 1500) && (pulseWidth[AilCh - 1] > 900)) {
+        if ((pulseWidth[AilCh - 1] < 1450) && (pulseWidth[AilCh - 1] > 900)) {
           if (millis() - servoTime[3] > 10) {
             servoTime[3] = millis();
             servoPulse[3] += servoStep;
             if (servoPulse[3] > SERVO_MAX)
               servoPulse[3] = SERVO_MAX;
           }
-        } else if ((pulseWidth[AilCh - 1] > 1500) && (pulseWidth[AilCh - 1] < 2000))
+        } else if ((pulseWidth[AilCh - 1] > 1550) && (pulseWidth[AilCh - 1] < 2000))
 
         {
           if (millis() - servoTime[3] > 10) {
@@ -535,14 +541,14 @@ void Servos()
 
       if (servoSwitch == 4) {
 
-        if ((pulseWidth[AilCh - 1] < 1500) && (pulseWidth[AilCh - 1] > 900)) {
+        if ((pulseWidth[AilCh - 1] < 1450) && (pulseWidth[AilCh - 1] > 900)) {
           if (millis() - servoTime[4] > 10) {
             servoTime[4] = millis();
             servoPulse[4] += servoStep;
             if (servoPulse[4] > SERVO_MAX)
               servoPulse[4] = SERVO_MAX;
           }
-        } else if ((pulseWidth[AilCh - 1] > 1500) && (pulseWidth[AilCh - 1] < 2000))
+        } else if ((pulseWidth[AilCh - 1] > 1550) && (pulseWidth[AilCh - 1] < 2000))
 
         {
           if (millis() - servoTime[4] > 10) {
@@ -561,14 +567,14 @@ void Servos()
 
       if (servoSwitch == 5) {
 
-        if ((pulseWidth[AilCh - 1] < 1500) && (pulseWidth[AilCh - 1] > 900)) {
+        if ((pulseWidth[AilCh - 1] < 1450) && (pulseWidth[AilCh - 1] > 900)) {
           if (millis() - servoTime[5] > 10) {
             servoTime[5] = millis();
             servoPulse[5] += servoStep;
             if (servoPulse[5] > SERVO_MAX)
               servoPulse[5] = SERVO_MAX;
           }
-        } else if ((pulseWidth[AilCh - 1] > 1500) && (pulseWidth[AilCh - 1] < 2000))
+        } else if ((pulseWidth[AilCh - 1] > 1550) && (pulseWidth[AilCh - 1] < 2000))
 
         {
           if (millis() - servoTime[5] > 10) {
@@ -589,14 +595,14 @@ void Servos()
 
       if (servoSwitch == 6) {
 
-        if ((pulseWidth[AilCh - 1] < 1500) && (pulseWidth[AilCh - 1] > 900)) {
+        if ((pulseWidth[AilCh - 1] < 1450) && (pulseWidth[AilCh - 1] > 900)) {
           if (millis() - servoTime[6] > 10) {
             servoTime[6] = millis();
             servoPulse[6] += servoStep;
             if (servoPulse[6] > SERVO_MAX)
               servoPulse[6] = SERVO_MAX;
           }
-        } else if ((pulseWidth[AilCh - 1] > 1500) && (pulseWidth[AilCh - 1] < 2000))
+        } else if ((pulseWidth[AilCh - 1] > 1550) && (pulseWidth[AilCh - 1] < 2000))
 
         {
           if (millis() - servoTime[6] > 10) {

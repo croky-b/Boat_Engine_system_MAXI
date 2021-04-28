@@ -1408,7 +1408,1374 @@ void triggerSound()
       }
 #endif
     }
+    if (Seq60SoundPart1OnOff) {
 
+#ifdef SEQ6B_PART1_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ6B_PART1_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+       if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ6B_PART1_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART1_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART1_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART1_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART1_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART1_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART1_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+
+ if (Seq60SoundPart2OnOff) {
+
+#ifdef SEQ6B_PART2_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ6B_PART2_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+     if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+      
+#endif
+
+#ifdef SEQ6B_PART2_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART2_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART2_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART2_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART2_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART2_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART2_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+ if (Seq60SoundPart3OnOff) {
+
+#ifdef SEQ6B_PART3_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+
+    if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ6B_PART3_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+ if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ6B_PART3_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART3_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART3_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART3_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART3_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART3_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART3_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+ if (Seq60SoundPart4OnOff) {
+
+#ifdef SEQ6B_PART4_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART4_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART4_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART4_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART4_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART4_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART4_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART4_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ6B_PART4_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+    if (Seq70SoundPart1OnOff) {
+
+#ifdef SEQ7B_PART1_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ7B_PART1_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+       if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ7B_PART1_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART1_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART1_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART1_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART1_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART1_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART1_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+
+ if (Seq70SoundPart2OnOff) {
+
+#ifdef SEQ7B_PART2_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ7B_PART2_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+       if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ7B_PART2_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART2_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART2_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART2_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART2_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART2_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART2_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+ if (Seq70SoundPart3OnOff) {
+
+#ifdef SEQ7B_PART3_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ7B_PART3_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+       if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ7B_PART3_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART3_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART3_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART3_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART3_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART3_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART3_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+ if (Seq70SoundPart4OnOff) {
+
+#ifdef SEQ7B_PART4_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ7B_PART4_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+       if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ7B_PART4_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART4_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART4_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART4_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART4_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART4_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ7B_PART4_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+
+    if (Seq10SoundPart1OnOff) {
+
+#ifdef SEQ1B_PART1_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ1B_PART2_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+       if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ1B_PART1_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART1_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART1_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART1_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART1_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART1_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART1_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+
+ if (Seq10SoundPart2OnOff) {
+
+#ifdef SEQ1B_PART2_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ1B_PART2_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+     if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+      
+#endif
+
+#ifdef SEQ1B_PART2_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART2_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART2_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART2_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART2_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART2_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART2_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+ if (Seq10SoundPart3OnOff) {
+
+#ifdef SEQ1B_PART3_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+
+    if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ1B_PART3_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+ if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ1B_PART3_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART3_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART3_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART3_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART3_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART3_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART3_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+ if (Seq10SoundPart4OnOff) {
+
+#ifdef SEQ1B_PART4_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART4_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART4_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART4_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART4_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART4_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART4_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART4_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ1B_PART4_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+    if (Seq20SoundPart1OnOff) {
+
+#ifdef SEQ2B_PART1_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ2B_PART2_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+       if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ2B_PART1_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART1_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART1_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART1_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART1_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART1_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART1_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+
+ if (Seq20SoundPart2OnOff) {
+
+#ifdef SEQ2B_PART2_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ2B_PART2_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+       if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ2B_PART2_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART2_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART2_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART2_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART2_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART2_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART2_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+ if (Seq20SoundPart3OnOff) {
+
+#ifdef SEQ2B_PART3_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ2B_PART3_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+       if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ2B_PART3_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART3_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART3_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART3_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART3_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART3_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART3_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
+
+ if (Seq20SoundPart4OnOff) {
+
+#ifdef SEQ2B_PART4_GUN
+
+      if (Gun.Playing == false) {
+
+        DacAudio.Play(&Gun, true);
+      }
+
+       if (Gun.TimeElapsed > 50 && Gun.TimeElapsed < 100 ) {
+      cannonFlash = true;
+    }
+
+    else cannonFlash = false;
+#endif
+
+#ifdef SEQ2B_PART4_AAGUN
+
+      if (AAGun.Playing == false) {
+
+        DacAudio.Play(&AAGun, true);
+      }
+
+       if (AAGun.TimeElapsed > 50 && AAGun.TimeElapsed < 80 ) {
+      machinGunFlash = true;
+    }
+
+    else machinGunFlash = false;
+#endif
+
+#ifdef SEQ2B_PART4_BELL
+
+      if (Bell.Playing == false) {
+
+        DacAudio.Play(&Bell, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART4_SHORT
+
+      if (Short_blast.Playing == false) {
+
+        DacAudio.Play(&Short_blast, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART4_LONG
+
+      if (Long_blast.Playing == false) {
+
+        DacAudio.Play(&Long_blast, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART4_ALARM
+
+      if (Alarm.Playing == false) {
+
+        DacAudio.Play(&Alarm, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART4_TWELVE1
+
+      if (twelve1.Playing == false) {
+
+        DacAudio.Play(&twelve1, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART4_TWELVE2
+
+      if (twelve2.Playing == false) {
+
+        DacAudio.Play(&twelve2, true);
+      }
+#endif
+
+#ifdef SEQ2B_PART4_TWELVE3
+
+      if (twelve3.Playing == false) {
+
+        DacAudio.Play(&twelve3, true);
+      }
+#endif
+    }
 #ifdef ANCHORSOUND
     Ancre.Volume = 50;
 
@@ -1767,11 +3134,21 @@ void triggerSound()
  #ifdef ACTION11A_ENABLE
 
  #ifdef ACTION11A_HIGH_REPEAT_FOREVER
-  if (Action11A.Pos()== 3) {
- #else   
-  
-  if (Action11A.momentaryPos()== 3) {
+
+    #ifdef ACTION11A_UP_MULTISWITCH
+      if (Act11A_UP) {
+    #else      
+      if (Action11A.Pos()== 3) {
+    #endif
+ #else 
+      #ifdef ACTION11A_UP_MULTISWITCH
+      if (Act11A_UP) {
+      #else        
+      if (Action11A.momentaryPos()== 3) {
+      #endif 
  #endif   
+ 
+      
  
     #ifdef ACTION11A_HIGH_PERSO_1
       #ifdef ACTION11A_HIGH_REPEAT_FOREVER
@@ -1900,10 +3277,19 @@ void triggerSound()
   }
   
  #ifdef ACTION11A_LOW_REPEAT_FOREVER
-  if (Action11A.Pos()== 1) {
- #else    
-  if (Action11A.momentaryPos()== 1) {
- #endif
+
+     #ifdef ACTION11A_DOWN_MULTISWITCH
+      if (Act11A_DOWN) {
+    #else      
+      if (Action11A.Pos()== 3) {
+    #endif
+ #else 
+      #ifdef ACTION11A_UP_MULTISWITCH
+      if (Act11A_DOWN) {
+      #else        
+      if (Action11A.momentaryPos()== 3) {
+      #endif 
+ #endif   
  
  
     #ifdef ACTION11A_LOW_PERSO_1
@@ -2033,14 +3419,23 @@ void triggerSound()
   }
  #endif
 
-  #ifdef ACTION11B_ENABLE
+#ifdef ACTION11B_ENABLE
 
-    #ifdef ACTION11B_HIGH_REPEAT_FOREVER
-     if (Action11B.Pos()== 3) {
-      #else   
-  
-     if (Action11B.momentaryPos()== 3) {
+  #ifdef ACTION11B_HIGH_REPEAT_FOREVER
+
+    #ifdef ACTION11B_UP_MULTISWITCH
+      if (Act11B_UP) {
+    #else      
+      if (Action11B.Pos()== 3) {
+    #endif
+   #else 
+      #ifdef ACTION11B_UP_MULTISWITCH
+      if (Act11B_UP) {
+      #else        
+      if (Action11B.momentaryPos()== 3) {
+      #endif 
     #endif   
+     
  
     #ifdef ACTION11B_HIGH_PERSO_1
       #ifdef ACTION11B_HIGH_REPEAT_FOREVER
@@ -2168,12 +3563,21 @@ void triggerSound()
    
   }
   
- #ifdef ACTION11B_HIGH_REPEAT_FOREVER
-  if (Action11B.Pos()== 1) {
- #else   
-  
-  if (Action11B.momentaryPos()== 1) {
+ #ifdef ACTION11B_LOW_REPEAT_FOREVER
+
+    #ifdef ACTION11B_DOWN_MULTISWITCH
+      if (Act11B_DOWN) {
+    #else      
+      if (Action11B.Pos()== 3) {
+    #endif
+ #else 
+      #ifdef ACTION11B_DOWN_MULTISWITCH
+      if (Act11B_DOWN) {
+      #else        
+      if (Action11B.momentaryPos()== 3) {
+      #endif 
  #endif   
+ 
  
     #ifdef ACTION11B_LOW_PERSO_1
       #ifdef ACTION11B_LOW_REPEAT_FOREVER
@@ -2305,10 +3709,18 @@ void triggerSound()
    #ifdef ACTION11C_ENABLE
 
  #ifdef ACTION11C_HIGH_REPEAT_FOREVER
-  if (Action11C.Pos()== 3) {
- #else   
-  
-  if (Action11C.momentaryPos()== 3) {
+
+ #ifdef ACTION11C_UP_MULTISWITCH
+      if (Act11C_UP) {
+    #else      
+      if (Action11C.Pos()== 3) {
+    #endif
+ #else 
+      #ifdef ACTION11C_UP_MULTISWITCH
+      if (Act11C_UP) {
+      #else        
+      if (Action11C.momentaryPos()== 3) {
+      #endif 
  #endif   
  
     #ifdef ACTION11C_HIGH_PERSO_1
@@ -2437,12 +3849,22 @@ void triggerSound()
    
   }
   
- #ifdef ACTION11C_HIGH_REPEAT_FOREVER
-  if (Action11C.Pos()== 1) {
- #else   
-  
-  if (Action11C.momentaryPos()== 1) {
+
+ #ifdef ACTION11C_LOW_REPEAT_FOREVER
+
+ #ifdef ACTION11C_DOWN_MULTISWITCH
+      if (Act11C_DOWN) {
+    #else      
+      if (Action11C.Pos()== 3) {
+    #endif
+ #else 
+      #ifdef ACTION11C_DOWN_MULTISWITCH
+      if (Act11C_DOWN) {
+      #else        
+      if (Action11C.momentaryPos()== 3) {
+      #endif 
  #endif   
+ 
  
     #ifdef ACTION11C_LOW_PERSO_1
       #ifdef ACTION11C_LOW_REPEAT_FOREVER
@@ -2574,11 +3996,20 @@ void triggerSound()
   #ifdef ACTION11D_ENABLE
 
  #ifdef ACTION11D_HIGH_REPEAT_FOREVER
-  if (Action11D.Pos()== 3) {
- #else   
-  
-  if (Action11D.momentaryPos()== 3) {
+
+ #ifdef ACTION11D_UP_MULTISWITCH
+      if (Act11D_UP) {
+    #else      
+      if (Action11D.Pos()== 3) {
+    #endif
+ #else 
+      #ifdef ACTION11D_UP_MULTISWITCH
+      if (Act11D_UP) {
+      #else        
+      if (Action11D.momentaryPos()== 3) {
+      #endif 
  #endif   
+  
  
     #ifdef ACTION11D_HIGH_PERSO_1
       #ifdef ACTION11D_HIGH_REPEAT_FOREVER
@@ -2706,12 +4137,21 @@ void triggerSound()
    
   }
   
- #ifdef ACTION11D_HIGH_REPEAT_FOREVER
-  if (Action11D.Pos()== 1) {
- #else   
-  
-  if (Action11D.momentaryPos()== 1) {
+ #ifdef ACTION11D_LOW_REPEAT_FOREVER
+
+ #ifdef ACTION11D_DOWN_MULTISWITCH
+      if (Act11D_DOWN) {
+    #else      
+      if (Action11D.Pos()== 3) {
+    #endif
+ #else 
+      #ifdef ACTION11D_DOWN_MULTISWITCH
+      if (Act11D_DOWN) {
+      #else        
+      if (Action11D.momentaryPos()== 3) {
+      #endif 
  #endif   
+ 
  
     #ifdef ACTION11D_LOW_PERSO_1
       #ifdef ACTION11D_LOW_REPEAT_FOREVER

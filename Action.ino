@@ -2,34 +2,71 @@
 
 
 void Action() {
+#if not defined ACT1_MULTISWITCH || ACT1_MULTISWITCH_UP1 || ACT1_MULTISWITCH_UP2 || ACT1_MULTISWITCH_UP3 || ACT1_MULTISWITCH_UP4 || ACT1_MULTISWITCH_DOWN1 || ACT1_MULTISWITCH_DOWN2 || ACT1_MULTISWITCH_DOWN3 || ACT1_MULTISWITCH_DOWN4
 volatile uint8_t Act1 = Action1.Pos();
+#endif 
+#if not defined ACT2_MULTISWITCH || ACT2_MULTISWITCH_UP1 || ACT2_MULTISWITCH_UP2 || ACT2_MULTISWITCH_UP3 || ACT2_MULTISWITCH_UP4 || ACT2_MULTISWITCH_DOWN1 || ACT2_MULTISWITCH_DOWN2 || ACT2_MULTISWITCH_DOWN3 || ACT2_MULTISWITCH_DOWN4
 volatile uint8_t Act2 = 0;
+#endif 
+#if not defined ACT3_MULTISWITCH || ACT3_MULTISWITCH_UP1 || ACT3_MULTISWITCH_UP2 || ACT3_MULTISWITCH_UP3 || ACT3_MULTISWITCH_UP4 || ACT3_MULTISWITCH_DOWN1 || ACT3_MULTISWITCH_DOWN2 || ACT3_MULTISWITCH_DOWN3 || ACT3_MULTISWITCH_DOWN4
 volatile uint8_t Act3 = Action3.Pos();
+#endif 
+#if not defined ACT4_MULTISWITCH || ACT4_MULTISWITCH_UP1 || ACT4_MULTISWITCH_UP2 || ACT4_MULTISWITCH_UP3 || ACT4_MULTISWITCH_UP4 || ACT4_MULTISWITCH_DOWN1 || ACT4_MULTISWITCH_DOWN2 || ACT4_MULTISWITCH_DOWN3 || ACT4_MULTISWITCH_DOWN4
 volatile uint8_t Act4 = Action4.Pos();
+#endif 
+#if not defined ACT5_MULTISWITCH || ACT5_MULTISWITCH_UP1 || ACT5_MULTISWITCH_UP2 || ACT5_MULTISWITCH_UP3 || ACT5_MULTISWITCH_UP4 || ACT5_MULTISWITCH_DOWN1 || ACT5_MULTISWITCH_DOWN2 || ACT5_MULTISWITCH_DOWN3 || ACT5_MULTISWITCH_DOWN4
 volatile uint8_t Act5 = Action5.Pos();
-volatile uint8_t Act6 = Action6.momentaryPos();
+#endif 
+#if not defined ACT6_MULTISWITCH || ACT6_MULTISWITCH_UP1 || ACT6_MULTISWITCH_UP2 || ACT6_MULTISWITCH_UP3 || ACT6_MULTISWITCH_UP4 || ACT6_MULTISWITCH_DOWN1 || ACT6_MULTISWITCH_DOWN2 || ACT6_MULTISWITCH_DOWN3 || ACT6_MULTISWITCH_DOWN4
+volatile uint8_t Act6 = Action6.Pos();
+#endif 
+#if not defined ACT7_MULTISWITCH || ACT7_MULTISWITCH_UP1 || ACT7_MULTISWITCH_UP2 || ACT7_MULTISWITCH_UP3 || ACT7_MULTISWITCH_UP4 || ACT7_MULTISWITCH_DOWN1 || ACT7_MULTISWITCH_DOWN2 || ACT7_MULTISWITCH_DOWN3 || ACT7_MULTISWITCH_DOWN4
 volatile uint8_t Act7 = Action7.Pos();
+#endif 
+#if not defined ACT8_MULTISWITCH || ACT8_MULTISWITCH_UP1 || ACT8_MULTISWITCH_UP2 || ACT8_MULTISWITCH_UP3 || ACT8_MULTISWITCH_UP4 || ACT8_MULTISWITCH_DOWN1 || ACT8_MULTISWITCH_DOWN2 || ACT8_MULTISWITCH_DOWN3 || ACT8_MULTISWITCH_DOWN4
 volatile uint8_t Act8 = Action8.Pos();
+#endif 
+#if not defined ACT9_MULTISWITCH || ACT9_MULTISWITCH_UP1 || ACT9_MULTISWITCH_UP2 || ACT9_MULTISWITCH_UP3 || ACT9_MULTISWITCH_UP4 || ACT9_MULTISWITCH_DOWN1 || ACT9_MULTISWITCH_DOWN2 || ACT9_MULTISWITCH_DOWN3 || ACT9_MULTISWITCH_DOWN4
 volatile uint8_t Act9 = Action9.Pos();
+#endif 
+#if not defined ACT10_MULTISWITCH || ACT10_MULTISWITCH_UP1 || ACT10_MULTISWITCH_UP2 || ACT10_MULTISWITCH_UP3 || ACT10_MULTISWITCH_UP4 || ACT10_MULTISWITCH_DOWN1 || ACT10_MULTISWITCH_DOWN2 || ACT10_MULTISWITCH_DOWN3 || ACT10_MULTISWITCH_DOWN4
 volatile uint8_t Act10 = Action10.Pos();
+#endif 
+#if not defined ACT11_MULTISWITCH
 volatile uint8_t Act11 = 5;
-
+#endif 
+#if not defined ACT12_MULTISWITCH || ACT12_MULTISWITCH_UP1 || ACT12_MULTISWITCH_UP2 || ACT12_MULTISWITCH_UP3 || ACT12_MULTISWITCH_UP4 || ACT12_MULTISWITCH_DOWN1 || ACT12_MULTISWITCH_DOWN2 || ACT12_MULTISWITCH_DOWN3 || ACT12_MULTISWITCH_DOWN4
+volatile uint8_t Act12 = 0;
+#endif 
 
 
  #if defined AUTOMATIC_ANCHOR
 if (engineRunning){
+  #if not defined ACT2_MULTISWITCH
   Act2 = ACTION2OFF;
+  #else 
+  Act2 = false;
+  #endif
   }
 
   else {
-  Act2 = Action2.Pos();
+    #if not defined ACT2_MULTISWITCH
+    Act2 = Action2.Pos();
+    #else 
+    Act2 = Act2;
+    #endif
   }
 # else 
-   Act2 = Action2.Pos();
+    #if not defined ACT2_MULTISWITCH
+    Act2 = Action2.Pos();
+    #else 
+    Act2 = Act2;
+    #endif
 
  #endif 
 
   if(Init){
+
 
 
 //Peche/remorquage
@@ -39,15 +76,18 @@ if (engineRunning){
   case ACTION1ON:
     Fishing = true;
     Fishing_Led = true;
-  
+ 
     break;
   case ACTION1OFF:
     Fishing = false;
     Fishing_Led = false;
- 
-    action1Switch=0;
+    Led13.Off(14);
+    Led14.Off(15);
+  
+
+action1Switch=0;
     break;
- 
+  
 }
  #endif
 
@@ -58,9 +98,11 @@ if (engineRunning){
  switch (Act2) {
   case ACTION2ON:
      Mouillage = true;
+     Mouillage_Led=true;
     break;
   case ACTION2OFF:
     Mouillage = false;
+    Mouillage_Led = false;
     BellMillis = millis();
     break;
 
@@ -90,7 +132,7 @@ if (engineRunning){
   case ACTION4ON:
     Maneuvre = true;
     Manoeuvre_Led = true;
-   
+    Act5=ACTION5OFF;
    
     break;
   case ACTION4OFF:
@@ -109,12 +151,13 @@ if (engineRunning){
   switch (Act5) {
   case ACTION5ON:
     Avertissement = true;
-  
+    Act4=ACTION4OFF;
     
     break;
   case ACTION5OFF:
   
      Avertissement = false;
+     
     break;
  
 }
