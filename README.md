@@ -5,7 +5,10 @@ pour une utilisation "bateau"
 ## Eratta : R29 = 10K 
 
 ## Version :
-
+### version 5.7:
+fonction special led 
+multiswitch 
+les fichiers des multiswitch arriveron bientot
 ### version 5.5:
 - Integration des séquences 
 ### version 5.3:
