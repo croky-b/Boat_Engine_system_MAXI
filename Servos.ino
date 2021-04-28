@@ -10,7 +10,7 @@ void Servos()
 
 //if (Init) {
      
-   
+ /*  
 
     static unsigned long lastStateTime;
 
@@ -28,7 +28,7 @@ void Servos()
       }
 
 
-
+*/
       
  
 

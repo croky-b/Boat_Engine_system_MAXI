@@ -81,9 +81,7 @@ if (engineRunning){
   case ACTION1OFF:
     Fishing = false;
     Fishing_Led = false;
-    Led13.Off(14);
-    Led14.Off(15);
-  
+    
 
 action1Switch=0;
     break;
