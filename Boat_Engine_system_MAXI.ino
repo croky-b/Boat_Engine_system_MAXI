@@ -48,8 +48,9 @@ const float codeVersion = 5.7; // Software revision.
 #include <PWMTrigger.h>
 #include "XT_DAC_Audio.h"
 #include <ScheduleTable.h>
+#ifdef PCA_OPTION
 #include <Adafruit_PWMServoDriver.h>
-
+#endif
 //
 // =======================================================================================================
 // PIN ASSIGNMENTS & GLOBAL VARIABLES (Do not play around here)
