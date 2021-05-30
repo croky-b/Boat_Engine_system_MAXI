@@ -2913,10 +2913,12 @@ void triggerSound()
         }
       }
       //cloche tout le minute
+#ifdef ACTION2_ENABLE
       if (!engineOn && Mouillage) {
         if (millis() - BellMillis > 60000) {
 
           BellMillis = millis();
+#endif
 #ifdef INTER
           Sequence10.RemoveAllPlayItems();
           sequence10();
