@@ -3283,13 +3283,13 @@ void triggerSound()
      #ifdef ACTION11A_DOWN_MULTISWITCH
       if (Act11A_DOWN) {
     #else      
-      if (Action11A.Pos()== 3) {
+      if (Action11A.Pos()== 1) {
     #endif
  #else 
       #ifdef ACTION11A_UP_MULTISWITCH
       if (Act11A_DOWN) {
       #else        
-      if (Action11A.momentaryPos()== 3) {
+      if (Action11A.momentaryPos()== 1) {
       #endif 
  #endif   
  
@@ -3570,13 +3570,13 @@ void triggerSound()
     #ifdef ACTION11B_DOWN_MULTISWITCH
       if (Act11B_DOWN) {
     #else      
-      if (Action11B.Pos()== 3) {
+      if (Action11B.Pos()== 1) {
     #endif
  #else 
       #ifdef ACTION11B_DOWN_MULTISWITCH
       if (Act11B_DOWN) {
       #else        
-      if (Action11B.momentaryPos()== 3) {
+      if (Action11B.momentaryPos()== 1) {
       #endif 
  #endif   
  
@@ -4144,13 +4144,13 @@ void triggerSound()
  #ifdef ACTION11D_DOWN_MULTISWITCH
       if (Act11D_DOWN) {
     #else      
-      if (Action11D.Pos()== 3) {
+      if (Action11D.Pos()== 1) {
     #endif
  #else 
       #ifdef ACTION11D_DOWN_MULTISWITCH
       if (Act11D_DOWN) {
       #else        
-      if (Action11D.momentaryPos()== 3) {
+      if (Action11D.momentaryPos()== 1) {
       #endif 
  #endif   
  
