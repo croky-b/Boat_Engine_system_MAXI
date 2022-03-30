@@ -3135,6 +3135,8 @@ void triggerSound()
 
  #ifdef ACTION11A_ENABLE
 
+  #ifdef ACTION11A_ENABLE
+
  #ifdef ACTION11A_HIGH_REPEAT_FOREVER
 
     #ifdef ACTION11A_UP_MULTISWITCH
@@ -3286,7 +3288,7 @@ void triggerSound()
       if (Action11A.Pos()== 1) {
     #endif
  #else 
-      #ifdef ACTION11A_UP_MULTISWITCH
+      #ifdef ACTION11A_DOWN_MULTISWITCH
       if (Act11A_DOWN) {
       #else        
       if (Action11A.momentaryPos()== 1) {
@@ -3857,13 +3859,13 @@ void triggerSound()
  #ifdef ACTION11C_DOWN_MULTISWITCH
       if (Act11C_DOWN) {
     #else      
-      if (Action11C.Pos()== 3) {
+      if (Action11C.Pos()== 1) {
     #endif
  #else 
       #ifdef ACTION11C_DOWN_MULTISWITCH
       if (Act11C_DOWN) {
       #else        
-      if (Action11C.momentaryPos()== 3) {
+      if (Action11C.momentaryPos()== 1) {
       #endif 
  #endif   
  
