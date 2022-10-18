@@ -2884,7 +2884,7 @@ void triggerSound()
           DacAudio.Play(&Sequence16, true);
         }
         // 4 sons courts toutes les 2min
-#elif PILOTBOAT
+#elif defined PILOTBOAT //defined
         if (millis() - FogSoundMillis > 120000) {
           FogSoundMillis = millis();
           Sequence15.RemoveAllPlayItems();
@@ -2913,12 +2913,12 @@ void triggerSound()
         }
       }
       //cloche tout le minute
-#ifdef ACTION2_ENABLE
+//#ifdef ACTION2_ENABLE
       if (!engineOn && Mouillage) {
         if (millis() - BellMillis > 60000) {
 
           BellMillis = millis();
-#endif
+//#endif
 #ifdef INTER
           Sequence10.RemoveAllPlayItems();
           sequence10();
