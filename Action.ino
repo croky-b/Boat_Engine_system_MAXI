@@ -259,7 +259,7 @@ action1Switch=0;
   #endif 
     
     break;
-    
+ #if not defined ACT8_MULTISWITCH    // change for multiswitch 
   case ACTION8NA:
 
   #ifdef ACT8_SERVO_MANUAL
@@ -267,13 +267,13 @@ action1Switch=0;
   #endif 
   
   #if defined RINGALARM
-	   Alarm_Led = true;
+    Alarm_Led = true;
     Alarm_Sound = false;
     Ring_Sound = true;
   #endif
   
 	break;
- 
+#endif    // change for multiswitch 
 }
 #endif
 
